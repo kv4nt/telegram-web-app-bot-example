@@ -9,6 +9,14 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="robots" content="noindex,nofollow" />
     <script src="https://telegram.org/js/telegram-web-app.js?2"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.slim.min.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj+KsslFkCOt3TvJrX2AV/Gc3wOqA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.2.0/glide.min.js" integrity="sha512-IkLiryZhI6G4pnA3bBZzYCT9Ewk87U4DGEOz+TnRD3MrKqaUitt+ssHgn2X/sxoM7FxCP/ROUp6wcxjH/GcI5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.2.0/css/glide.core.min.css" integrity="sha512-YQlbvfX5C6Ym6fTUSZ9GZpyB3F92hmQAZTO5YjciedwAaGRI9ccNs4iw2QTCJiSPheUQZomZKHQtuwbHkA9lgw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.2.0/css/glide.theme.min.css" integrity="sha512-wCwx+DYp8LDIaTem/rpXubV/C1WiNRsEVqoztV0NZm8tiTvsUeSlA/Uz02VTGSiqfzAHD4RnqVoevMcRZgYEcQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.bundle.min.js" integrity="sha512-sH8JPhKJUeA9PWk3eOcOl8U+lfZTgtBXD41q6cO/slwxGHCxKcW45K4oPCUhHG7NMB4mbKEddVmPuTXtpbCbFA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css" integrity="sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/app.css"/>
+
     <script>
         function setThemeClass() {
             document.documentElement.className = Telegram.WebApp.colorScheme;
@@ -17,6 +25,23 @@
         Telegram.WebApp.onEvent('themeChanged', setThemeClass);
         setThemeClass();
 
+        $(document).ready(function(){
+            var glide = new Glide('#intro', {
+                type: 'carousel',
+                perView: 1,
+                focusAt: 'center',
+                breakpoints: {
+                    800: {
+                        perView: 2
+                    },
+                    480: {
+                        perView: 1
+                    }
+                }
+            })
+
+            glide.mount()
+        });
     </script>
     <title>21 black jack</title>
     <style>
@@ -362,7 +387,94 @@
 </head>
 
 <body class="" style="visibility: hidden;">
+<h1 class="text-center">Выбери себе персонажа</h1>
+<div id="intro" class="slider glide" style="margin-top: 30px">
+    <div class="slider__track glide__track" data-glide-el="track">
+        <ul class="slider__slides glide__slides">
 
+            <li class="slider__frame glide__slide">
+                <img src="images/characters/cat/1.jpg">
+                <span class="character-name">Рыжик</span>
+            </li>
+
+            <li class="slider__frame glide__slide">
+                <img src="images/characters/cat/2.jpg">
+                <span class="character-name">Шоколадка</span>
+            </li>
+
+            <li class="slider__frame glide__slide">
+                <img src="images/characters/cat/3.jpg">
+                <span class="character-name">Серко</span>
+            </li>
+            <li class="slider__frame glide__slide">
+                <img src="images/characters/cat/4.jpg">
+                <span class="character-name">Светлячок</span>
+            </li>
+            <li class="slider__frame glide__slide">
+                <img src="images/characters/cat/5.jpg">
+                <span class="character-name">Варя</span>
+            </li>
+            <li class="slider__frame glide__slide">
+                <img src="images/characters/cat/6.jpg">
+                <span class="character-name">Светик</span>
+            </li>
+            <li class="slider__frame glide__slide">
+                <img src="images/characters/cat/7.jpg">
+                <span class="character-name">Полосатик</span>
+            </li>
+            <li class="slider__frame glide__slide">
+                <img src="images/characters/cat/8.jpg">
+                <span class="character-name">Морда</span>
+            </li>
+            <li class="slider__frame glide__slide">
+                <img src="images/characters/cat/9.jpg">
+                <span class="character-name">Шалун</span>
+            </li>
+
+        </ul>
+    </div>
+    <div data-glide-el="controls">
+        <button class="slider__arrow slider__arrow--prev glide__arrow glide__arrow--prev" data-glide-dir="<">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                <path d="M0 12l10.975 11 2.848-2.828-6.176-6.176H24v-3.992H7.646l6.176-6.176L10.975 1 0 12z"/>
+            </svg>
+        </button>
+
+        <button class="slider__arrow slider__arrow--next glide__arrow glide__arrow--next" data-glide-dir=">">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
+            </svg>
+        </button>
+    </div>
+
+    <div class="slider__bullets glide__bullets" data-glide-el="controls[nav]">
+
+        <button class="slider__bullet glide__bullet" data-glide-dir="=0"></button>
+
+        <button class="slider__bullet glide__bullet" data-glide-dir="=1"></button>
+
+        <button class="slider__bullet glide__bullet" data-glide-dir="=2"></button>
+
+        <button class="slider__bullet glide__bullet" data-glide-dir="=3"></button>
+
+        <button class="slider__bullet glide__bullet" data-glide-dir="=4"></button>
+
+        <button class="slider__bullet glide__bullet" data-glide-dir="=5"></button>
+
+        <button class="slider__bullet glide__bullet" data-glide-dir="=6"></button>
+
+        <button class="slider__bullet glide__bullet" data-glide-dir="=7"></button>
+
+        <button class="slider__bullet glide__bullet" data-glide-dir="=8"></button>
+
+        <button class="slider__bullet glide__bullet" data-glide-dir="=9"></button>
+
+    </div>
+<!--    <div data-glide-el="controls">-->
+<!--        <button data-glide-dir="<">prev</button>-->
+<!--        <button data-glide-dir=">">next</button>-->
+<!--    </div>-->
+</div>
 <section id="top_sect" class="second">
     <button id="main_btn" onclick="DemoApp.sendMessage('');">Send «Hello, World!»</button>
     <button id="with_webview_btn" onclick="DemoApp.sendMessage('', true);">Send «Hello, World!» with inline webview button</button>
