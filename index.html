@@ -1941,6 +1941,16 @@
     try {
         DemoApp.activityInit();
     } catch(e) {}
+
+    function setCharacter(id) {
+        Telegram.WebApp.CloudStorage.setItem('character',id);
+        alert('Котик успешно выбран!');
+    }
+
+    function getCharacter()
+    {
+        var id = Telegram.WebApp.CloudStorage.getItem('character');
+    }
 </script>
 
 </body>
