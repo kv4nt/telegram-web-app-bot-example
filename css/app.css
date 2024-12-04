@@ -2027,6 +2027,7 @@ blockquote {
     list-style: none;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
+    top: 86%;
 }
 .slider__bullet {
     background-color: hsla(0, 0%, 100%, 0.5);
