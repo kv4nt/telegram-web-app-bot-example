@@ -55,7 +55,7 @@
 
         function getCharacter()
         {
-            return '?';
+            return DemoApp.getCharacter();
             // console.log(Telegram.WebApp.CloudStorage.getItem('character'));
             // return Telegram.WebApp.CloudStorage.getItem('character');
         }
@@ -1179,6 +1179,10 @@
             var catName = document.getElementsByClassName('glide__slide--active')[0].getElementsByTagName('span')[0].textContent;
             Telegram.WebApp.CloudStorage.setItem('character',catName);
             alert('Котик '+catName+' успешно выбран!');
+        },
+        getCharacter() {
+            var cat = Telegram.WebApp.CloudStorage.getItem('character');
+            alert('Котик '+cat+' выбран!');
         },
         saveCloudForm(form, event) {
             event.preventDefault();
