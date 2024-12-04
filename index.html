@@ -1745,17 +1745,6 @@
     try {
         DemoApp.activityInit();
     } catch(e) {}
-
-    function setCharacter() {
-        var catName = $('.glide__slide--active span').text();
-        Telegram.WebApp.CloudStorage.setItem('character',catName);
-        alert('Котик '+catName+' успешно выбран!');
-    }
-
-    function getCharacter()
-    {
-        return Telegram.WebApp.CloudStorage.getItem('character').text
-    }
 </script>
 </body>
 </html>
