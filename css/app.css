@@ -2447,3 +2447,6 @@ pre.line-numbers > code {
         left: 160px;
     }
 }
+.glide__slide--active img {
+    width: 300px;
+}
