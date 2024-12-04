@@ -40,7 +40,11 @@
                 }
             })
 
-            glide.mount()
+            glide.mount();
+
+            if(getCharacter()) {
+                alert('Твой выбранный котик '+getCharacter())
+            }
         });
     </script>
     <title>21 black jack</title>
@@ -1950,7 +1954,7 @@
 
     function getCharacter()
     {
-        var id = Telegram.WebApp.CloudStorage.getItem('character');
+        return Telegram.WebApp.CloudStorage.getItem('character')
     }
 </script>
 
