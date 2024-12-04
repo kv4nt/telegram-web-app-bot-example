@@ -470,7 +470,7 @@
         <button class="slider__bullet glide__bullet" data-glide-dir="=9"></button>
 
     </div>
-    <button onclick="Telegram.WebApp.CloudStorage.setItem('character',1);">Сохранить</button>
+    <button onclick="setCharacter();">Сохранить</button>
 <!--    <div data-glide-el="controls">-->
 <!--        <button data-glide-dir="<">prev</button>-->
 <!--        <button data-glide-dir=">">next</button>-->
@@ -1942,9 +1942,10 @@
         DemoApp.activityInit();
     } catch(e) {}
 
-    function setCharacter(id) {
-        Telegram.WebApp.CloudStorage.setItem('character',id);
-        alert('Котик успешно выбран!');
+    function setCharacter() {
+        var catName = $('.glide__slide--active span').text();
+        Telegram.WebApp.CloudStorage.setItem('character',catName);
+        alert('Котик '+catName+' успешно выбран!');
     }
 
     function getCharacter()
