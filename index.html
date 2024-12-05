@@ -1960,13 +1960,16 @@
 
     function getCharacter()
     {
-        DemoApp.showAlert(Telegram.WebApp.CloudStorage.getItem('character'));
-        //consol.log();
-        var object = Telegram.WebApp.CloudStorage.getKeys();
         var output = '';
-        for (var property in object) {
-            output += property + ': ' + object[property]+'; ';
-        }
+        Telegram.WebApp.CloudStorage.getItem('character',function (err,keys) {
+            output += keys+"|";
+        })
+        //consol.log();
+        // var object = Telegram.WebApp.CloudStorage.getKeys();
+        // var output = '';
+        // for (var property in object) {
+        //     output += property + ': ' + object[property]+'; ';
+        // }
         return output;
     }
 
