@@ -71,10 +71,9 @@
 
         function getTime()
         {
-            Telegram.WebApp.CloudStorage.getItem('lastEnterTime',function (err,value) {
+            Telegram.WebApp.CloudStorage.getItem('lastEatTime',function (err,value) {
                 if(!err) {
-
-                    $('#timeDiff').text('Ты не заходил в игру '+Math.ceil(parseInt(Date.now() - value)/1000)+' сек. КОШКА ГОЛОДНАЯ!!!');
+                    $('#timeDiff').text('Ты кормил кошку '+Math.ceil(parseInt(Date.now() - value)/1000)+' сек. КОШКА ГОЛОДНАЯ!!!');
                 }
             })
         }
@@ -156,7 +155,7 @@
                         if(!err) {
                             var timediff = Math.ceil(parseInt(Date.now() - val)/1000);
                             // 43200  - 12 часов
-                            var percent = progress-Math.round((timediff/3600)*100);
+                            var percent = progress-Math.round((timediff/43200)*100);
                             setEatProgress(percent);
 
                         }
