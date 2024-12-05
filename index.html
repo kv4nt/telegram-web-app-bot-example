@@ -1962,7 +1962,8 @@
     {
         var output = '';
         Telegram.WebApp.CloudStorage.getItem('character',function (err,keys) {
-            output += keys+"|";
+            output += keys+"|"+err;
+            $('#characterName').text("output"+output);
         })
         //consol.log();
         // var object = Telegram.WebApp.CloudStorage.getKeys();
