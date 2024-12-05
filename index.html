@@ -400,20 +400,22 @@
 </head>
 
 <body class="" style="visibility: hidden;">
-<div>
-    <div class="card" style="width: 18rem;">
-        <img src="images/characters/cat/5.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title text-dark character-name-top" id="characterName">Персонаж</h5>
-            <h6>Жизни</h6>
-            <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                <div class="progress-bar progress-bar-striped progress-bar-animated  bg-success" style="width: 75%">75%</div>
+<div class="row">
+    <div class="col-xs-10 col-offset-xs-1">
+        <div class="card" style="width: 18rem;">
+            <img src="images/characters/cat/5.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title text-dark character-name-top" id="characterName">Персонаж</h5>
+                <h6>Жизни</h6>
+                <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated  bg-success" style="width: 75%">75%</div>
+                </div>
+                <h6>Еда</h6>
+                <div class="progress" id="eat-progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated  bg-warning" style="width: 0%">0%</div>
+                </div>
+                <button onclick="makeCatEat()" class="btn btn-primary">Кормить</button>
             </div>
-            <h6>Еда</h6>
-            <div class="progress" id="eat-progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-                <div class="progress-bar progress-bar-striped progress-bar-animated  bg-warning" style="width: 0%">0%</div>
-            </div>
-            <button onclick="makeCatEat()" class="btn btn-primary">Кормить</button>
         </div>
     </div>
 </div>
