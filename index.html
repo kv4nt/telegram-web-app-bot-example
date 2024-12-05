@@ -45,6 +45,7 @@
             if(getCharacter()) {
                 alert('Твой выбранный котик '+getCharacter())
             }
+            setLastEnterTime();
         });
     </script>
     <title>21 black jack</title>
@@ -1957,7 +1958,13 @@
 
     function getCharacter()
     {
-        return Telegram.WebApp.CloudStorage.getItem('character').value
+        consol.log();
+        return Telegram.WebApp.CloudStorage.getItem('character')
+    }
+
+    function setLastEnterTime()
+    {
+        Telegram.WebApp.CloudStorage.setItem('lastEnterTime',Date.now());
     }
 </script>
 
