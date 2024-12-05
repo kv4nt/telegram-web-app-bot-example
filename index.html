@@ -88,6 +88,30 @@
             })
         }
 
+        function setCharacter() {
+            var catName = $('.glide__slide--active span').text();
+            var catImage = $('.glide__slide--active img').prop('src');
+            Telegram.WebApp.CloudStorage.setItem('character',catName);
+            Telegram.WebApp.CloudStorage.setItem('catImage',catImage);
+            alert('Котик '+catName+' успешно выбран!');
+            setTimeout(window.location.reload(),2000);
+        }
+
+        function getCharacter()
+        {
+            Telegram.WebApp.CloudStorage.getItem('character',function (err,value) {
+                if(!err) {
+                    $('#characterName').text(value);
+                }
+            })
+        }
+
+        function setLastEnterTime()
+        {
+            Telegram.WebApp.CloudStorage.setItem('lastEnterTime',Date.now());
+        }
+
+
         Telegram.WebApp.onEvent('themeChanged', setThemeClass);
         setThemeClass();
 
@@ -1629,34 +1653,7 @@
         DemoApp.activityInit();
     } catch(e) {}
 
-    function setCharacter() {
-        var catName = $('.glide__slide--active span').text();
-        var catImage = $('.glide__slide--active img').prop('src');
-        Telegram.WebApp.CloudStorage.setItem('character',catName);
-        Telegram.WebApp.CloudStorage.setItem('catImage',catImage);
-        alert('Котик '+catName+' успешно выбран!');
-    }
 
-    function getCharacter()
-    {
-        Telegram.WebApp.CloudStorage.getItem('character',function (err,value) {
-            if(!err) {
-                $('#characterName').text(value);
-            }
-        })
-        //consol.log();
-        // var object = Telegram.WebApp.CloudStorage.getKeys();
-        // var output = '';
-        // for (var property in object) {
-        //     output += property + ': ' + object[property]+'; ';
-        // }
-        //return output;
-    }
-
-    function setLastEnterTime()
-    {
-        Telegram.WebApp.CloudStorage.setItem('lastEnterTime',Date.now());
-    }
 </script>
 
 </body>
