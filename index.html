@@ -93,7 +93,7 @@
         }
 
         function setCharacter() {
-            var audio = new Audio('sound/eat.mp3');
+            var audio = new Audio('sound/cat-select.mp3');
             audio.play();
             var catName = $('.glide__slide--active span').text();
             var catImage = $('.glide__slide--active img').prop('src');
@@ -102,7 +102,9 @@
             //var audio = new Audio('sound/cat-select.mp3');
             //audio.play();
             //alert('Котик '+catName+' успешно выбран!');
-            setTimeout(window.location.reload(),2000);
+            setTimeout(function () {
+                window.location.reload();
+            },2000);
         }
 
         function changeCat()
