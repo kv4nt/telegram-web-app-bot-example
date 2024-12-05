@@ -69,7 +69,7 @@
             Telegram.WebApp.CloudStorage.getItem('lastEnterTime',function (err,value) {
                 if(!err) {
 
-                    $('#timeDiff').text('Ты не заходил в игру '+ceil(parseInt(Date.now() - value)/1000)+' секунд');
+                    $('#timeDiff').text('Ты не заходил в игру '+Math.ceil(parseInt(Date.now() - value)/1000)+' секунд');
                 }
             })
         }
