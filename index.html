@@ -16,6 +16,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.bundle.min.js" integrity="sha512-sH8JPhKJUeA9PWk3eOcOl8U+lfZTgtBXD41q6cO/slwxGHCxKcW45K4oPCUhHG7NMB4mbKEddVmPuTXtpbCbFA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css" integrity="sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/app.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <script>
         function setThemeClass() {
@@ -412,11 +413,15 @@
             <img src="images/characters/cat/5.jpg" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title text-dark character-name-top" id="characterName">Персонаж</h5>
-                <h6 class="text-success">Жизни</h6>
+                <h6 class="text-success">Настроение <i class="fa-solid fa-face-smile"></i></h6>
                 <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
                     <div class="progress-bar progress-bar-striped progress-bar-animated  bg-success" style="width: 75%">75%</div>
                 </div>
-                <h6 class="text-warning">Еда</h6>
+                <h6 class="text-danger">Жизни <i class="fa-solid fa-heart-pulse"></i></h6>
+                <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated  bg-danger" style="width: 85%">85%</div>
+                </div>
+                <h6 class="text-warning">Еда <i class="fa-solid fa-utensils"></i></h6>
                 <div class="progress" id="eat-progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
                     <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" style="width: 0%">0%</div>
                 </div>
