@@ -32,6 +32,7 @@
                 var resultVal = currentVal + 25;
                 var audio = new Audio('sound/eat.mp3');
                 audio.play();
+                setLastEatTime();
             }
             Telegram.WebApp.CloudStorage.setItem('eat',resultVal);
             $('#eat-progress').attr('aria-valuenow',resultVal);
@@ -103,7 +104,7 @@
         }
 
         function setCharacter() {
-            var audio = new Audio('sound/eat.mp3');
+            var audio = new Audio('sound/select.mp3');
             audio.play();
             var catName = $('.glide__slide--active span').text();
             var catImage = $('.glide__slide--active img').prop('src');
@@ -137,6 +138,23 @@
             Telegram.WebApp.CloudStorage.setItem('lastEnterTime',Date.now());
         }
 
+        function setLastEatTime()
+        {
+            Telegram.WebApp.CloudStorage.setItem('lastEatTime',Date.now());
+        }
+
+        function getEatPercents()
+        {
+            Telegram.WebApp.CloudStorage.getItem('lastEatTime',function (err,value) {
+                if(!err) {
+                    var timediff = Math.ceil(parseInt(Date.now() - value)/1000);
+                    // 43200  - 12 часов
+                    var percent = Math.round((timediff/43200)*100);
+                    makeCatEat(percent);
+
+                }
+            })
+        }
 
         Telegram.WebApp.onEvent('themeChanged', setThemeClass);
         setThemeClass();
@@ -162,6 +180,8 @@
             getCatImage();
             getHappyValue();
             getTime();
+            getEatPercents();
+            setInterval(getEatPercents,5000);
             // $('#characterName').text(getCharacter());
             setLastEnterTime();
             // if(getCharacter()) {
