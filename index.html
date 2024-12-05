@@ -74,6 +74,9 @@
             Telegram.WebApp.CloudStorage.getItem('catImage',function (err,value) {
                 if(!err) {
                     $('#catImage').prop('src',value);
+                    $('#cat-card').show();
+                } else {
+                    $('#cat-card').hide();
                 }
             })
         }
@@ -455,7 +458,7 @@
 <body class="" style="visibility: hidden;">
 <div class="row justify-content-center">
     <div class="col-auto">
-        <div class="card" style="width: 18rem;">
+        <div class="card" id="cat-card" style="width: 18rem;">
             <img src="images/characters/cat/5.jpg" id="catImage" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title text-dark character-name-top" id="characterName">Персонаж</h5>
