@@ -41,11 +41,12 @@
             })
 
             glide.mount();
-
+            $('#characterName').text(getCharacter());
+            setLastEnterTime();
             if(getCharacter()) {
                 alert('Твой выбранный котик '+getCharacter())
             }
-            setLastEnterTime();
+
         });
     </script>
     <title>21 black jack</title>
@@ -393,6 +394,7 @@
 
 <body class="" style="visibility: hidden;">
 <h1 class="text-center">Выбери себе персонажа</h1>
+<h3 id="characterName"></h3>
 <div id="intro" class="slider glide" style="margin-top: 30px">
     <div class="slider__track glide__track" data-glide-el="track">
         <ul class="slider__slides glide__slides">
@@ -631,7 +633,7 @@
 
     <p>Cloud storage:</p>
     <form onsubmit="DemoApp.saveCloudForm(this, event);">
-        <table class="table table-bordered small">
+        <table class="table table-bordered small text-white">
             <thead>
             <tr>
                 <th width="20%">Key</th>
@@ -1958,7 +1960,7 @@
 
     function getCharacter()
     {
-        DemoApp.showAlert(Telegram.WebApp.CloudStorage.getItem('character').value);
+        DemoApp.showAlert(Telegram.WebApp.CloudStorage.getItem('character'));
         //consol.log();
         return Telegram.WebApp.CloudStorage.getItem('character')
     }
