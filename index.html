@@ -679,32 +679,6 @@
         </table>
     </form>
 
-    <p>Biometrics:</p>
-    <div class="columns">
-        <ul>
-            <li>isInited: <span class="txt" id="bm_inited">false</span></li>
-            <li>available: <span class="txt" id="bm_available">false</span></li>
-            <li>type: <span class="txt" id="bm_type"></span></li>
-            <li>access_requested: <span class="txt" id="bm_access_requested">false</span> (<a href="javascript:;" onclick="return DemoApp.biometricRequestAccess(this);">Request access</a>) <span></span></li>
-            <li>access_granted: <span class="txt" id="bm_access_granted">false</span> <span id="bm_settings" style="display:none;">(<a href="javascript:;" onclick="return DemoApp.biometricOpenSettings(this);">Open settings</a>)</span></li>
-            <li>token_saved: <span class="txt" id="bm_token_saved">false</span> (<a href="javascript:;" onclick="return DemoApp.biometricSetToken(this);">Set token</a>, <a href="javascript:;" onclick="return DemoApp.biometricRemoveToken(this);">Remove token</a>) <span></span></li>
-            <li>device_id: <span class="txt" id="bm_device_id"></span></li>
-            <li><a href="javascript:;" onclick="return DemoApp.biometricRequestAuth(this);">Request auth</a> <span></span></li>
-        </ul>
-    </div>
-
-    <p>Location:</p>
-    <div class="columns">
-        <ul>
-            <li>isInited: <span class="txt" id="loc_inited">false</span></li>
-            <li>available: <span class="txt" id="loc_available">false</span></li>
-            <li>access_requested: <span class="txt" id="loc_access_requested">false</span> (<a href="javascript:;" onclick="return DemoApp.locationGet(this);">Request location</a>) <span></span></li>
-            <li>access_granted: <span class="txt" id="loc_access_granted">false</span>
-                <span id="loc_settings" style="display:none;">(<a href="javascript:;" onclick="return DemoApp.locationOpenSettings(this);">Open settings</a>)</span>
-            </li>
-        </ul>
-    </div>
-
     <pre><code id="webview_data"></code></pre>
     <div class="hint">
         Data passed to webview.
@@ -878,52 +852,6 @@
             } else {
                 fullscreenBtn.innerHTML = 'Request Fullscreen'
             }
-        },
-
-        // location
-        locationInit(el) {
-            const locationManager = Telegram.WebApp.LocationManager;
-
-            if (!DemoApp.locationInited) {
-                DemoApp.locationInited = true;
-                Telegram.WebApp.onEvent('locationManagerUpdated', function() {
-                    document.getElementById('loc_inited').textContent = locationManager.isInited ? 'true' : 'false';
-                    document.getElementById('loc_available').textContent = locationManager.isLocationAvailable ? 'true' : 'false';
-                    document.getElementById('loc_access_requested').textContent = locationManager.isAccessRequested ? 'true' : 'false';
-                    document.getElementById('loc_access_granted').textContent = locationManager.isAccessGranted ? 'true' : 'false';
-                    document.getElementById('loc_settings').style.display = (locationManager.isLocationAvailable && locationManager.isAccessRequested && !locationManager.isAccessGranted) ? 'block' : 'none';
-                });
-            }
-            locationManager.init();
-        },
-        locationGet(el) {
-            const locationManager = Telegram.WebApp.LocationManager;
-            if (!locationManager.isInited) {
-                return DemoApp.showAlert('Location not inited yet!');
-            }
-
-            locationManager.getLocation(function(location_data) {
-                const span = el.nextElementSibling;
-                if (location_data) {
-                    span.textContent = '(' + JSON.stringify(location_data) + ')';
-                    span.className = 'ok';
-                } else {
-                    span.textContent = '(Request declined)';
-                    span.className = 'err';
-                }
-            })
-        },
-        locationOpenSettings(el) {
-            const locationManager = Telegram.WebApp.LocationManager;
-            if (!locationManager.isInited) {
-                return DemoApp.showAlert('Location not inited yet!');
-            }
-
-            if (!locationManager.isLocationAvailable || !locationManager.isAccessRequested || locationManager.isAccessGranted) {
-                return false;
-            }
-
-            locationManager.openSettings();
         },
 
         // version to string Example: '6.9'
@@ -1319,110 +1247,6 @@
             });
         },
 
-        // biometrics
-        biometricInit(el) {
-            const biometricManager = Telegram.WebApp.BiometricManager;
-            if (!DemoApp.biometricInited) {
-                DemoApp.biometricInited = true;
-                Telegram.WebApp.onEvent('biometricManagerUpdated', function() {
-                    document.getElementById('bm_inited').textContent = biometricManager.isInited ? 'true' : 'false'
-                    document.getElementById('bm_available').textContent = biometricManager.isBiometricAvailable ? 'true' : 'false'
-                    document.getElementById('bm_type').textContent = biometricManager.biometricType || ''
-                    document.getElementById('bm_access_requested').textContent = biometricManager.isAccessRequested ? 'true' : 'false'
-                    document.getElementById('bm_access_granted').textContent = biometricManager.isAccessGranted ? 'true' : 'false'
-                    document.getElementById('bm_token_saved').textContent = biometricManager.isBiometricTokenSaved ? 'true' : 'false'
-                    document.getElementById('bm_device_id').textContent = biometricManager.deviceId || ''
-                    document.getElementById('bm_settings').style.display = biometricManager.isBiometricAvailable && biometricManager.isAccessRequested && !biometricManager.isAccessGranted ? 'block' : 'none'
-                });
-            }
-
-            biometricManager.init();
-        },
-        biometricRequestAccess(el) {
-            const biometricManager = Telegram.WebApp.BiometricManager;
-            if (!biometricManager.isInited) {
-                return DemoApp.showAlert('Biometric not inited yet!');
-            }
-
-            biometricManager.requestAccess({reason: 'The bot uses biometrics for testing purposes.'}, function(access_granted) {
-                if (access_granted) {
-                    el.nextElementSibling.innerHTML = '(Access granted)';
-                    el.nextElementSibling.className = 'ok';
-                } else {
-                    el.nextElementSibling.innerHTML = '(Request declined)';
-                    el.nextElementSibling.className = 'err';
-                }
-            });
-        },
-        biometricRequestAuth(el) {
-            const biometricManager = Telegram.WebApp.BiometricManager;
-            if (!biometricManager.isInited) {
-                return DemoApp.showAlert('Biometric not inited yet!');
-            }
-
-            el.nextElementSibling.innerHTML = '';
-            el.nextElementSibling.classList.remove('ok', 'err')
-
-            biometricManager.authenticate({reason: 'The bot requests biometrics for testing purposes.'}, function(success, token) {
-                if (success) {
-                    el.nextElementSibling.innerHTML = '(Success, token: ' + token + ')';
-                    el.nextElementSibling.className = 'ok';
-                } else {
-                    el.nextElementSibling.innerHTML = '(Failed)';
-                    el.nextElementSibling.className = 'err';
-                }
-            });
-        },
-        biometricOpenSettings(el) {
-            const biometricManager = Telegram.WebApp.BiometricManager;
-            if (!biometricManager.isInited) {
-                return DemoApp.showAlert('Biometric not inited yet!');
-            }
-
-            if (!biometricManager.isBiometricAvailable ||
-                !biometricManager.isAccessRequested ||
-                biometricManager.isAccessGranted) {
-                return false;
-            }
-
-            biometricManager.openSettings();
-        },
-        biometricSetToken(el) {
-            const biometricManager = Telegram.WebApp.BiometricManager;
-            if (!biometricManager.isInited) {
-                return DemoApp.showAlert('Biometric not inited yet!');
-            }
-
-            const token = parseInt(Math.random().toString().substring(2)).toString(16);
-            biometricManager.updateBiometricToken(token, function(updated) {
-                if (updated) {
-                    document.getElementById('bm_token_saved').textContent = biometricManager.isBiometricTokenSaved ? 'true' : 'false'
-                    el.nextElementSibling.innerHTML = '(Updated: ' + token + ')'
-                    el.nextElementSibling.className = 'ok'
-                } else {
-                    el.nextElementSibling.innerHTML = '(Failed)'
-                    el.nextElementSibling.className = 'err'
-                }
-            });
-        },
-        biometricRemoveToken(el) {
-            const biometricManager = Telegram.WebApp.BiometricManager;
-            if (!biometricManager.isInited) {
-                return DemoApp.showAlert('Biometric not inited yet!');
-            }
-
-            biometricManager.updateBiometricToken('', function(updated) {
-                if (updated) {
-                    document.getElementById('bm_token_saved').textContent = biometricManager.isBiometricTokenSaved ? 'true' : 'false'
-                    el.nextElementSibling.innerHTML = '(Removed)'
-                    el.nextElementSibling.className = 'ok'
-                } else {
-                    el.nextElementSibling.innerHTML = '(Failed)'
-                    el.nextElementSibling.className = 'err'
-                }
-            });
-        },
-
         // home screen
         homeScreenInit() {
             Telegram.WebApp.onEvent('homeScreenAdded', function(params) {
@@ -1788,13 +1612,6 @@
         document.body.setAttribute('style', '--bg-color:' + Telegram.WebApp.backgroundColor)
     })
 
-    const orientBtn = document.getElementById('orient_btn')
-    if (Telegram.WebApp.isOrientationLocked) {
-        orientBtn.innerHTML = 'Unlock Orientation'
-    } else {
-        orientBtn.innerHTML = 'Lock Orientation'
-    }
-
     // permissions
     try {
         DemoApp.loadCloudKeys();
@@ -1806,22 +1623,7 @@
         DemoApp.fullscreenInit();
     } catch(e) {}
     try {
-        DemoApp.accelerometerInit();
-    } catch(e) {}
-    try {
-        DemoApp.deviceOrientationInit();
-    } catch(e) {}
-    try {
-        DemoApp.gyroscopeInit();
-    } catch(e) {}
-    try {
-        DemoApp.locationInit();
-    } catch(e) {}
-    try {
         DemoApp.homeScreenInit();
-    } catch(e) {}
-    try {
-        DemoApp.emojiStatusInit();
     } catch(e) {}
     try {
         DemoApp.activityInit();
