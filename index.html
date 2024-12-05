@@ -44,13 +44,15 @@
                     makeCatEat(value);
                 }
             })
-            //consol.log();
-            // var object = Telegram.WebApp.CloudStorage.getKeys();
-            // var output = '';
-            // for (var property in object) {
-            //     output += property + ': ' + object[property]+'; ';
-            // }
-            //return output;
+        }
+
+        function getCatImage()
+        {
+            Telegram.WebApp.CloudStorage.getItem('catImage',function (err,value) {
+                if(!err) {
+                    $('#catImage').prop('src',value);
+                }
+            })
         }
 
         Telegram.WebApp.onEvent('themeChanged', setThemeClass);
@@ -74,6 +76,7 @@
             glide.mount();
             getCharacter();
             getEatValue();
+            getCatImage();
             // $('#characterName').text(getCharacter());
             setLastEnterTime();
             // if(getCharacter()) {
@@ -429,7 +432,7 @@
 <div class="row justify-content-center">
     <div class="col-auto">
         <div class="card" style="width: 18rem;">
-            <img src="images/characters/cat/5.jpg" class="card-img-top" alt="...">
+            <img src="images/characters/cat/5.jpg" id="catImage" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title text-dark character-name-top" id="characterName">Персонаж</h5>
                 <h6 class="text-success">Настроение <i class="fa-solid fa-face-smile"></i></h6>
@@ -2010,7 +2013,9 @@
 
     function setCharacter() {
         var catName = $('.glide__slide--active span').text();
+        var catImage = $('.glide__slide--active img').prop('src');
         Telegram.WebApp.CloudStorage.setItem('character',catName);
+        Telegram.WebApp.CloudStorage.setItem('catImage',catImage);
         alert('Котик '+catName+' успешно выбран!');
     }
 
@@ -2018,7 +2023,7 @@
     {
         Telegram.WebApp.CloudStorage.getItem('character',function (err,value) {
             if(!err) {
-                $('#characterName').text("Выбран "+value);
+                $('#characterName').text(value);
             }
         })
         //consol.log();
