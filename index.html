@@ -23,16 +23,34 @@
             document.documentElement.className = Telegram.WebApp.colorScheme;
         }
 
-        function makeCatEat() {
-            var currentVal = parseInt($('#eat-progress').attr('aria-valuenow'))||0;
-            if(currentVal >= 100) {
-                currentVal = -25;
+        function makeCatEat(resultVal) {
+            if(!resultVal) {
+                var currentVal = parseInt($('#eat-progress').attr('aria-valuenow')) || 0;
+                if (currentVal >= 100) {
+                    currentVal = -25;
+                }
+                var resultVal = currentVal + 25;
             }
-            var resultVal = currentVal+25;
             Telegram.WebApp.CloudStorage.setItem('eat',resultVal);
             $('#eat-progress').attr('aria-valuenow',resultVal);
-            $('#eat-progress div').text(resultVal);
+            $('#eat-progress div').text(resultVal+'%');
             $('#eat-progress div').css('width',resultVal+'%');
+        }
+
+        function getEatValue()
+        {
+            Telegram.WebApp.CloudStorage.getItem('eat',function (err,value) {
+                if(!err) {
+                    makeCatEat(value);
+                }
+            })
+            //consol.log();
+            // var object = Telegram.WebApp.CloudStorage.getKeys();
+            // var output = '';
+            // for (var property in object) {
+            //     output += property + ': ' + object[property]+'; ';
+            // }
+            //return output;
         }
 
         Telegram.WebApp.onEvent('themeChanged', setThemeClass);
@@ -55,6 +73,7 @@
 
             glide.mount();
             getCharacter();
+            getEatValue();
             // $('#characterName').text(getCharacter());
             setLastEnterTime();
             // if(getCharacter()) {
