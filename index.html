@@ -103,6 +103,12 @@
             setTimeout(window.location.reload(),2000);
         }
 
+        function changeCat()
+        {
+            $('#cat-card').hide();
+            $('#cat-select').show();
+        }
+
         function getCharacter()
         {
             Telegram.WebApp.CloudStorage.getItem('character',function (err,value) {
@@ -512,7 +518,8 @@
                     <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" style="width: 0%">0%</div>
                 </div>
                 <button onclick="makeCatEat()" class="btn btn-warning">Кормить  <i class="fa-solid fa-utensils"></i></button>
-                <button onclick="makeCatHappy()" class="btn btn-success">Играть <i class="fa-solid fa-cat"></i></button>
+                <button onclick="makeCatHappy()" class="btn btn-success">Играть <i class="fa-solid fa-volleyball"></i></button>
+                <button onclick="changeCat()" class="btn btn-danger">Сменить кота <i class="fa-solid fa-cat"></i></button>
             </div>
         </div>
     </div>
