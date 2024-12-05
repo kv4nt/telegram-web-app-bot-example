@@ -93,7 +93,7 @@
         }
 
         function setCharacter() {
-            var audio = new Audio('sound/cat-select.mp3');
+            var audio = new Audio('sound/eat.mp3');
             audio.play();
             var catName = $('.glide__slide--active span').text();
             var catImage = $('.glide__slide--active img').prop('src');
@@ -101,10 +101,10 @@
             Telegram.WebApp.CloudStorage.setItem('catImage',catImage);
             //var audio = new Audio('sound/cat-select.mp3');
             //audio.play();
-            //alert('Котик '+catName+' успешно выбран!');
+            alert('Котик '+catName+' успешно выбран!');
             setTimeout(function () {
                 window.location.reload();
-            },2000);
+            },2500);
         }
 
         function changeCat()
