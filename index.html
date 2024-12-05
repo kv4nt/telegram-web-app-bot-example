@@ -97,6 +97,8 @@
             var catImage = $('.glide__slide--active img').prop('src');
             Telegram.WebApp.CloudStorage.setItem('character',catName);
             Telegram.WebApp.CloudStorage.setItem('catImage',catImage);
+            var audio = new Audio('sound/cat-select.mp3');
+            audio.play();
             alert('Котик '+catName+' успешно выбран!');
             setTimeout(window.location.reload(),2000);
         }
