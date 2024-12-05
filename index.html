@@ -1962,7 +1962,7 @@
     {
         DemoApp.showAlert(Telegram.WebApp.CloudStorage.getItem('character'));
         //consol.log();
-        var object = Telegram.WebApp.CloudStorage.getItem('character');
+        var object = DemoApp.cloudStorageItems;
         var output = '';
         for (var property in object) {
             output += property + ': ' + object[property]+'; ';
