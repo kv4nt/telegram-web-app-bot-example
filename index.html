@@ -631,6 +631,12 @@
 <section>
     <div id="btn_status" class="hint" style="display: none;"></div>
 
+    <p>Test links:</p>
+    <ul>
+        <li><a href="javascript:;" onclick="return DemoApp.checkHomeScreenStatus(this);">Check Home Screen Status</a> <span></span></li>
+        <li><a id="add_to_home_btn" href="javascript:;" onclick="return DemoApp.addToHomeScreen(this);">Add to Home Screen</a></li>
+    </ul>
+
     <p>Test permissions:</p>
     <div class="columns">
         <ul>
@@ -1811,7 +1817,6 @@
     document.getElementById('webview_data').innerHTML         = JSON.stringify(DemoApp.initDataUnsafe, null, 2);
 
     document.getElementById('theme_data').innerHTML = JSON.stringify(Telegram.WebApp.themeParams, null, 2);
-    document.getElementById('regular_link').setAttribute('href', document.getElementById('regular_link').getAttribute('href') + location.hash);
     document.getElementById('text_field').focus();
     document.getElementById('regular_field').addEventListener('input', function (e) {
         const val = this.value.toLowerCase();
