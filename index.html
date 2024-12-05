@@ -51,6 +51,8 @@
             $('#happy-progress').attr('aria-valuenow',resultVal);
             $('#happy-progress div').text(resultVal+'%');
             $('#happy-progress div').css('width',resultVal+'%');
+            var audio = new Audio('sound/happy.mp3');
+            audio.play();
         }
 
         function getEatValue()
