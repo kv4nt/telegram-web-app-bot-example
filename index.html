@@ -35,6 +35,8 @@
             $('#eat-progress').attr('aria-valuenow',resultVal);
             $('#eat-progress div').text(resultVal+'%');
             $('#eat-progress div').css('width',resultVal+'%');
+            var audio = new Audio('sound/eat.mp3');
+            audio.play();
         }
 
         function makeCatHappy(resultVal) {
