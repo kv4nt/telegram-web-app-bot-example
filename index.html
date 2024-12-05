@@ -149,15 +149,21 @@
 
         function getEatPercents()
         {
-            Telegram.WebApp.CloudStorage.getItem('lastEatTime',function (err,value) {
+            Telegram.WebApp.CloudStorage.getItem('eat',function (err,value) {
                 if(!err) {
-                    var timediff = Math.ceil(parseInt(Date.now() - value)/1000);
-                    // 43200  - 12 часов
-                    var percent = Math.round((timediff/43200)*100);
-                    setEatProgress(percent);
+                    var progress = value;
+                    Telegram.WebApp.CloudStorage.getItem('lastEatTime',function (err,val) {
+                        if(!err) {
+                            var timediff = Math.ceil(parseInt(Date.now() - val)/1000);
+                            // 43200  - 12 часов
+                            var percent = progress-Math.round((timediff/43200)*100);
+                            setEatProgress(percent);
 
+                        }
+                    })
                 }
             })
+
         }
 
         Telegram.WebApp.onEvent('themeChanged', setThemeClass);
