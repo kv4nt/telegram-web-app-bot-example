@@ -637,32 +637,6 @@
         <li><a id="add_to_home_btn" href="javascript:;" onclick="return DemoApp.addToHomeScreen(this);">Add to Home Screen</a></li>
     </ul>
 
-    <p>Test permissions:</p>
-    <div class="columns">
-        <ul>
-            <li><a href="javascript:;" onclick="return DemoApp.requestLocation(this);">Request Location</a> <span></span></li>
-            <li><a href="javascript:;" onclick="return DemoApp.requestVideo(this);">Request Video</a> <span></span></li>
-            <li><a href="javascript:;" onclick="return DemoApp.requestAudio(this);">Request Audio</a> <span></span></li>
-            <li><a href="javascript:;" onclick="return DemoApp.requestAudioVideo(this);">Request Audio+Video</a> <span></span></li>
-            <li><a href="javascript:;" onclick="return DemoApp.testClipboard(this);" id="clipboard_test">Read from clipboard</a> <span></span></li>
-        </ul>
-        <ul>
-            <li><a href="javascript:;" onclick="return DemoApp.requestWriteAccess(this);">Request write access</a> <span></span></li>
-            <li><a href="javascript:;" onclick="return DemoApp.requestPhoneNumber(this);">Request phone number</a> <span></span><br><br></li>
-            <li><a href="javascript:;" onclick="return DemoApp.requestServerTime(this);">Request server time</a> (invokes custom method) <span></span></li>
-        </ul>
-    </div>
-
-    <p>Sensors:</p>
-    <div class="columns">
-        <ul>
-            <li><a id="accelerometer_btn" href="javascript:;" onclick="return DemoApp.toggleAccelerometer(this);">Start Accelerometer</a> <span></span></li>
-            <li><a id="device_orientation_btn" href="javascript:;" onclick="return DemoApp.toggleDeviceOrientation(this);">Start DeviceOrientation(need_absolute=false)</a> <span></span></li>
-            <li id="device_orientation_abs_item"><a href="javascript:;" onclick="return DemoApp.toggleDeviceOrientation(this, true);">Start DeviceOrientation(need_absolute=true)</a> <span></span></li>
-            <li><a id="gyroscope_btn" href="javascript:;" onclick="return DemoApp.toggleGyroscope(this);">Start Gyroscope</a> <span></span></li>
-        </ul>
-    </div>
-
     <p>Test alerts:</p>
     <div class="columns">
         <ul>
@@ -680,13 +654,6 @@
             <li><a href="javascript:;" onclick="DemoApp.showScanQrPopup(true);">showScanQrPopup (links only)</a></li>
         </ul>
     </div>
-
-    <p>Haptics:</p>
-    <ul>
-        <li>Impact: <a href="javascript:Telegram.WebApp.HapticFeedback.impactOccurred('heavy');">heavy</a>, &nbsp; <a href="javascript:Telegram.WebApp.HapticFeedback.impactOccurred('light');">light</a>, &nbsp; <a href="javascript:Telegram.WebApp.HapticFeedback.impactOccurred('medium');">medium</a>, &nbsp; <a href="javascript:Telegram.WebApp.HapticFeedback.impactOccurred('rigid');">rigid</a>, &nbsp; <a href="javascript:Telegram.WebApp.HapticFeedback.impactOccurred('soft');">soft</a><br><br></li>
-        <li>Notification: <a href="javascript:Telegram.WebApp.HapticFeedback.notificationOccurred('error');">error</a>, &nbsp; <a href="javascript:Telegram.WebApp.HapticFeedback.notificationOccurred('success');">success</a>, &nbsp; <a href="javascript:Telegram.WebApp.HapticFeedback.notificationOccurred('warning');">warning</a><br><br></li>
-        <li>Selection: <a href="javascript:Telegram.WebApp.HapticFeedback.selectionChanged();">changed</a><br><br></li>
-    </ul>
 
     <p>Cloud storage:</p>
     <form onsubmit="DemoApp.saveCloudForm(this, event);">
@@ -910,151 +877,6 @@
                 fullscreenBtn.innerHTML = 'Exit Fullscreen'
             } else {
                 fullscreenBtn.innerHTML = 'Request Fullscreen'
-            }
-        },
-
-        // accelerometer
-        accelerometerInit() {
-            Telegram.WebApp.onEvent('accelerometerStarted', function() {
-                const span = document.getElementById('accelerometer_btn').nextElementSibling;
-                span.textContent = '';
-                span.className = '';
-                DemoApp.updateAccelerometerLink();
-            })
-
-            Telegram.WebApp.onEvent('accelerometerStopped', function() {
-                const span = document.getElementById('accelerometer_btn').nextElementSibling;
-                span.textContent = '';
-                span.className = '';
-                DemoApp.updateAccelerometerLink();
-            })
-
-            Telegram.WebApp.onEvent('accelerometerChanged', function() {
-                const span = document.getElementById('accelerometer_btn').nextElementSibling;
-                span.textContent = '(x: ' + this.Accelerometer.x + '; y: ' + this.Accelerometer.y + '; z: ' + this.Accelerometer.z + ')';
-                span.className = 'ok';
-            })
-
-            Telegram.WebApp.onEvent('accelerometerFailed', function(params) {
-                const span = document.getElementById('accelerometer_btn').nextElementSibling;
-                span.textContent = '(ERR: ' + params.error + ')';
-                span.className = 'err';
-            })
-
-            DemoApp.updateAccelerometerLink()
-        },
-        toggleAccelerometer: function(el) {
-            if (Telegram.WebApp.Accelerometer.isStarted) {
-                Telegram.WebApp.Accelerometer.stop();
-            } else {
-                Telegram.WebApp.Accelerometer.start({ refresh_rate: 100 });
-            }
-        },
-        updateAccelerometerLink() {
-            var accelerometerBtn = document.getElementById('accelerometer_btn');
-            if (Telegram.WebApp.Accelerometer.isStarted) {
-                accelerometerBtn.innerHTML = 'Stop Accelerometer';
-            } else {
-                accelerometerBtn.innerHTML = 'Start Accelerometer';
-            }
-        },
-
-        // device orientation
-        deviceOrientationInit() {
-            Telegram.WebApp.onEvent('deviceOrientationStarted', function() {
-                var span = document.getElementById('device_orientation_btn').nextElementSibling;
-                span.textContent = '';
-                span.className = '';
-                DemoApp.updateDeviceOrientationLink();
-            })
-
-            Telegram.WebApp.onEvent('deviceOrientationStopped', function() {
-                var span = document.getElementById('device_orientation_btn').nextElementSibling;
-                span.textContent = '';
-                span.className = '';
-                DemoApp.updateDeviceOrientationLink();
-            })
-
-            Telegram.WebApp.onEvent('deviceOrientationChanged', function() {
-                var span = document.getElementById('device_orientation_btn').nextElementSibling;
-                span.textContent = '(alpha: ' + this.DeviceOrientation.alpha +
-                    '; beta: ' + this.DeviceOrientation.beta +
-                    '; gamma: ' + this.DeviceOrientation.gamma +
-                    '; absolute: ' + (this.DeviceOrientation.absolute ? 'true' : 'false') + ')';
-                span.className = 'ok';
-            })
-
-            Telegram.WebApp.onEvent('deviceOrientationFailed', function(params) {
-                var span = document.getElementById('device_orientation_btn').nextElementSibling;
-                span.textContent = '(ERR: ' + params.error + ')';
-                span.className = 'err';
-            })
-
-            DemoApp.updateDeviceOrientationLink()
-        },
-        toggleDeviceOrientation(el, need_absolute) {
-            if (Telegram.WebApp.DeviceOrientation.isStarted) {
-                Telegram.WebApp.DeviceOrientation.stop();
-            } else {
-                Telegram.WebApp.DeviceOrientation.start({ refresh_rate: 100, need_absolute: need_absolute });
-            }
-        },
-        updateDeviceOrientationLink() {
-            var deviceOrientationBtn = document.getElementById('device_orientation_btn');
-            var absItem = document.getElementById('device_orientation_abs_item');
-
-            if (Telegram.WebApp.DeviceOrientation.isStarted) {
-                deviceOrientationBtn.innerHTML = 'Stop DeviceOrientation';
-                absItem.style.display = 'none';
-            } else {
-                deviceOrientationBtn.innerHTML = 'Start DeviceOrientation(need_absolute=false)';
-                absItem.style.display = 'block';
-            }
-        },
-
-        // gyroscope
-        gyroscopeInit() {
-            Telegram.WebApp.onEvent('gyroscopeStarted', function() {
-                var span = document.getElementById('gyroscope_btn').nextElementSibling;
-                span.textContent = '';
-                span.className = '';
-                DemoApp.updateGyroscopeLink();
-            })
-
-            Telegram.WebApp.onEvent('gyroscopeStopped', function() {
-                var span = document.getElementById('gyroscope_btn').nextElementSibling;
-                span.textContent = '';
-                span.className = '';
-                DemoApp.updateGyroscopeLink();
-            })
-
-            Telegram.WebApp.onEvent('gyroscopeChanged', function() {
-                var span = document.getElementById('gyroscope_btn').nextElementSibling;
-                span.textContent = '(x: ' + this.Gyroscope.x + '; y: ' + this.Gyroscope.y + '; z: ' + this.Gyroscope.z + ')';
-                span.className = 'ok';
-            })
-
-            Telegram.WebApp.onEvent('gyroscopeFailed', function(params) {
-                var span = document.getElementById('gyroscope_btn').nextElementSibling;
-                span.textContent = '(ERR: ' + params.error + ')';
-                span.className = 'err';
-            })
-
-            DemoApp.updateGyroscopeLink()
-        },
-        toggleGyroscope(el) {
-            if (Telegram.WebApp.Gyroscope.isStarted) {
-                Telegram.WebApp.Gyroscope.stop();
-            } else {
-                Telegram.WebApp.Gyroscope.start({ refresh_rate: 100 });
-            }
-        },
-        updateGyroscopeLink() {
-            var gyroscopeBtn = document.getElementById('gyroscope_btn');
-            if (Telegram.WebApp.Gyroscope.isStarted) {
-                gyroscopeBtn.innerHTML = 'Stop Gyroscope';
-            } else {
-                gyroscopeBtn.innerHTML = 'Start Gyroscope';
             }
         },
 
@@ -1974,9 +1796,6 @@
     }
 
     // permissions
-    try {
-        DemoApp.testClipboard(document.getElementById('clipboard_test'));
-    } catch(e) {}
     try {
         DemoApp.loadCloudKeys();
     } catch(e) {}
