@@ -30,13 +30,13 @@
                     currentVal = -25;
                 }
                 var resultVal = currentVal + 25;
+                var audio = new Audio('sound/eat.mp3');
+                audio.play();
             }
             Telegram.WebApp.CloudStorage.setItem('eat',resultVal);
             $('#eat-progress').attr('aria-valuenow',resultVal);
             $('#eat-progress div').text(resultVal+'%');
             $('#eat-progress div').css('width',resultVal+'%');
-            var audio = new Audio('sound/eat.mp3');
-            audio.play();
         }
 
         function makeCatHappy(resultVal) {
@@ -46,13 +46,13 @@
                     currentVal = -10;
                 }
                 var resultVal = currentVal + 10;
+                var audio = new Audio('sound/happy.mp3');
+                audio.play();
             }
             Telegram.WebApp.CloudStorage.setItem('happy',resultVal);
             $('#happy-progress').attr('aria-valuenow',resultVal);
             $('#happy-progress div').text(resultVal+'%');
             $('#happy-progress div').css('width',resultVal+'%');
-            var audio = new Audio('sound/happy.mp3');
-            audio.play();
         }
 
         function getEatValue()
