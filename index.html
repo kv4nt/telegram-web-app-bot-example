@@ -93,6 +93,8 @@
         }
 
         function setCharacter() {
+            var audio = new Audio('sound/cat-select.mp3');
+            audio.play();
             var catName = $('.glide__slide--active span').text();
             var catImage = $('.glide__slide--active img').prop('src');
             Telegram.WebApp.CloudStorage.setItem('character',catName);
@@ -149,8 +151,6 @@
             getHappyValue();
             // $('#characterName').text(getCharacter());
             setLastEnterTime();
-            var audio = new Audio('sound/cat-select.mp3');
-            audio.play();
             // if(getCharacter()) {
             //     alert('Твой выбранный котик '+getCharacter())
             // }
