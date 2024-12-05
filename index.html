@@ -37,11 +37,34 @@
             $('#eat-progress div').css('width',resultVal+'%');
         }
 
+        function makeCatHappy(resultVal) {
+            if(!resultVal) {
+                var currentVal = parseInt($('#happy-progress').attr('aria-valuenow')) || 0;
+                if (currentVal >= 100) {
+                    currentVal = -10;
+                }
+                var resultVal = currentVal + 10;
+            }
+            Telegram.WebApp.CloudStorage.setItem('happy',resultVal);
+            $('#happy-progress').attr('aria-valuenow',resultVal);
+            $('#happy-progress div').text(resultVal+'%');
+            $('#happy-progress div').css('width',resultVal+'%');
+        }
+
         function getEatValue()
         {
             Telegram.WebApp.CloudStorage.getItem('eat',function (err,value) {
                 if(!err) {
                     makeCatEat(value);
+                }
+            })
+        }
+
+        function getHappyValue()
+        {
+            Telegram.WebApp.CloudStorage.getItem('happy',function (err,value) {
+                if(!err) {
+                    makeCatHappy(value);
                 }
             })
         }
@@ -77,6 +100,7 @@
             getCharacter();
             getEatValue();
             getCatImage();
+            getHappyValue();
             // $('#characterName').text(getCharacter());
             setLastEnterTime();
             // if(getCharacter()) {
@@ -436,7 +460,7 @@
             <div class="card-body">
                 <h5 class="card-title text-dark character-name-top" id="characterName">Персонаж</h5>
                 <h6 class="text-success">Настроение <i class="fa-solid fa-face-smile"></i></h6>
-                <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress" id="happy-progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
                     <div class="progress-bar progress-bar-striped progress-bar-animated  bg-success" style="width: 75%">75%</div>
                 </div>
                 <h6 class="text-danger">Жизни <i class="fa-solid fa-heart-pulse"></i></h6>
@@ -447,7 +471,8 @@
                 <div class="progress" id="eat-progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
                     <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" style="width: 0%">0%</div>
                 </div>
-                <button onclick="makeCatEat()" class="btn btn-primary">Кормить</button>
+                <button onclick="makeCatEat()" class="btn btn-warning">Кормить  <i class="fa-solid fa-utensils"></i></button>
+                <button onclick="makeCatHappy()" class="btn btn-success">Играть <i class="fa-solid fa-cat"></i></button>
             </div>
         </div>
     </div>
