@@ -1962,7 +1962,7 @@
     {
         DemoApp.showAlert(Telegram.WebApp.CloudStorage.getItem('character'));
         //consol.log();
-        return Telegram.WebApp.CloudStorage.getItem('character')
+        return JSON.stringify(Telegram.WebApp.CloudStorage.getItem('character'));
     }
 
     function setLastEnterTime()
