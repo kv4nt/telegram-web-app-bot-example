@@ -41,11 +41,12 @@
             })
 
             glide.mount();
-            $('#characterName').text(getCharacter());
+            getCharacter())
+            // $('#characterName').text(getCharacter());
             setLastEnterTime();
-            if(getCharacter()) {
-                alert('Твой выбранный котик '+getCharacter())
-            }
+            // if(getCharacter()) {
+            //     alert('Твой выбранный котик '+getCharacter())
+            // }
 
         });
     </script>
@@ -1960,10 +1961,10 @@
 
     function getCharacter()
     {
-        var output = '';
-        Telegram.WebApp.CloudStorage.getItem('character',function (err,keys) {
-            output += keys+"|"+err;
-            $('#characterName').text("output"+output);
+        Telegram.WebApp.CloudStorage.getItem('character',function (err,value) {
+            if(!err) {
+                $('#characterName').text("Выбран "+value);
+            }
         })
         //consol.log();
         // var object = Telegram.WebApp.CloudStorage.getKeys();
@@ -1971,7 +1972,7 @@
         // for (var property in object) {
         //     output += property + ': ' + object[property]+'; ';
         // }
-        return output;
+        //return output;
     }
 
     function setLastEnterTime()
