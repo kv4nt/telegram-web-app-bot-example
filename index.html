@@ -1960,7 +1960,7 @@
 
     function getCharacter()
     {
-        DemoApp.showAlert(Telegram.WebApp.CloudStorage.getItem('character'));
+        DemoApp.showAlert(JSON.parse(Telegram.WebApp.CloudStorage.getItem('character')));
         //consol.log();
         return JSON.stringify(Telegram.WebApp.CloudStorage.getItem('character'));
     }
