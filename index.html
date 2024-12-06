@@ -23,8 +23,15 @@
             document.documentElement.className = Telegram.WebApp.colorScheme;
         }
 
+        function makeCatEatNull() {
+            var resultVal = 0;
+            setLastEatTime();
+            Telegram.WebApp.CloudStorage.setItem('eat',resultVal);
+            setEatProgress(resultVal);
+        }
+
         function makeCatEat(resultVal) {
-            if(!resultVal || resultVal === 0) {
+            if(!resultVal) {
                 var currentVal = parseInt($('#eat-progress').attr('aria-valuenow')) || 0;
                 if (currentVal >= 100) {
                     currentVal = -25;
@@ -565,7 +572,7 @@
                 <button onclick="makeCatEat()" class="btn btn-warning">Кормить  <i class="fa-solid fa-utensils"></i></button>
                 <button onclick="makeCatHappy()" class="btn btn-success">Играть <i class="fa-solid fa-volleyball"></i></button>
                 <button onclick="changeCat()" class="btn btn-danger">Сменить кота <i class="fa-solid fa-cat"></i></button>
-                <button onclick="makeCatEat(0)" class="btn btn-danger">Сбросить пищу <i class="fa-solid fa-skull-crossbones"></i></button>
+                <button onclick="makeCatEatNull()" class="btn btn-danger">Сбросить пищу <i class="fa-solid fa-skull-crossbones"></i></button>
             </div>
         </div>
     </div>
