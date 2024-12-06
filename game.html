@@ -667,7 +667,7 @@
                 upown += 1;
                 upcost = upcost * 5;
                 document.getElementById("upgrade").innerHTML =
-                    addcomma(upown) + "-сила пальца: " + addcomma(upcost) + " | +" + addcomma(upadd * uboost) + "/сек";
+                    addcomma(upown) + "-сила пальца: " + addcomma(upcost) + " | +" + addcomma(upcost / 15) + "/клик";
                 if (catown == 50) {
                     msec -= catmax;
                     catmax = Math.floor(moneyup * 0.15);
@@ -682,7 +682,7 @@
         }
 
         document.getElementById("click").innerHTML =
-            "Монета/клик: " + addcomma(moneyup) + " | Монета/сек: " + addcomma(msec);
+            "Монет/клик: " + addcomma(moneyup) + " | Монет/сек: " + addcomma(msec);
         document.getElementById("total").innerHTML = "Монет: " + addcomma(money);
     }
 
