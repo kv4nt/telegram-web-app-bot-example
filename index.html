@@ -179,6 +179,15 @@
 
         }
 
+        function getMoney()
+        {
+            Telegram.WebApp.CloudStorage.getItem('money',function (err,value) {
+                if(!err) {
+                    $('#money-count').text(value);
+                }
+            })
+        }
+
         Telegram.WebApp.onEvent('themeChanged', setThemeClass);
         setThemeClass();
 
@@ -204,6 +213,7 @@
             getHappyValue();
             getTime();
             getEatPercents();
+            getMoney();
             setInterval(getEatPercents,5000);
             // $('#characterName').text(getCharacter());
             setLastEnterTime();
@@ -562,6 +572,7 @@
         <div class="card" id="cat-card" style="width: 18rem;">
             <img src="images/characters/cat/5.jpg" id="catImage" class="card-img-top" alt="...">
             <div class="card-body">
+                <span class="badge bg-warning">Монеты: <i id="money-count"></i></span>
                 <h5 class="card-title text-dark character-name-top" id="characterName">Персонаж</h5>
                 <span id="timeDiff" class="text-danger"></span>
                 <h6 class="text-success">Настроение <i class="fa-solid fa-face-smile"></i></h6>
