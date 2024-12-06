@@ -24,7 +24,7 @@
         }
 
         function makeCatEat(resultVal) {
-            if(!resultVal && resultVal === 0) {
+            if(!resultVal || resultVal === 0) {
                 var currentVal = parseInt($('#eat-progress').attr('aria-valuenow')) || 0;
                 if (currentVal >= 100) {
                     currentVal = -25;
