@@ -452,7 +452,13 @@
 </style>
 <script type="application/javascript">
     $(document).ready(function () {
-        load();
+        Telegram.WebApp.CloudStorage.getItem('money',function (err,value) {
+            if(!err) {
+                if(value) {
+                    load();
+                }
+            }
+        })
     })
     money = 0;
     moneyup = 1;
