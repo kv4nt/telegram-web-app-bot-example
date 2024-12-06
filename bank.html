@@ -464,7 +464,7 @@
     money = 0;
     moneyup = 1;
     msec = 0;
-    upcost = 15;
+    upcost = 150;
     upown = 0;
     upadd = 1;
     uboost = 1;
@@ -524,7 +524,7 @@
             money = 0;
             moneyup = 1;
             msec = 0;
-            upcost = 15;
+            upcost = 150;
             upown = 0;
             upadd =1;
             uboost =1;
@@ -547,7 +547,7 @@
     function upgrade(name) {
         if (name == "upgrade") {
             if (money >= upcost) {
-                moneyup += upcost / 15;
+                moneyup += upcost / 150;
                 money -= upcost;
                 upadd++;
                 uboost = 1;
