@@ -83,7 +83,7 @@
                     Telegram.WebApp.CloudStorage.getItem('eat',function (er,val) {
                         var timediff = Math.ceil(parseInt(Date.now() - value)/1000);
                         var percent = Math.round((timediff/43200)*100);
-                        $('#timeDiff').text('Ты не кормил кошку '+timediff+' сек. КОШКА ГОЛОДНАЯ!!! За время отсутствия -'+percent+'% еды'+((timediff/43200)*100));
+                        $('#timeDiff').text('Ты не кормил кошку '+timediff+' сек. КОШКА ГОЛОДНАЯ!!! За время отсутствия -'+percent+'% еды'+((timediff/43200)*100).toFixed(2));
 
                     })
                 }
