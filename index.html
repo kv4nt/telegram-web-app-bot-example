@@ -183,7 +183,12 @@
         {
             Telegram.WebApp.CloudStorage.getItem('money',function (err,value) {
                 if(!err) {
-                    $('#money-count').text(value);
+                    $('#money-count').text(value||0);
+                    if(!value) {
+                        $('#money-count').text(0);
+                    }
+                } else {
+                    $('#money-count').text(0);
                 }
             })
         }
