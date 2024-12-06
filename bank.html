@@ -455,6 +455,7 @@
         Telegram.WebApp.CloudStorage.getItem('money',function (err,value) {
             if(!err) {
                 if(value && localStorage.getItem("moneyup")) {
+                    alert(value+"=="+localStorage.getItem("moneyup"));
                     load();
                 }
             }
