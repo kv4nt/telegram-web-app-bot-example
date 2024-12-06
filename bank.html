@@ -495,7 +495,7 @@
             "Монет/клик: " + addcomma(moneyup);
         document.getElementById("total").innerHTML = "Монет: " + addcomma(money);
         document.getElementById("upgrade").innerHTML =
-            "Способность СИЛА ПАЛЬЦА | "+addcomma(upown) + " уровень |  Стоимость: " + addcomma(upcost) + " | +" + addcomma(upadd) + "/клик";
+            "Способность СИЛА ПАЛЬЦА | "+addcomma(upown) + " уровень |  Апгрейд: " + addcomma(upcost) + " монет | +" + addcomma(upadd) + "/клик";
     }
     //overwrites save file
     function save() {
@@ -672,7 +672,7 @@
                 upcost = upcost * 5;
                 document.getElementById("upgrade").innerHTML =
                     //addcomma(upown) + "-сила пальца: " + addcomma(upcost) + " | +" + addcomma(upcost / 15) + "/клик";
-                "Способность СИЛА ПАЛЬЦА | "+addcomma(upown) + " уровень |  Стоимость: " + addcomma(upcost) + " | +" + addcomma(upadd) + "/клик";
+                "Способность СИЛА ПАЛЬЦА | "+addcomma(upown) + " уровень |  Апгрейд: " + addcomma(upcost) + " | +" + addcomma(upadd) + "/клик";
                 if (catown == 50) {
                     msec -= catmax;
                     catmax = Math.floor(moneyup * 0.15);
@@ -687,7 +687,7 @@
         }
 
         document.getElementById("click").innerHTML =
-            "Монет/клик: " + addcomma(moneyup) + " | Монет/сек: " + addcomma(msec);
+            "Монет/клик: " + addcomma(moneyup);
         document.getElementById("total").innerHTML = "Монет: " + addcomma(money);
     }
 
