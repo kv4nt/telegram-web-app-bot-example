@@ -193,6 +193,10 @@
             })
         }
 
+        function gotoBank() {
+            window.location.href = 'bank.html';
+        }
+
         Telegram.WebApp.onEvent('themeChanged', setThemeClass);
         setThemeClass();
 
@@ -596,7 +600,7 @@
                 <button onclick="makeCatHappy()" class="btn btn-success">Играть <i class="fa-solid fa-volleyball"></i></button>
                 <button onclick="changeCat()" class="btn btn-primary">Сменить кота <i class="fa-solid fa-cat"></i></button>
                 <button onclick="makeCatEatNull()" class="btn btn-danger">Сбросить пищу <i class="fa-solid fa-skull-crossbones"></i></button>
-                <button class="btn btn-info"><a href="bank.html">Банк <i class="fa-solid fa-coins"></i></a></button>
+                <button onclick="gotoBank();" class="btn btn-info">Банк <i class="fa-solid fa-coins"></i></button>
 
 
             </div>
