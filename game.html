@@ -362,17 +362,16 @@
 </head>
 
 <body onbeforeunload="return closingCode()">
-<link rel="stylesheet" href="index.css">
 <center class='center'>
     <h1 id='total'>LB: 0</h1>
-    <h5 id="click" style="font-family:trebuchet MS;">LB/click: 1 | LB/sec: 0</h5>
+    <h5 id="click" style="font-family:trebuchet MS;">Монета/клик: 1 | LB/сек: 0</h5>
     <img class="round" src="images/coin.png" width="150" onclick='clicked()'></img>
     <br><br>
     <button id='upgrade' class="round" onclick='upgrade("upgrade")' style="font-family:courier;">0-main upgrade: 15</button>
     <br><br>
-    <button id='cat' class="round" onclick='upgrade("clicker cat")' style="font-family:courier;">0-clicker cat: 25 | +1/sec</button>
+    <button id='cat' class="round" onclick='upgrade("кошачий друг")' style="font-family:courier;">0-кошачий друг: 25 | +1/sec</button>
     <br><br>
-    <button id='worker' class="round" onclick='upgrade("worker")' style="font-family:courier;">0-worker: 250 | +15/sec</button><br><br>
+    <button id='worker' class="round" onclick='upgrade("большой кот")' style="font-family:courier;">0-большой кот: 250 | +15/sec</button><br><br>
     <button class="settings" onclick="save()">Save</button>
     <button class="settings" onclick="load()">Load</button>
     <button class="settings" onclick="reset()">Reset</button><br><br>
@@ -472,7 +471,7 @@
 
     //save before exiting
     function closingCode() {
-        if (confirm("You have closed the window, would you like to save?") === true) {
+        if (confirm("Точно закрыть окно? Может сохранимся?") === true) {
             save();
             return null;
         }
@@ -484,12 +483,12 @@
     //updates all values
     function reloadall() {
         document.getElementById("click").innerHTML =
-            "LB/click: " + addcomma(moneyup) + " | LB/sec: " + addcomma(msec);
+            "Монета/клик: " + addcomma(moneyup) + " | Монета/сек: " + addcomma(msec);
         document.getElementById("total").innerHTML = "LB: " + addcomma(money);
         document.getElementById("cat").innerHTML =
-            catown + "-clicker cat: " + addcomma(catcost) + " | +" + addcomma(catadd) + "/sec";
+            catown + "-кошачий друг: " + addcomma(catcost) + " | +" + addcomma(catadd) + "/sec";
         document.getElementById("worker").innerHTML =
-            workerown + "-worker: " + addcomma(workercost) + " | +" + addcomma(workadd) + "/sec";
+            workerown + "-большой кот: " + addcomma(workercost) + " | +" + addcomma(workadd) + "/sec";
         document.getElementById("upgrade").innerHTML =
             addcomma(upown) + "-main upgrade: " + addcomma(upcost);
     }
@@ -537,7 +536,7 @@
     }
     //resets all values
     function reset() {
-        if (confirm("Are you sure you want to reset?") === true) {
+        if (confirm("Точно сбросить?") === true) {
             money = 0;
             moneyup = 1;
             msec = 0;
@@ -555,18 +554,18 @@
     //timer
     function myTimer() {
         money += msec;
-        document.getElementById("total").innerHTML = "LB: " + addcomma(money);
+        document.getElementById("total").innerHTML = "Монет: " + addcomma(money);
     }
     setInterval(myTimer, 1000);
 
     //what happens when button is clicked
     function clicked() {
         money += moneyup;
-        document.getElementById("total").innerHTML = "LB: " + addcomma(money);
+        document.getElementById("total").innerHTML = "Монет: " + addcomma(money);
     }
     //upgrade function
     function upgrade(name) {
-        if (name == "clicker cat") {
+        if (name == "кошачий друг") {
             if (money >= catcost && catown < 50) {
 
                 if (catown <= 13) {
@@ -602,14 +601,14 @@
                 money -= catcost;
                 catcost = catcost * 2;
                 document.getElementById("cat").innerHTML =
-                    catown + "-clicker cat: " + addcomma(catcost) + " | +" + addcomma(catadd * cboost) + "/sec";
+                    catown + "-кошачий друг: " + addcomma(catcost) + " | +" + addcomma(catadd * cboost) + "/sec";
             } else if (catown == 50) {
                 document.getElementById("cat").innerHTML =
-                    catown + "-clicker cat: MAX | +15% click/sec";
+                    catown + "-кошачий друг: MAX | +15% click/sec";
             }
         }
 
-        if (name == "worker") {
+        if (name == "большой кот") {
             if (money >= workercost && workerown < 50) {
 
                 if (workerown <= 13) {
@@ -645,10 +644,10 @@
                 money -= workercost;
                 workercost = workercost * 3;
                 document.getElementById("worker").innerHTML =
-                    workerown + "-worker: " + addcomma(workercost) + " | +" + addcomma(workadd * wboost) + "/sec";
+                    workerown + "-большой кот: " + addcomma(workercost) + " | +" + addcomma(workadd * wboost) + "/sec";
             } else if (workerown == 50) {
                 document.getElementById("worker").innerHTML =
-                    workerown + "-worker: MAX | +35% click/sec";
+                    workerown + "-большой кот: MAX | +35% click/sec";
             }
         }
 
@@ -674,7 +673,7 @@
         }
 
         document.getElementById("click").innerHTML =
-            "LB/click: " + addcomma(moneyup) + " | LB/sec: " + addcomma(msec);
+            "Монета/клик: " + addcomma(moneyup) + " | Монета/сек: " + addcomma(msec);
         document.getElementById("total").innerHTML = "LB: " + addcomma(money);
     }
 
