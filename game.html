@@ -367,11 +367,11 @@
     <h5 id="click" style="font-family:trebuchet MS;">Монета/клик: 1 | LB/сек: 0</h5>
     <img class="round" src="images/coin.png" width="150" onclick='clicked()'></img>
     <br><br>
-    <button id='upgrade' class="round" onclick='upgrade("upgrade")' style="font-family:courier;">0-main upgrade: 15</button>
+    <button id='upgrade' class="round" onclick='upgrade("upgrade")' style="font-family:courier;">0-сила пальца: 15</button>
     <br><br>
-    <button id='cat' class="round" onclick='upgrade("кошачий друг")' style="font-family:courier;">0-кошачий друг: 25 | +1/sec</button>
+    <button id='cat' class="round" onclick='upgrade("кошачий друг")' style="font-family:courier;">0-кошачий друг: 25 | +1/сек</button>
     <br><br>
-    <button id='worker' class="round" onclick='upgrade("большой кот")' style="font-family:courier;">0-большой кот: 250 | +15/sec</button><br><br>
+    <button id='worker' class="round" onclick='upgrade("большой кот")' style="font-family:courier;">0-большой кот: 250 | +15/сек</button><br><br>
     <button class="settings" onclick="save()">Save</button>
     <button class="settings" onclick="load()">Load</button>
     <button class="settings" onclick="reset()">Reset</button><br><br>
@@ -484,13 +484,13 @@
     function reloadall() {
         document.getElementById("click").innerHTML =
             "Монета/клик: " + addcomma(moneyup) + " | Монета/сек: " + addcomma(msec);
-        document.getElementById("total").innerHTML = "LB: " + addcomma(money);
+        document.getElementById("total").innerHTML = "Монет: " + addcomma(money);
         document.getElementById("cat").innerHTML =
-            catown + "-кошачий друг: " + addcomma(catcost) + " | +" + addcomma(catadd) + "/sec";
+            catown + "-кошачий друг: " + addcomma(catcost) + " | +" + addcomma(catadd) + "/сек";
         document.getElementById("worker").innerHTML =
-            workerown + "-большой кот: " + addcomma(workercost) + " | +" + addcomma(workadd) + "/sec";
+            workerown + "-большой кот: " + addcomma(workercost) + " | +" + addcomma(workadd) + "/сек";
         document.getElementById("upgrade").innerHTML =
-            addcomma(upown) + "-main upgrade: " + addcomma(upcost);
+            addcomma(upown) + "-сила пальца: " + addcomma(upcost);
     }
     //overwrites save file
     function save() {
@@ -647,7 +647,7 @@
                     workerown + "-большой кот: " + addcomma(workercost) + " | +" + addcomma(workadd * wboost) + "/sec";
             } else if (workerown == 50) {
                 document.getElementById("worker").innerHTML =
-                    workerown + "-большой кот: MAX | +35% click/sec";
+                    workerown + "-большой кот: MAX | +35% клик/сек";
             }
         }
 
@@ -658,7 +658,7 @@
                 upown += 1;
                 upcost = upcost * 5;
                 document.getElementById("upgrade").innerHTML =
-                    addcomma(upown) + "-main upgrade: " + addcomma(upcost);
+                    addcomma(upown) + "-сила пальца: " + addcomma(upcost);
                 if (catown == 50) {
                     msec -= catmax;
                     catmax = Math.floor(moneyup * 0.15);
@@ -674,7 +674,7 @@
 
         document.getElementById("click").innerHTML =
             "Монета/клик: " + addcomma(moneyup) + " | Монета/сек: " + addcomma(msec);
-        document.getElementById("total").innerHTML = "LB: " + addcomma(money);
+        document.getElementById("total").innerHTML = "Монет: " + addcomma(money);
     }
 
 </script>
