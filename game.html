@@ -363,18 +363,18 @@
 
 <body onbeforeunload="return closingCode()">
 <center class='center'>
-    <h1 id='total'>LB: 0</h1>
-    <h5 id="click" style="font-family:trebuchet MS;">Монета/клик: 1 | Монет/сек: 0</h5>
+    <h1 id='total'>Монет: 0</h1>
+    <h5 id="click" style="font-family:trebuchet MS;">Монет/клик: 1 | Монет/сек: 0</h5>
     <img class="round" src="images/coin.png" width="150" onclick='clicked()'></img>
     <br><br>
-    <button id='upgrade' class="round" onclick='upgrade("upgrade")' style="font-family:courier;">0-сила пальца: 15</button>
+    <button id='upgrade' class="round" onclick='upgrade("upgrade")' style="font-family:courier;">0-сила пальца: 15 | +1</button>
     <br><br>
     <button id='cat' class="round" onclick='upgrade("кошачий друг")' style="font-family:courier;">0-кошачий друг: 25 | +1/сек</button>
     <br><br>
     <button id='worker' class="round" onclick='upgrade("большой кот")' style="font-family:courier;">0-большой кот: 250 | +15/сек</button><br><br>
-    <button class="settings" onclick="save()">Save</button>
-    <button class="settings" onclick="load()">Load</button>
-    <button class="settings" onclick="reset()">Reset</button><br><br>
+    <button class="settings" onclick="save()">Сохранить</button>
+    <button class="settings" onclick="load()">Загрузить</button>
+    <button class="settings" onclick="reset()">Сбросить</button><br><br>
 </center>
 </link>
 <style>
@@ -464,8 +464,10 @@
     workerown = 0;
     catadd = 1;
     workadd = 15;
+    upadd = 1;
     cboost = 1;
     wboost = 1;
+    uboost = 1;
     catmax = 0;
     workmax = 0;
 
@@ -483,14 +485,14 @@
     //updates all values
     function reloadall() {
         document.getElementById("click").innerHTML =
-            "Монета/клик: " + addcomma(moneyup) + " | Монета/сек: " + addcomma(msec);
+            "Монет/клик: " + addcomma(moneyup) + " | Монет/сек: " + addcomma(msec);
         document.getElementById("total").innerHTML = "Монет: " + addcomma(money);
         document.getElementById("cat").innerHTML =
             catown + "-кошачий друг: " + addcomma(catcost) + " | +" + addcomma(catadd) + "/сек";
         document.getElementById("worker").innerHTML =
             workerown + "-большой кот: " + addcomma(workercost) + " | +" + addcomma(workadd) + "/сек";
         document.getElementById("upgrade").innerHTML =
-            addcomma(upown) + "-сила пальца: " + addcomma(upcost);
+            addcomma(upown) + "-сила пальца: " + addcomma(upcost) + " | +" + addcomma(upadd) + "/клик";
     }
     //overwrites save file
     function save() {
@@ -506,7 +508,8 @@
         localStorage.setItem("workerown", workerown);
         localStorage.setItem("upown", upown);
         localStorage.setItem("catadd", catadd);
-        localStorage.setItem("workadd", workadd);
+        localStorage.setItem("upadd", upadd);
+        localStorage.setItem("uboost", uboost);
         localStorage.setItem("cboost", cboost);
         localStorage.setItem("wboost", wboost);
         localStorage.setItem("catmax", catmax);
@@ -527,6 +530,8 @@
         upown = parseInt(localStorage.getItem("upown"));
         catadd = parseInt(localStorage.getItem("catadd"));
         workadd = parseInt(localStorage.getItem("workadd"));
+        upadd = parseInt(localStorage.getItem("upadd"));
+        uboost = parseInt(localStorage.getItem("uboost"));
         cboost = parseInt(localStorage.getItem("cboost"));
         wboost = parseInt(localStorage.getItem("wboost"));
         catmax = parseInt(localStorage.getItem("catmax"));
@@ -548,6 +553,8 @@
             upown = 0;
             catadd = 1;
             workadd = 15;
+            upadd =1;
+            uboost =1;
             reloadall();
         }
     }
@@ -644,7 +651,7 @@
                 money -= workercost;
                 workercost = workercost * 3;
                 document.getElementById("worker").innerHTML =
-                    workerown + "-большой кот: " + addcomma(workercost) + " | +" + addcomma(workadd * wboost) + "/sec";
+                    workerown + "-большой кот: " + addcomma(workercost) + " | +" + addcomma(workadd * wboost) + "/сек";
             } else if (workerown == 50) {
                 document.getElementById("worker").innerHTML =
                     workerown + "-большой кот: MAX | +35% клик/сек";
@@ -655,10 +662,12 @@
             if (money >= upcost) {
                 moneyup += upcost / 15;
                 money -= upcost;
+                upadd++;
+                uboost = 1;
                 upown += 1;
                 upcost = upcost * 5;
                 document.getElementById("upgrade").innerHTML =
-                    addcomma(upown) + "-сила пальца: " + addcomma(upcost);
+                    addcomma(upown) + "-сила пальца: " + addcomma(upcost) + " | +" + addcomma(upadd * uboost) + "/сек";
                 if (catown == 50) {
                     msec -= catmax;
                     catmax = Math.floor(moneyup * 0.15);
