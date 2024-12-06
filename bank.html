@@ -465,16 +465,9 @@
     moneyup = 1;
     msec = 0;
     upcost = 15;
-    catcost = 25;
-    workercost = 250;
     upown = 0;
-    catown = 0;
-    workerown = 0;
-    catadd = 1;
-    workadd = 15;
     upadd = 1;
     uboost = 1;
-    workmax = 0;
 
     //save before exiting
     function closingCode() {
@@ -508,17 +501,10 @@
         localStorage.setItem("moneyup", moneyup);
         localStorage.setItem("msec", msec);
         localStorage.setItem("upcost", upcost);
-        localStorage.setItem("catcost", catcost);
-        localStorage.setItem("catadd", catadd);
-        localStorage.setItem("workercost", workercost);
-        localStorage.setItem("workadd", workadd);
-        localStorage.setItem("catown", catown);
-        localStorage.setItem("workerown", workerown);
+
         localStorage.setItem("upown", upown);
-        localStorage.setItem("catadd", catadd);
         localStorage.setItem("upadd", upadd);
         localStorage.setItem("uboost", uboost);
-        localStorage.setItem("workmax", workmax);
     }
     //loads save file
     function load() {
@@ -526,18 +512,9 @@
         moneyup = parseInt(localStorage.getItem("moneyup"));
         msec = parseInt(localStorage.getItem("msec"));
         upcost = parseInt(localStorage.getItem("upcost"));
-        catcost = parseInt(localStorage.getItem("catcost"));
-        upown = parseInt(localStorage.getItem("catadd"));
-        workercost = parseInt(localStorage.getItem("workercost"));
-        upown = parseInt(localStorage.getItem("workadd"));
-        catown = parseInt(localStorage.getItem("catown"));
-        workerown = parseInt(localStorage.getItem("workerown"));
         upown = parseInt(localStorage.getItem("upown"));
-        catadd = parseInt(localStorage.getItem("catadd"));
-        workadd = parseInt(localStorage.getItem("workadd"));
         upadd = parseInt(localStorage.getItem("upadd"));
         uboost = parseInt(localStorage.getItem("uboost"));
-        workmax = parseInt(localStorage.getItem("workmax"));
 
         reloadall();
     }
@@ -548,13 +525,7 @@
             moneyup = 1;
             msec = 0;
             upcost = 15;
-            catcost = 25;
-            workercost = 250;
-            catown = 0;
-            workerown = 0;
             upown = 0;
-            catadd = 1;
-            workadd = 15;
             upadd =1;
             uboost =1;
             reloadall();
@@ -585,11 +556,6 @@
                 document.getElementById("upgrade").innerHTML =
                     //addcomma(upown) + "-сила пальца: " + addcomma(upcost) + " | +" + addcomma(upcost / 15) + "/клик";
                 "Способность СИЛА ПАЛЬЦА | "+addcomma(upown) + " уровень |  Апгрейд: " + addcomma(upcost) + " | +" + addcomma(upadd) + "/клик";
-                if (workerown == 50) {
-                    msec -= workmax;
-                    workmax = Math.floor(moneyup * 0.35);
-                    msec += workmax;
-                }
             }
         }
 
