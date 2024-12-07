@@ -565,7 +565,8 @@
     function upgrade(name) {
         if (name == "upgrade") {
             if (money >= upcost) {
-                moneyup += upcost / 150;
+                var clicksPlus = upcost / 150;
+                moneyup += clicksPlus;
                 money -= upcost;
                 upadd++;
                 uboost = 1;
@@ -573,7 +574,7 @@
                 upcost = upcost * 5;
                 document.getElementById("upgrade").innerHTML =
                     //addcomma(upown) + "-сила пальца: " + addcomma(upcost) + " | +" + addcomma(upcost / 15) + "/клик";
-                "Способность СИЛА ПАЛЬЦА | "+addcomma(upown) + " уровень |  Апгрейд: " + addcomma(upcost) + " | +" + addcomma(upcost / 150) + "/клик";
+                "Способность СИЛА ПАЛЬЦА | "+addcomma(upown) + " уровень |  Апгрейд: " + addcomma(upcost) + " | +" + addcomma(clicksPlus) + "/клик";
             }
         }
 
