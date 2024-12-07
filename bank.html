@@ -519,37 +519,30 @@
     }
     //resets all values
     function reset() {
-        var t = confirm("Точно сбросить?");
-        if (t === true) {
-            alert('ok');
-            Telegram.WebApp.CloudStorage.setItem('money',0);
-            Telegram.WebApp.CloudStorage.setItem('moneyup',1);
-            Telegram.WebApp.CloudStorage.setItem('msec',0);
-            Telegram.WebApp.CloudStorage.setItem('upcost',150);
-            Telegram.WebApp.CloudStorage.setItem('upown',0);
-            Telegram.WebApp.CloudStorage.setItem('upadd',1);
-            Telegram.WebApp.CloudStorage.setItem('uboost',1);
-            localStorage.setItem("money", 0);
-            localStorage.setItem("moneyup", 1);
-            localStorage.setItem("msec", 0);
-            localStorage.setItem("upcost", 150);
-            localStorage.setItem("upown", 0);
-            localStorage.setItem("upadd", 1);
-            localStorage.setItem("uboost", 1);
-            save();
-            money = 0;
-            moneyup = 1;
-            msec = 0;
-            upcost = 150;
-            upown = 0;
-            upadd =1;
-            uboost =1;
-            window.location.reload();
-            reloadall();
-        } else {
-            alert('no');
-        }
-        alert(t);
+        Telegram.WebApp.CloudStorage.setItem('money',0);
+        Telegram.WebApp.CloudStorage.setItem('moneyup',1);
+        Telegram.WebApp.CloudStorage.setItem('msec',0);
+        Telegram.WebApp.CloudStorage.setItem('upcost',150);
+        Telegram.WebApp.CloudStorage.setItem('upown',0);
+        Telegram.WebApp.CloudStorage.setItem('upadd',1);
+        Telegram.WebApp.CloudStorage.setItem('uboost',1);
+        localStorage.setItem("money", 0);
+        localStorage.setItem("moneyup", 1);
+        localStorage.setItem("msec", 0);
+        localStorage.setItem("upcost", 150);
+        localStorage.setItem("upown", 0);
+        localStorage.setItem("upadd", 1);
+        localStorage.setItem("uboost", 1);
+        save();
+        money = 0;
+        moneyup = 1;
+        msec = 0;
+        upcost = 150;
+        upown = 0;
+        upadd =1;
+        uboost =1;
+        // window.location.reload();
+        reloadall();
     }
     //timer
     function myTimer() {
