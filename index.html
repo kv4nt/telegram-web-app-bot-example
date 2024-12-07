@@ -75,11 +75,15 @@
                 var audio = new Audio('sound/eat.mp3');
                 audio.play();
                 setLastEatTime();
+                Telegram.WebApp.CloudStorage.getItem('money',function (er,val) {
+                    Telegram.WebApp.CloudStorage.setItem('money',val-eatCost);
+                })
             }
             $('#eat-count-good').text('+ 25 ед');
             $('#eat-count-bad').text('');
             Telegram.WebApp.CloudStorage.setItem('eat',resultVal);
             setEatProgress(resultVal);
+
         }
 
         function setEatProgress(num) {
