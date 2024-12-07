@@ -34,6 +34,7 @@
 
         function makeCatEat(resultVal) {
             if(!resultVal) {
+                var noMoney = false;
                 Telegram.WebApp.CloudStorage.getItem('money',function (er,val) {
                     if(val < eatCost) {
                         iziToast.show({
@@ -59,12 +60,16 @@
                             },
                             iconColor: 'rgb(0, 255, 184)'
                         });
+                        noMoney = true;
                         return;
                     }
                     $('#timeDiff').text('Ты не кормил кошку '+timediff+' сек. КОШКА ГОЛОДНАЯ!!! За время отсутствия -'+percent+'% еды');
                     $('#eat-count-good').text('');
                     $('#eat-count-bad').text('-'+percent+'%');
                 })
+                if(noMoney) {
+                    return false;
+                }
                 var currentVal = parseInt($('#eat-progress').attr('aria-valuenow')) || 0;
                 if (currentVal >= 100) {
                     currentVal = -25;
