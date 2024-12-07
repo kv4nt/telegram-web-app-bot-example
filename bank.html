@@ -520,6 +520,7 @@
     //resets all values
     function reset() {
         if (confirm("Точно сбросить?") === true) {
+            alert('ok');
             Telegram.WebApp.CloudStorage.setItem('money',0);
             Telegram.WebApp.CloudStorage.setItem('moneyup',1);
             Telegram.WebApp.CloudStorage.setItem('msec',0);
@@ -544,6 +545,8 @@
             uboost =1;
             window.location.reload();
             reloadall();
+        } else {
+            alert('no');
         }
     }
     //timer
