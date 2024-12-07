@@ -17,8 +17,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css" integrity="sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/app.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js" integrity="sha512-Zq9o+E00xhhR/7vJ49mxFNJ0KQw1E1TMWkPTxrWcnpfEFDEXgUiwJHIKit93EW/XxE31HSI5GEOW06G6BF1AtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css" integrity="sha512-O03ntXoVqaGUTAeAmvQ2YSzkCvclZEcPQu1eqloPaHfJ5RuNGiS4l+3duaidD801P50J28EHyonCV06CUlTSag==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script>
+        var eatCost = 1000;
         function setThemeClass() {
             document.documentElement.className = Telegram.WebApp.colorScheme;
         }
@@ -31,7 +33,38 @@
         }
 
         function makeCatEat(resultVal) {
+            iziToast.show({
+                id: 'haduken',
+                theme: 'dark',
+                icon: 'icon-contacts',
+                title: 'Hey',
+                displayMode: 2,
+                message: 'This is Layout 2 example',
+                position: 'topCenter',
+                transitionIn: 'flipInX',
+                transitionOut: 'flipOutX',
+                progressBarColor: 'rgb(0, 255, 184)',
+                image: 'https://avatars2.githubusercontent.com/u/2837790?s=460&u=ac9e3e819e3ff93273f7e1f2c4c6d242e641edfe',
+                imageWidth: 70,
+                layout: 2,
+                onClosing: function(){
+                    console.info('onClosing');
+                },
+                onClosed: function(instance, toast, closedBy){
+                    console.info('Closed | closedBy: ' + closedBy);
+                },
+                iconColor: 'rgb(0, 255, 184)'
+            });
+            return;
             if(!resultVal) {
+                Telegram.WebApp.CloudStorage.getItem('money',function (er,val) {
+                    // if(val < eatCost) {
+                    //     alert()
+                    // }
+                    $('#timeDiff').text('Ты не кормил кошку '+timediff+' сек. КОШКА ГОЛОДНАЯ!!! За время отсутствия -'+percent+'% еды');
+                    $('#eat-count-good').text('');
+                    $('#eat-count-bad').text('-'+percent+'%');
+                })
                 var currentVal = parseInt($('#eat-progress').attr('aria-valuenow')) || 0;
                 if (currentVal >= 100) {
                     currentVal = -25;
