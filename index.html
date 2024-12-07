@@ -35,8 +35,10 @@
                 var currentVal = parseInt($('#eat-progress').attr('aria-valuenow')) || 0;
                 if (currentVal >= 100) {
                     currentVal = -25;
+                    var resultVal = 100;
+                } else {
+                    var resultVal = currentVal + 25;
                 }
-                var resultVal = currentVal + 25;
                 var audio = new Audio('sound/eat.mp3');
                 audio.play();
                 setLastEatTime();
