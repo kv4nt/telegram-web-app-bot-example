@@ -368,7 +368,7 @@
     <h5 id="click" style="font-family:trebuchet MS;">Монет/клик: 1 | Монет/сек: 0</h5>
     <img class="round" src="images/coin.png" width="150" onclick='clicked()'></img>
     <br><br>
-    <button id='upgrade' class="btn" onclick='upgrade("upgrade")' style="font-family:courier;">Способность СИЛА ПАЛЬЦА | 0 уровень |  Стоимость: 15 | +1 монета/клик</button>
+    <button id='upgrade' class="btn btn-secondary" onclick='upgrade("upgrade")' style="font-family:courier;">Способность СИЛА ПАЛЬЦА | 0 уровень |  Стоимость: 15 | +1 монета/клик</button>
     <br><br>
     <button class="settings" onclick="save()">Сохранить</button>
     <button class="settings" onclick="load()">Загрузить</button>
@@ -556,9 +556,9 @@
         money += moneyup;
         document.getElementById("total").innerHTML = "Монет: " + addcomma(money);
         if (money >= upcost) {
-            $('#upgrade').addClass('btn-success').removeClass('btn-danger');
+            $('#upgrade').addClass('btn-success').removeClass('btn-danger').removeClass('btn-secondary');
         } else {
-            $('#upgrade').addClass('btn-danger').removeClass('btn-success');
+            $('#upgrade').addClass('btn-danger').removeClass('btn-success').removeClass('btn-secondary');
         }
     }
     //upgrade function
