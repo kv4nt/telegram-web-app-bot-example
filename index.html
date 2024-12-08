@@ -32,44 +32,39 @@
             setEatProgress(resultVal);
         }
 
+        function checkMoneyForEat() {
+            Telegram.WebApp.CloudStorage.getItem('money',function (er,val) {
+                if(val < eatCost) {
+                    iziToast.show({
+                        id: 'haduken',
+                        theme: 'dark',
+                        icon: 'ico-error',
+                        title: 'Упс :(',
+                        displayMode: 2,
+                        message: 'Не хватает монет',
+                        position: 'topCenter',
+                        transitionIn: 'flipInX',
+                        transitionOut: 'flipOutX',
+                        progressBarColor: 'rgb(0, 255, 184)',
+                        image: 'images/coin.png',
+                        timeout: 2000,
+                        imageWidth: 70,
+                        layout: 2,
+                        onClosing: function(){
+                            console.info('onClosing');
+                        },
+                        onClosed: function(instance, toast, closedBy){
+                            console.info('Closed | closedBy: ' + closedBy);
+                        },
+                        iconColor: 'rgb(0, 255, 184)'
+                    });
+                } else {
+                    makeCatEat();
+                }
+            })
+        }
         function makeCatEat(resultVal) {
             if(!resultVal) {
-                var noMoney = false;
-                Telegram.WebApp.CloudStorage.getItem('money',function (er,val) {
-                    if(val < eatCost) {
-                        iziToast.show({
-                            id: 'haduken',
-                            theme: 'dark',
-                            icon: 'ico-error',
-                            title: 'Упс :(',
-                            displayMode: 2,
-                            message: 'Не хватает монет',
-                            position: 'topCenter',
-                            transitionIn: 'flipInX',
-                            transitionOut: 'flipOutX',
-                            progressBarColor: 'rgb(0, 255, 184)',
-                            image: 'images/coin.png',
-                            timeout: 2000,
-                            imageWidth: 70,
-                            layout: 2,
-                            onClosing: function(){
-                                console.info('onClosing');
-                            },
-                            onClosed: function(instance, toast, closedBy){
-                                console.info('Closed | closedBy: ' + closedBy);
-                            },
-                            iconColor: 'rgb(0, 255, 184)'
-                        });
-                        noMoney = true;
-                        return;
-                    }
-                    $('#timeDiff').text('Ты не кормил кошку '+timediff+' сек. КОШКА ГОЛОДНАЯ!!! За время отсутствия -'+percent+'% еды');
-                    $('#eat-count-good').text('');
-                    $('#eat-count-bad').text('-'+percent+'%');
-                })
-                if(noMoney) {
-                    return false;
-                }
                 var currentVal = parseInt($('#eat-progress').attr('aria-valuenow')) || 0;
                 if (currentVal >= 100) {
                     currentVal = -25;
@@ -662,7 +657,7 @@
                 <div class="progress" id="eat-progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
                     <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" style="width: 0%">0%</div>
                 </div>
-                <button onclick="makeCatEat()" class="btn btn-warning">Кормить за 1000 монет <i class="fa-solid fa-utensils"></i></button>
+                <button onclick="checkMoneyForEat()" class="btn btn-warning">Кормить за 1000 монет <i class="fa-solid fa-utensils"></i></button>
                 <button onclick="makeCatHappy()" class="btn btn-success">Играть <i class="fa-solid fa-volleyball"></i></button>
                 <button onclick="changeCat()" class="btn btn-primary">Сменить кота <i class="fa-solid fa-cat"></i></button>
                 <button onclick="makeCatEatNull()" class="btn btn-danger">Сбросить пищу <i class="fa-solid fa-skull-crossbones"></i></button>
