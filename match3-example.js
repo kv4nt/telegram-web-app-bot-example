@@ -35,10 +35,10 @@ window.onload = function() {
     
     // Level object
     var level = {
-        x: 250,         // X position
-        y: 113,         // Y position
-        columns: 8,     // Number of tile columns
-        rows: 8,        // Number of tile rows
+        x: 15,         // X position
+        y: 100,         // Y position
+        columns: 10,     // Number of tile columns
+        rows: 10,        // Number of tile rows
         tilewidth: 40,  // Visual width of a tile
         tileheight: 40, // Visual height of a tile
         tiles: [],      // The two-dimensional tile array
@@ -83,9 +83,12 @@ window.onload = function() {
     var gameover = false;
     
     // Gui buttons
-    var buttons = [ { x: 30, y: 240, width: 150, height: 50, text: "New Game"},
-                    { x: 30, y: 300, width: 150, height: 50, text: "Show Moves"},
-                    { x: 30, y: 360, width: 150, height: 50, text: "Enable AI Bot"}];
+    // var buttons = [ { x: 30, y: 240, width: 150, height: 50, text: "New Game"},
+    //                 { x: 30, y: 300, width: 150, height: 50, text: "Show Moves"},
+    //                 { x: 30, y: 360, width: 150, height: 50, text: "Enable AI Bot"}];
+    var buttons = [ { x: 5, y: 5, width: 150, height: 50, text: "New Game"},
+        { x: 160, y: 5, width: 150, height: 50, text: "Show Moves"},
+        { x: 315, y: 5, width: 150, height: 50, text: "Enable AI Bot"}];
     
     // Initialize the game
     function init() {
@@ -272,8 +275,8 @@ window.onload = function() {
         // Draw score
         context.fillStyle = "#000000";
         context.font = "24px Verdana";
-        drawCenterText("Score:", 30, level.y+40, 150);
-        drawCenterText(score, 30, level.y+70, 150);
+        drawCenterText("Score:", 450, 30, 150);
+        drawCenterText(score, 450, 50, 150);
         
         // Draw buttons
         drawButtons();
@@ -321,7 +324,7 @@ window.onload = function() {
         // Draw title
         context.fillStyle = "#ffffff";
         context.font = "24px Verdana";
-        context.fillText("Match3 Example - Rembound.com", 10, 30);
+        context.fillText("", 10, 30);
         
         // Display fps
         context.fillStyle = "#ffffff";
