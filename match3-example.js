@@ -37,10 +37,10 @@ window.onload = function() {
     var level = {
         x: 15,         // X position
         y: 100,         // Y position
-        columns: 6,     // Number of tile columns
-        rows: 6,        // Number of tile rows
-        tilewidth: 200,  // Visual width of a tile
-        tileheight: 200, // Visual height of a tile
+        columns: 10,     // Number of tile columns
+        rows: 10,        // Number of tile rows
+        tilewidth: 95,  // Visual width of a tile
+        tileheight: 95, // Visual height of a tile
         tiles: [],      // The two-dimensional tile array
         selectedtile: { selected: false, column: 0, row: 0 }
     };
