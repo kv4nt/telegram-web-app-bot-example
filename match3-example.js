@@ -39,8 +39,8 @@ window.onload = function() {
         y: 100,         // Y position
         columns: 10,     // Number of tile columns
         rows: 10,        // Number of tile rows
-        tilewidth: 80,  // Visual width of a tile
-        tileheight: 80, // Visual height of a tile
+        tilewidth: 82,  // Visual width of a tile
+        tileheight: 82, // Visual height of a tile
         tiles: [],      // The two-dimensional tile array
         selectedtile: { selected: false, column: 0, row: 0 }
     };
