@@ -46,13 +46,15 @@ window.onload = function() {
     };
     
     // All of the different tile colors in RGB
-    var tilecolors = [[255, 128, 128],
+    var tilecolors = [
+        [255, 128, 128],
                       [128, 255, 128],
                       [128, 128, 255],
                       [255, 255, 128],
                       [255, 128, 255],
                       [128, 255, 255],
-                      [255, 255, 255]];
+                      [255, 255, 255]
+    ];
     
     // Clusters and moves that were found
     var clusters = [];  // { column, row, length, horizontal }
@@ -89,6 +91,7 @@ window.onload = function() {
     var buttons = [ { x: 5, y: 5, width: 150, height: 50, text: "New Game"},
         { x: 160, y: 5, width: 150, height: 50, text: "Show Moves"},
         { x: 315, y: 5, width: 150, height: 50, text: "Enable AI Bot"}];
+    var buttons = [];
     
     // Initialize the game
     function init() {
@@ -174,7 +177,8 @@ window.onload = function() {
                         // Add points to the score
                         for (var i=0; i<clusters.length; i++) {
                             // Add extra points for longer clusters
-                            score += 100 * (clusters[i].length - 2);;
+                            //score += 100 * (clusters[i].length - 2);
+                            score += 1 * (clusters[i].length - 2);
                         }
                     
                         // Clusters found, remove them
@@ -275,8 +279,8 @@ window.onload = function() {
         // Draw score
         context.fillStyle = "#000000";
         context.font = "24px Verdana";
-        drawCenterText("Score:", 450, 30, 150);
-        drawCenterText(score, 450, 50, 150);
+        drawCenterText("Очки:", 50, 30, 150);
+        drawCenterText(score, 50, 50, 150);
         
         // Draw buttons
         drawButtons();
@@ -420,6 +424,39 @@ window.onload = function() {
     function drawTile(x, y, r, g, b) {
         context.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
         context.fillRect(x + 2, y + 2, level.tilewidth - 4, level.tileheight - 4);
+        const img = getIconByColorCode(r,g,b);
+        context.drawImage(img,x + 2,y + 2)
+    }
+    function getIconByColorCode(r,g,b){
+        if(r==255 && g==128 && b==128) {
+            img= document.getElementById("match1");
+        }
+        if(r==128 && g==255 && b==128) {
+            img= document.getElementById("match2");
+        }
+        if(r==128 && g==128 && b==255) {
+            img= document.getElementById("match3");
+        }
+        if(r==255 && g==255 && b==128) {
+            img= document.getElementById("match4");
+        }
+        if(r==255 && g==128 && b==255) {
+            img= document.getElementById("match5");
+        }
+        if(r==128 && g==255 && b==255) {
+            img= document.getElementById("match6");
+        }
+        if(r==255 && g==255 && b==255) {
+            img= document.getElementById("match7");
+        }
+        return img;
+            // [255, 128, 128],
+            // [128, 255, 128],
+            // [128, 128, 255],
+            // [255, 255, 128],
+            // [255, 128, 255],
+            // [128, 255, 255],
+            // [255, 255, 255]
     }
     
     // Render clusters
