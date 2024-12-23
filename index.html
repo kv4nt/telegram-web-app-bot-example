@@ -235,7 +235,29 @@
                             setEatProgress(percent);
                             if(percent < -100) {
                                 //dead cat
-                                alert('Вы слишком долго не кормили зверька. Зверушка сбежала от вас.');
+                                iziToast.show({
+                                    id: 'haduken',
+                                    theme: 'dark',
+                                    icon: 'ico-error',
+                                    title: 'Упс :( Зверушка сбежала от вас.',
+                                    displayMode: 2,
+                                    message: 'Вы слишком долго не кормили зверька.',
+                                    position: 'topCenter',
+                                    transitionIn: 'flipInX',
+                                    transitionOut: 'flipOutX',
+                                    progressBarColor: 'rgb(0, 255, 184)',
+                                    image: 'images/cat-crying-cat.gif',
+                                    timeout: 2000,
+                                    imageWidth: 70,
+                                    layout: 2,
+                                    onClosing: function(){
+                                        console.info('onClosing');
+                                    },
+                                    onClosed: function(instance, toast, closedBy){
+                                        console.info('Closed | closedBy: ' + closedBy);
+                                    },
+                                    iconColor: 'rgb(0, 255, 184)'
+                                });
                                 //makeCatEatNull();
                             }
                         }
