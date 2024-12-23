@@ -233,6 +233,11 @@
                             // 43200  - 12 часов
                             var percent = progress-Math.round((timediff/43200)*100).toFixed(2);
                             setEatProgress(percent);
+                            if(percent < -100) {
+                                //dead cat
+                                alert('Вы слишком долго не кормили зверька. Зверушка сбежала от вас.');
+                                //makeCatEatNull();
+                            }
                         }
                     })
                 }
