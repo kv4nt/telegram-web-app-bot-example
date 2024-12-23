@@ -263,7 +263,13 @@
                             if(percent < -100) {
                                 //dead cat
                                 var t = (percent*-1)/100;
-                                alert(t);
+                                //alert(t);
+                                Telegram.WebApp.CloudStorage.getItem('health',function (err,val) {
+                                    if(!err) {
+                                        alert(val-t);
+                                        //Telegram.WebApp.CloudStorage.setItem('health',val-t);
+                                    }
+                                });
                                 iziToast.show({
                                     id: 'empty-bank',
                                     theme: 'dark',
