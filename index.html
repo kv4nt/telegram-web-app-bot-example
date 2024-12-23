@@ -267,7 +267,8 @@
                                 Telegram.WebApp.CloudStorage.getItem('health',function (err,val) {
                                     if(!err) {
                                         //alert(val-t);
-                                        Telegram.WebApp.CloudStorage.setItem('health',val-t);
+                                        //Telegram.WebApp.CloudStorage.setItem('health',val-t);
+                                        makeCatHealth(val-t);
                                         makeCatEatNull();
                                     }
                                 });
