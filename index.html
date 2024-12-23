@@ -163,6 +163,33 @@
             })
         }
 
+        function getHealthValue()
+        {
+            Telegram.WebApp.CloudStorage.getItem('health',function (err,value) {
+                if(!err) {
+                    makeCatHealth(value);
+                } else {
+                    Telegram.WebApp.CloudStorage.setItem('health',0);
+                }
+            })
+        }
+
+        function makeCatHealth(resultVal) {
+            if(!resultVal) {
+                var currentVal = parseInt($('#health-progress').attr('aria-valuenow')) || 0;
+                if (currentVal >= 100) {
+                    currentVal = -10;
+                }
+                var resultVal = currentVal + 10;
+                var audio = new Audio('sound/happy.mp3');
+                audio.play();
+            }
+            Telegram.WebApp.CloudStorage.setItem('health',resultVal);
+            $('#health-progress').attr('aria-valuenow',resultVal);
+            $('#health-progress div').text(resultVal+'%');
+            $('#health-progress div').css('width',resultVal+'%');
+        }
+
         function getCatImage()
         {
             Telegram.WebApp.CloudStorage.getItem('catImage',function (err,value) {
@@ -236,17 +263,17 @@
                             if(percent < -100) {
                                 //dead cat
                                 iziToast.show({
-                                    id: 'dead-cat',
+                                    id: 'empty-bank',
                                     theme: 'dark',
                                     icon: 'ico-error',
-                                    title: 'Упс :( Зверушка сбежала от вас.',
+                                    title: 'Банк пуск',
                                     displayMode: 2,
-                                    message: 'Вы слишком долго не кормили зверька.',
+                                    message: 'Ваша зверушка прихватила с собой весь банк.',
                                     position: 'topCenter',
                                     transitionIn: 'flipInX',
                                     transitionOut: 'flipOutX',
                                     progressBarColor: 'rgb(0, 255, 184)',
-                                    image: 'images/cat-crying-cat.gif',
+                                    image: 'images/coin.png',
                                     timeout: 10000,
                                     imageWidth: 70,
                                     layout: 2,
@@ -259,17 +286,17 @@
                                     iconColor: 'rgb(0, 255, 184)'
                                 });
                                 iziToast.show({
-                                    id: 'empty-bank',
+                                    id: 'dead-cat',
                                     theme: 'dark',
                                     icon: 'ico-error',
-                                    title: 'Банк пуск',
+                                    title: 'Упс :( Зверушка сбежала от вас.',
                                     displayMode: 2,
-                                    message: 'Ваша зверушка прихватила с собой весь банк.',
+                                    message: 'Вы слишком долго не кормили зверька.',
                                     position: 'topCenter',
                                     transitionIn: 'flipInX',
                                     transitionOut: 'flipOutX',
                                     progressBarColor: 'rgb(0, 255, 184)',
-                                    image: 'images/coin.png',
+                                    image: 'images/cat-crying-cat.gif',
                                     timeout: 10000,
                                     imageWidth: 70,
                                     layout: 2,
@@ -341,6 +368,7 @@
             setInterval(getEatPercents,5000);
             // $('#characterName').text(getCharacter());
             setLastEnterTime();
+            getHealthValue();
             // if(getCharacter()) {
             //     alert('Твой выбранный котик '+getCharacter())
             // }
@@ -704,7 +732,7 @@
                     <div class="progress-bar progress-bar-striped progress-bar-animated  bg-success" style="width: 75%">75%</div>
                 </div>
                 <h6 class="text-danger">Жизни <i class="fa-solid fa-heart-pulse"></i></h6>
-                <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress" id="health-progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
                     <div class="progress-bar progress-bar-striped progress-bar-animated  bg-danger" style="width: 85%">85%</div>
                 </div>
                 <h6 class="text-warning">Еда <i class="fa-solid fa-utensils"></i> <span class="text-danger" id="eat-count-bad"></span><span class="text-success" id="eat-count-good"></span></h6>
