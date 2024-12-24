@@ -167,6 +167,7 @@
         {
             Telegram.WebApp.CloudStorage.getItem('health',function (err,value) {
                 if(!err) {
+                    $('#health-count').text(value);
                     makeCatHealth(value);
                 } else {
                     Telegram.WebApp.CloudStorage.setItem('health',0);
@@ -185,6 +186,7 @@
                 audio.play();
             }
             Telegram.WebApp.CloudStorage.setItem('health',resultVal);
+            $('#health-count').text(resultVal);
             $('#health-progress').attr('aria-valuenow',resultVal);
             $('#health-progress div').text(resultVal+'%');
             $('#health-progress div').css('width',resultVal+'%');
@@ -332,11 +334,14 @@
             Telegram.WebApp.CloudStorage.getItem('money',function (err,value) {
                 if(!err) {
                     $('#money-count').text(value||0);
+                    $('#money-count2').text(value||0);
                     if(!value) {
                         $('#money-count').text(0);
+                        $('#money-count2').text(0);
                     }
                 } else {
                     $('#money-count').text(0);
+                    $('#money-count2').text(0);
                 }
             })
         }
@@ -732,10 +737,11 @@
 <div class="row justify-content-center position-relative">
     <div class="col-auto">
         <div class="card" id="cat-card" style="width: 18rem;">
-            <div class="hud-coins">9995959595</div>
+            <div class="hud-health"><i id="health-count"></i></div>
+            <div class="hud-coins"><i id="money-count"></i></div>
             <img src="images/characters/cat/5.jpg" id="catImage" class="card-img-top" alt="...">
             <div class="card-body">
-                <span class="badge bg-warning">Монеты: <i id="money-count"></i></span>
+                <span class="badge bg-warning">Монеты: <i id="money-count2"></i></span>
                 <h5 class="card-title text-dark character-name-top" id="characterName">Персонаж</h5>
                 <span id="timeDiff" class="text-danger"></span>
                 <h6 class="text-success">Настроение <i class="fa-solid fa-face-smile"></i></h6>

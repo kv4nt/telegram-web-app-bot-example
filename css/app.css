@@ -2469,3 +2469,11 @@ pre.line-numbers > code {
     font-family: 'FontAwesome';
     letter-spacing: 2px;
 }
+.hud-health {
+    background-image: url(../images/hud-health.png);
+    height: 60px;
+    width: 186px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
