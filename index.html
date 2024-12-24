@@ -168,6 +168,7 @@
             Telegram.WebApp.CloudStorage.getItem('health',function (err,value) {
                 if(!err) {
                     $('#health-count').text(value);
+                    $('#health-counter-number').text(value);
                     $('#health-counter').css('width',value+'%');
                     makeCatHealth(value);
                 } else {
@@ -188,6 +189,7 @@
             }
             Telegram.WebApp.CloudStorage.setItem('health',resultVal);
             $('#health-count').text(resultVal);
+            $('#health-counter-number').text(resultVal);
             $('#health-counter').css('width',resultVal+'%');
             $('#health-progress').attr('aria-valuenow',resultVal);
             $('#health-progress div').text(resultVal+'%');
@@ -744,7 +746,7 @@
             <div class="hud-coins"><i id="money-count"></i></div>
             <img src="images/characters/cat/5.jpg" id="catImage" class="card-img-top" alt="...">
             <div class="card-body">
-                <span class="badge bg-warning">Монеты: <i id="money-count2"></i></span>
+                <span class="badge bg-warning d-none">Монеты: <i id="money-count2"></i></span>
                 <h5 class="card-title text-dark character-name-top" id="characterName">Персонаж</h5>
                 <span id="timeDiff" class="text-danger"></span>
                 <h6 class="text-success">Настроение <i class="fa-solid fa-face-smile"></i></h6>
