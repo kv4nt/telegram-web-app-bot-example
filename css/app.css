@@ -2490,6 +2490,13 @@ i#health-count {
     top: 15px;
     max-width: 150px;
 }
+i#money-count {
+    position: absolute;
+    top: 14px;
+    left: 43px;
+    font-size: 10px;
+    width: 76px;
+}
 .health-block {
     margin-left: 2px;
     width: 92px;
