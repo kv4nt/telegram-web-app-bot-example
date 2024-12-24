@@ -356,7 +356,16 @@
             })
 
         }
-
+        function getMatch3Score()
+        {
+            Telegram.WebApp.CloudStorage.getItem('match3-score',function (err,value) {
+                if(!err) {
+                    alert(value)
+                } else {
+                    alert('empty')
+                }
+            })
+        }
         function getMoney()
         {
             Telegram.WebApp.CloudStorage.getItem('money',function (err,value) {
@@ -790,7 +799,8 @@
                 <button onclick="changeCat()" class="btn btn-primary">Сменить кота <i class="fa-solid fa-cat"></i></button>
                 <button onclick="makeCatEatNull()" class="btn btn-danger">Сбросить пищу <i class="fa-solid fa-skull-crossbones"></i></button>
                 <button onclick="gotoBank();" class="btn btn-info">Банк <i class="fa-solid fa-coins"></i></button>
-                <button onclick="gotoMatch();" class="btn btn-danger">Три в ряд <i class="fa-solid fa-gamepad"></i></button>
+                <button onclick="gotoMatch();" class="btn btn-danger">Три в ряд | <i class="fa-solid fa-gamepad"></i></button>
+                <button onclick="getMatch3Score();" class="btn btn-danger">Три в ряд | узнать очки</button>
 
 
             </div>
