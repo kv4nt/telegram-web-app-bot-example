@@ -16,9 +16,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.bundle.min.js" integrity="sha512-sH8JPhKJUeA9PWk3eOcOl8U+lfZTgtBXD41q6cO/slwxGHCxKcW45K4oPCUhHG7NMB4mbKEddVmPuTXtpbCbFA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css" integrity="sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/app.css"/>
-    <!-- Yandex.RTB -->
-    <script>window.yaContextCb=window.yaContextCb||[]</script>
-    <script src="https://yandex.ru/ads/system/context.js" async></script>
+    <script src="https://sad.adsgram.ai/js/sad.min.js"></script>
+
 
     <title>Банк</title>
     <style>
@@ -367,13 +366,7 @@
 <button onclick="gotoBank()" class="btn btn-warning"><a href="index.html" onclick="gotoBank()">Вернуться в банк <i class="fa-solid fa-coins"></i></a></button>
 <!-- Yandex.RTB R-A-13460169-1 -->
 <script>
-    window.yaContextCb.push(() => {
-        Ya.Context.AdvManager.render({
-            "blockId": "R-A-13460169-1",
-            "type": "fullscreen",
-            "platform": "touch"
-        })
-    })
+    const AdController = window.Adsgram.init({ blockId: "int-6535" });
 </script>
 
 <style>
@@ -457,13 +450,16 @@
     }
 
     $(document).ready(function () {
-        Telegram.WebApp.CloudStorage.getItem('money',function (err,value) {
-            if(!err) {
-                if(value && localStorage.getItem("moneyup")) {
-                    load();
-                }
-            }
+        AdController.show().then((result) => {
+            // user watch ad till the end or close it in interstitial format
+            // your code to reward user for rewarded format
+            Telegram.WebApp.CloudStorage.setItem('ads',1);
+            window.location.href = 'bank.html';
+        }).catch((result) => {
+            // user get error during playing ad
+            // do nothing or whatever you want
         })
+
     })
 </script>
 
