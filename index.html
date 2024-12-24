@@ -266,14 +266,12 @@
                             // 43200  - 12 часов
                             var percent = progress-Math.round((timediff/43200)*100).toFixed(2);
                             setEatProgress(percent);
-                            alert('percent='+percent);
                             if(percent < -10) {
                                 //dead cat
                                 var t = (percent*-1)/10;
                                 //alert(t);
                                 Telegram.WebApp.CloudStorage.getItem('health',function (err,val) {
                                     if(!err) {
-                                        alert(val-t);
                                         //Telegram.WebApp.CloudStorage.setItem('health',val-t);
                                         iziToast.show({
                                             id: 'notdead-cat',

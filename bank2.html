@@ -368,7 +368,7 @@
     <h5 id="click" style="font-family:trebuchet MS;">Монет/клик: 1 | Монет/сек: 0</h5>
     <img class="round" src="images/coin.png" width="150" onclick='clicked()'></img>
     <br><br>
-    <button id='upgrade' class="btn btn-secondary" onclick='upgrade("upgrade")' style="font-family:courier;">Купить лапку | 0 уровень |  Цена: 10000 | +1 монета/клик</button>
+    <button id='upgrade' class="btn btn-secondary" onclick='upgrade("upgrade")' style="font-family:courier;">Способность СИЛА ПАЛЬЦА | 0 уровень |  Стоимость: 15 | +1 монета/клик</button>
     <br><br>
     <button class="settings" onclick="save()">Сохранить</button>
     <button class="settings" onclick="load()">Загрузить</button>
@@ -463,7 +463,7 @@
     money = 0;
     moneyup = 1;
     msec = 0;
-    upcost = 10000;
+    upcost = 150;
     upown = 0;
     upadd = 1;
     uboost = 1;
@@ -485,7 +485,7 @@
             "Монет/клик: " + addcomma(moneyup);
         document.getElementById("total").innerHTML = "Монет: " + addcomma(money);
         document.getElementById("upgrade").innerHTML =
-            "Купить лапку | "+addcomma(upown) + " уровень |  Цена: " + addcomma(upcost) + " монет | +" + addcomma(upadd) + "/клик";
+            "Способность СИЛА ПАЛЬЦА | "+addcomma(upown) + " уровень |  Апгрейд: " + addcomma(upcost) + " монет | +" + addcomma(upadd) + "/клик";
     }
     //overwrites save file
     function save() {
@@ -522,14 +522,14 @@
         Telegram.WebApp.CloudStorage.setItem('money',0);
         Telegram.WebApp.CloudStorage.setItem('moneyup',1);
         Telegram.WebApp.CloudStorage.setItem('msec',0);
-        Telegram.WebApp.CloudStorage.setItem('upcost',10000);
+        Telegram.WebApp.CloudStorage.setItem('upcost',150);
         Telegram.WebApp.CloudStorage.setItem('upown',0);
         Telegram.WebApp.CloudStorage.setItem('upadd',1);
         Telegram.WebApp.CloudStorage.setItem('uboost',1);
         localStorage.setItem("money", 0);
         localStorage.setItem("moneyup", 1);
         localStorage.setItem("msec", 0);
-        localStorage.setItem("upcost", 10000);
+        localStorage.setItem("upcost", 150);
         localStorage.setItem("upown", 0);
         localStorage.setItem("upadd", 1);
         localStorage.setItem("uboost", 1);
@@ -537,7 +537,7 @@
         money = 0;
         moneyup = 1;
         msec = 0;
-        upcost = 10000;
+        upcost = 150;
         upown = 0;
         upadd =1;
         uboost =1;
@@ -566,14 +566,15 @@
         if (name == "upgrade") {
             if (money >= upcost) {
                 clicksPlus = upcost / 150;
-                moneyup += 1;
+                moneyup += clicksPlus;
                 money -= upcost;
                 upadd++;
                 uboost = 1;
                 upown += 1;
-                upcost = 10000;
+                upcost = upcost * 5;
                 document.getElementById("upgrade").innerHTML =
-                "Купить лапку | "+addcomma(upown) + " уровень |  Цена: " + addcomma(upcost) + " | +" + "1 монета/клик";
+                    //addcomma(upown) + "-сила пальца: " + addcomma(upcost) + " | +" + addcomma(upcost / 15) + "/клик";
+                "Способность СИЛА ПАЛЬЦА | "+addcomma(upown) + " уровень |  Апгрейд: " + addcomma(upcost) + " | +" + addcomma(upcost/150) + "/клик";
             }
         }
 
