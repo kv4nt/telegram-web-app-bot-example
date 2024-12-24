@@ -364,7 +364,7 @@
 </head>
 
 <body onbeforeunload="return closingCode()">
-<button onclick="gotoBank()" class="btn btn-warning"><a href="index.html" onclick="save()">Вернуться к коту <i class="fa-solid fa-cat"></i></a></button>
+<button onclick="gotoBank()" class="btn btn-warning"><a href="index.html" onclick="gotoBank()">Вернуться в банк <i class="fa-solid fa-coins"></i></a></button>
 <!-- Yandex.RTB R-A-13460169-1 -->
 <script>
     window.yaContextCb.push(() => {
@@ -452,6 +452,10 @@
     }
 </style>
 <script type="application/javascript">
+    function gotoBank() {
+        window.location.href = 'bank.html';
+    }
+
     $(document).ready(function () {
         Telegram.WebApp.CloudStorage.getItem('money',function (err,value) {
             if(!err) {
