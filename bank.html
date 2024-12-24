@@ -370,7 +370,7 @@
     <img class="round" src="images/coin.png" width="150" onclick='clicked()'></img>
     <br><br>
     <button id='upgrade' class="btn btn-secondary" onclick='upgrade("upgrade")' style="font-family:courier;">Купить лапку | 0 уровень |  Цена: 10000 | +1 монета/клик</button>
-    <button onclick="checkDiscount()" class="btn btn-danger">Получить скидку 50% <i class="fa-solid fa-gamepad"></i></button>
+    <button onclick="resetDiscount()" class="btn btn-danger">Сбросить скидку</button>
     <br><br>
     <button class="settings" onclick="save()">Сохранить</button>
     <button class="settings" onclick="load()">Загрузить</button>
@@ -485,6 +485,11 @@
             document.getElementById("upgrade").innerHTML =
                 "Купить лапку | "+addcomma(upown) + " уровень |  Цена: " + addcomma(upcost) + " | +" + "1 монета/клик";
         });
+    }
+
+    function resetDiscount() {
+        Telegram.WebApp.CloudStorage.setItem('discount',0);
+        window.location.reload();
     }
 
     function closingCode() {
