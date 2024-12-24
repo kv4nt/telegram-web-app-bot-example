@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css" integrity="sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/app.css"/>
     <!-- Yandex.RTB -->
+    <script>window.yaContextCb=window.yaContextCb||[]</script>
+    <script src="https://yandex.ru/ads/system/context.js" async></script>
 
     <title>Банк</title>
     <style>
@@ -362,21 +364,18 @@
 </head>
 
 <body onbeforeunload="return closingCode()">
-<button onclick="save()" class="btn btn-warning"><a href="index.html" onclick="save()">Вернуться к коту <i class="fa-solid fa-cat"></i></a></button>
-<center class='center'>
-    <button onclick="checkDiscount()" class="btn btn-danger">Получить скидку 50% <span id="discount"></span> <i class="fa-solid fa-gamepad"></i></button>
-    <h1 id='total'>Монет: 0</h1>
-    <h5 id="click" style="font-family:trebuchet MS;">Монет/клик: 1 | Монет/сек: 0</h5>
-    <img class="round" src="images/coin.png" width="150" onclick='clicked()'></img>
-    <br><br>
-    <button id='upgrade' class="btn btn-secondary" onclick='upgrade("upgrade")' style="font-family:courier;">Купить лапку | 0 уровень |  Цена: 10000 | +1 монета/клик</button>
-    <button onclick="resetDiscount()" class="btn btn-danger">Сбросить скидку</button>
-    <br><br>
-    <button class="settings" onclick="save()">Сохранить</button>
-    <button class="settings" onclick="load()">Загрузить</button>
-    <button class="settings" onclick="reset()">Сбросить</button><br><br>
-</center>
-</link>
+<button onclick="gotoBank()" class="btn btn-warning"><a href="index.html" onclick="save()">Вернуться к коту <i class="fa-solid fa-cat"></i></a></button>
+<!-- Yandex.RTB R-A-13460169-1 -->
+<script>
+    window.yaContextCb.push(() => {
+        Ya.Context.AdvManager.render({
+            "blockId": "R-A-13460169-1",
+            "type": "fullscreen",
+            "platform": "touch"
+        })
+    })
+</script>
+
 <style>
     body {
         margin:0px;
@@ -462,165 +461,6 @@
             }
         })
     })
-    money = 0;
-    moneyup = 1;
-    msec = 0;
-    upcost = 10000;
-    upown = 0;
-    upadd = 1;
-    uboost = 1;
-    discount = 0;
-    //save before exiting
-    function gotoAds() {
-        window.location.href = 'ad-watching.html';
-    }
-    function checkDiscount() {
-        Telegram.WebApp.CloudStorage.getItem('discount',function (err,value) {
-            $('#discount').text(value);
-            if(value > 0) { alert('У вас уже применена скидка 50%');return ;}
-            Telegram.WebApp.shareToStory('https://kv4nt.github.io/telegram-web-app-bot-example/images/cat.png',{widget_link:{url:'https://t.me/rostov_gamer_bot'}});
-            gotoAds();
-            Telegram.WebApp.CloudStorage.setItem('discount',50);
-            discount = 50;
-            if(discount==50) {
-                upcost = upcost/2;
-            }
-            document.getElementById("upgrade").innerHTML =
-                "Купить лапку | "+addcomma(upown) + " уровень |  Цена: " + addcomma(upcost) + " | +" + "1 монета/клик";
-        });
-    }
-
-    function resetDiscount() {
-        Telegram.WebApp.CloudStorage.setItem('discount',0);
-        localStorage.setItem("discount", 0);
-        window.location.reload();
-    }
-
-    function closingCode() {
-        if (confirm("Точно закрыть окно? Может сохранимся?") === true) {
-            save();
-            return null;
-        }
-    }
-
-    function addcomma(x) {
-        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-    }
-    //updates all values
-    function reloadall() {
-        if(discount==50) {
-            upcost = upcost/2;
-        }
-        document.getElementById("click").innerHTML =
-            "Монет/клик: " + addcomma(moneyup);
-        document.getElementById("total").innerHTML = "Монет: " + addcomma(money);
-        document.getElementById("upgrade").innerHTML =
-            "Купить лапку | "+addcomma(upown) + " уровень |  Цена: " + addcomma(upcost) + " монет | +" + addcomma(upadd) + "/клик";
-    }
-    //overwrites save file
-    function save() {
-        Telegram.WebApp.CloudStorage.setItem('money',money);
-        Telegram.WebApp.CloudStorage.setItem('moneyup',moneyup);
-        Telegram.WebApp.CloudStorage.setItem('msec',msec);
-        Telegram.WebApp.CloudStorage.setItem('upcost',upcost);
-        Telegram.WebApp.CloudStorage.setItem('upown',upown);
-        Telegram.WebApp.CloudStorage.setItem('upadd',upadd);
-        Telegram.WebApp.CloudStorage.setItem('uboost',uboost);
-        Telegram.WebApp.CloudStorage.setItem('discount',discount);
-        localStorage.setItem("discount", discount);
-        localStorage.setItem("money", money);
-        localStorage.setItem("moneyup", moneyup);
-        localStorage.setItem("msec", msec);
-        localStorage.setItem("upcost", upcost);
-
-        localStorage.setItem("upown", upown);
-        localStorage.setItem("upadd", upadd);
-        localStorage.setItem("uboost", uboost);
-    }
-    //loads save file
-    function load() {
-        money = parseInt(localStorage.getItem("money"));
-        moneyup = parseInt(localStorage.getItem("moneyup"));
-        msec = parseInt(localStorage.getItem("msec"));
-        upcost = parseInt(localStorage.getItem("upcost"));
-        upown = parseInt(localStorage.getItem("upown"));
-        upadd = parseInt(localStorage.getItem("upadd"));
-        uboost = parseInt(localStorage.getItem("uboost"));
-        discount = parseInt(localStorage.getItem("discount"));
-
-        reloadall();
-    }
-    //resets all values
-    function reset() {
-        Telegram.WebApp.CloudStorage.setItem('money',0);
-        Telegram.WebApp.CloudStorage.setItem('moneyup',1);
-        Telegram.WebApp.CloudStorage.setItem('msec',0);
-        Telegram.WebApp.CloudStorage.setItem('upcost',10000);
-        Telegram.WebApp.CloudStorage.setItem('upown',0);
-        Telegram.WebApp.CloudStorage.setItem('upadd',1);
-        Telegram.WebApp.CloudStorage.setItem('uboost',1);
-        Telegram.WebApp.CloudStorage.setItem('discount',0);
-        localStorage.setItem("discount", 0);
-        localStorage.setItem("money", 0);
-        localStorage.setItem("moneyup", 1);
-        localStorage.setItem("msec", 0);
-        localStorage.setItem("upcost", 10000);
-        localStorage.setItem("upown", 0);
-        localStorage.setItem("upadd", 1);
-        localStorage.setItem("uboost", 1);
-        save();
-        money = 0;
-        moneyup = 1;
-        msec = 0;
-        upcost = 10000;
-        upown = 0;
-        upadd =1;
-        uboost =1;
-        discount=0;
-        // window.location.reload();
-        reloadall();
-    }
-    //timer
-    function myTimer() {
-        money += msec;
-        document.getElementById("total").innerHTML = "Монет: " + addcomma(money);
-    }
-    setInterval(myTimer, 1000);
-
-    //what happens when button is clicked
-    function clicked() {
-        money += moneyup;
-        document.getElementById("total").innerHTML = "Монет: " + addcomma(money);
-        if (money >= upcost) {
-            $('#upgrade').addClass('btn-success').removeClass('btn-danger').removeClass('btn-secondary');
-        } else {
-            $('#upgrade').addClass('btn-danger').removeClass('btn-success').removeClass('btn-secondary');
-        }
-    }
-    //upgrade function
-    function upgrade(name) {
-        if (name == "upgrade") {
-            if (money >= upcost) {
-                upcost = 10000;
-                if(discount==50) {
-                    upcost = upcost/2;
-                }
-                clicksPlus = upcost / 150;
-                moneyup += 1;
-                money -= upcost;
-                upadd++;
-                uboost = 1;
-                upown += 1;
-                document.getElementById("upgrade").innerHTML =
-                "Купить лапку | "+addcomma(upown) + " уровень |  Цена: " + addcomma(upcost) + " | +" + "1 монета/клик";
-            }
-        }
-
-        document.getElementById("click").innerHTML =
-            "Монет/клик: " + addcomma(moneyup);
-        document.getElementById("total").innerHTML = "Монет: " + addcomma(money);
-    }
-
 </script>
 
 </body>
