@@ -168,7 +168,7 @@
             Telegram.WebApp.CloudStorage.getItem('health',function (err,value) {
                 if(!err) {
                     $('#health-count').text(value);
-                    $('#health-counter-number').text(value);
+                    $('#health-counter-number').text(value+'%');
                     $('#health-counter').css('width',value+'%');
                     makeCatHealth(value);
                 } else {
@@ -189,7 +189,7 @@
             }
             Telegram.WebApp.CloudStorage.setItem('health',resultVal);
             $('#health-count').text(resultVal);
-            $('#health-counter-number').text(resultVal);
+            $('#health-counter-number').text(resultVal+'%');
             $('#health-counter').css('width',resultVal+'%');
             $('#health-progress').attr('aria-valuenow',resultVal);
             $('#health-progress div').text(resultVal+'%');
@@ -274,56 +274,80 @@
                                     if(!err) {
                                         //alert(val-t);
                                         //Telegram.WebApp.CloudStorage.setItem('health',val-t);
+                                        iziToast.show({
+                                            id: 'notdead-cat',
+                                            theme: 'dark',
+                                            icon: 'ico-error',
+                                            title: 'Упс :( Зверушка изголодалась.',
+                                            displayMode: 2,
+                                            message: 'У вашего зверя теряется здоровье.',
+                                            position: 'topCenter',
+                                            transitionIn: 'flipInX',
+                                            transitionOut: 'flipOutX',
+                                            progressBarColor: 'rgb(0, 255, 184)',
+                                            image: 'images/cat-crying-cat.gif',
+                                            timeout: 10000,
+                                            imageWidth: 70,
+                                            layout: 2,
+                                            onClosing: function(){
+                                                console.info('onClosing');
+                                            },
+                                            onClosed: function(instance, toast, closedBy){
+                                                console.info('Closed | closedBy: ' + closedBy);
+                                            },
+                                            iconColor: 'rgb(0, 255, 184)'
+                                        });
                                         makeCatHealth(val-t);
                                         makeCatEatNull();
+                                        // iziToast.show({
+                                        //     id: 'empty-bank',
+                                        //     theme: 'dark',
+                                        //     icon: 'ico-error',
+                                        //     title: 'Банк пуск',
+                                        //     displayMode: 2,
+                                        //     message: 'Ваша зверушка прихватила с собой весь банк.',
+                                        //     position: 'topCenter',
+                                        //     transitionIn: 'flipInX',
+                                        //     transitionOut: 'flipOutX',
+                                        //     progressBarColor: 'rgb(0, 255, 184)',
+                                        //     image: 'images/coin.png',
+                                        //     timeout: 10000,
+                                        //     imageWidth: 70,
+                                        //     layout: 2,
+                                        //     onClosing: function(){
+                                        //         console.info('onClosing');
+                                        //     },
+                                        //     onClosed: function(instance, toast, closedBy){
+                                        //         console.info('Closed | closedBy: ' + closedBy);
+                                        //     },
+                                        //     iconColor: 'rgb(0, 255, 184)'
+                                        // });
+                                        // iziToast.show({
+                                        //     id: 'dead-cat',
+                                        //     theme: 'dark',
+                                        //     icon: 'ico-error',
+                                        //     title: 'Упс :( Зверушка сбежала от вас.',
+                                        //     displayMode: 2,
+                                        //     message: 'Вы слишком долго не кормили зверька.',
+                                        //     position: 'topCenter',
+                                        //     transitionIn: 'flipInX',
+                                        //     transitionOut: 'flipOutX',
+                                        //     progressBarColor: 'rgb(0, 255, 184)',
+                                        //     image: 'images/cat-crying-cat.gif',
+                                        //     timeout: 10000,
+                                        //     imageWidth: 70,
+                                        //     layout: 2,
+                                        //     onClosing: function(){
+                                        //         console.info('onClosing');
+                                        //     },
+                                        //     onClosed: function(instance, toast, closedBy){
+                                        //         console.info('Closed | closedBy: ' + closedBy);
+                                        //     },
+                                        //     iconColor: 'rgb(0, 255, 184)'
+                                        // });
                                     }
                                 });
-                                iziToast.show({
-                                    id: 'empty-bank',
-                                    theme: 'dark',
-                                    icon: 'ico-error',
-                                    title: 'Банк пуск',
-                                    displayMode: 2,
-                                    message: 'Ваша зверушка прихватила с собой весь банк.',
-                                    position: 'topCenter',
-                                    transitionIn: 'flipInX',
-                                    transitionOut: 'flipOutX',
-                                    progressBarColor: 'rgb(0, 255, 184)',
-                                    image: 'images/coin.png',
-                                    timeout: 10000,
-                                    imageWidth: 70,
-                                    layout: 2,
-                                    onClosing: function(){
-                                        console.info('onClosing');
-                                    },
-                                    onClosed: function(instance, toast, closedBy){
-                                        console.info('Closed | closedBy: ' + closedBy);
-                                    },
-                                    iconColor: 'rgb(0, 255, 184)'
-                                });
-                                iziToast.show({
-                                    id: 'dead-cat',
-                                    theme: 'dark',
-                                    icon: 'ico-error',
-                                    title: 'Упс :( Зверушка сбежала от вас.',
-                                    displayMode: 2,
-                                    message: 'Вы слишком долго не кормили зверька.',
-                                    position: 'topCenter',
-                                    transitionIn: 'flipInX',
-                                    transitionOut: 'flipOutX',
-                                    progressBarColor: 'rgb(0, 255, 184)',
-                                    image: 'images/cat-crying-cat.gif',
-                                    timeout: 10000,
-                                    imageWidth: 70,
-                                    layout: 2,
-                                    onClosing: function(){
-                                        console.info('onClosing');
-                                    },
-                                    onClosed: function(instance, toast, closedBy){
-                                        console.info('Closed | closedBy: ' + closedBy);
-                                    },
-                                    iconColor: 'rgb(0, 255, 184)'
-                                });
+
                                 //makeCatEatNull();
                             }
                         }
