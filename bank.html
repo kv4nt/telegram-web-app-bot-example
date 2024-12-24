@@ -479,6 +479,8 @@
                 Telegram.WebApp.addToHomeScreen();
                 Telegram.WebApp.CloudStorage.setItem('discount',50);
                 discount = 50;
+                document.getElementById("upgrade").innerHTML =
+                    "Купить лапку | "+addcomma(upown) + " уровень |  Цена: " + addcomma(upcost) + " | +" + "1 монета/клик";
             }
         })
     }
