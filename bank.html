@@ -479,6 +479,9 @@
             Telegram.WebApp.shareToStory('https://kv4nt.github.io/telegram-web-app-bot-example/images/cat.png',{widget_link:{url:'https://t.me/rostov_gamer_bot'}});
             Telegram.WebApp.CloudStorage.setItem('discount',50);
             discount = 50;
+            if(discount==50) {
+                upcost = upcost/2;
+            }
             document.getElementById("upgrade").innerHTML =
                 "Купить лапку | "+addcomma(upown) + " уровень |  Цена: " + addcomma(upcost) + " | +" + "1 монета/клик";
         });
@@ -496,6 +499,9 @@
     }
     //updates all values
     function reloadall() {
+        if(discount==50) {
+            upcost = upcost/2;
+        }
         document.getElementById("click").innerHTML =
             "Монет/клик: " + addcomma(moneyup);
         document.getElementById("total").innerHTML = "Монет: " + addcomma(money);
