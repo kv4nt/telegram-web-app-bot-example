@@ -2481,7 +2481,7 @@ pre.line-numbers > code {
     height: 44px;
     width: 140px;
 }
-i#health-count {
+i#health-counter {
     position: absolute;
     height: 17px;
     width: 24%;
