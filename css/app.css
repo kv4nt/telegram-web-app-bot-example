@@ -2490,6 +2490,15 @@ i#health-counter {
     top: 15px;
     max-width: 150px;
 }
+i#health-counter-number {
+    position: absolute;
+    z-index: 9;
+    color: black;
+    font-weight: bolder;
+    top: 14px;
+    left: 8px;
+    font-size: 9px;
+}
 i#money-count {
     position: absolute;
     top: 14px;
