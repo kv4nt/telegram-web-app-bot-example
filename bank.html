@@ -366,7 +366,6 @@
 <center class='center'>
     <button onclick="checkDiscount()" class="btn btn-danger">Получить скидку 50% <i class="fa-solid fa-gamepad"></i></button>
     <h1 id='total'>Монет: 0</h1>
-    Telegram.WebApp.addToHomeScreen()
     <h5 id="click" style="font-family:trebuchet MS;">Монет/клик: 1 | Монет/сек: 0</h5>
     <img class="round" src="images/coin.png" width="150" onclick='clicked()'></img>
     <br><br>
@@ -475,6 +474,7 @@
 
     function checkDiscount() {
         Telegram.WebApp.checkHomeScreenStatus(function(status) {
+            alert(status);
             if(!status) {
                 Telegram.WebApp.addToHomeScreen();
                 Telegram.WebApp.CloudStorage.setItem('discount',50);
