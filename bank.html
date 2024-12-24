@@ -473,16 +473,14 @@
     //save before exiting
 
     function checkDiscount() {
-        Telegram.WebApp.checkHomeScreenStatus(function(status) {
-            alert(status);
-            if(status==='unknown') {
-                Telegram.WebApp.addToHomeScreen();
-                Telegram.WebApp.CloudStorage.setItem('discount',50);
-                discount = 50;
-                document.getElementById("upgrade").innerHTML =
-                    "Купить лапку | "+addcomma(upown) + " уровень |  Цена: " + addcomma(upcost) + " | +" + "1 монета/клик";
-            }
-        })
+        Telegram.WebApp.CloudStorage.getItem('discount',function (err,value) {
+            if(value > 0) { alert('У вас уже применена скидка 50%');return ;}
+            Telegram.WebApp.shareToStory('https://kv4nt.github.io/telegram-web-app-bot-example/images/cat.png',{widget_link:{url:'https://t.me/rostov_gamer_bot'}});
+            Telegram.WebApp.CloudStorage.setItem('discount',50);
+            discount = 50;
+            document.getElementById("upgrade").innerHTML =
+                "Купить лапку | "+addcomma(upown) + " уровень |  Цена: " + addcomma(upcost) + " | +" + "1 монета/клик";
+        });
     }
 
     function closingCode() {
