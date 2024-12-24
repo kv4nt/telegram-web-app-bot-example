@@ -489,6 +489,7 @@
 
     function resetDiscount() {
         Telegram.WebApp.CloudStorage.setItem('discount',0);
+        localStorage.setItem("discount", 0);
         window.location.reload();
     }
 
