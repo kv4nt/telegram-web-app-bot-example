@@ -475,7 +475,7 @@
     function checkDiscount() {
         Telegram.WebApp.checkHomeScreenStatus(function(status) {
             alert(status);
-            if(!status) {
+            if(status==='undefined') {
                 Telegram.WebApp.addToHomeScreen();
                 Telegram.WebApp.CloudStorage.setItem('discount',50);
                 discount = 50;
