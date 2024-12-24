@@ -364,14 +364,14 @@
 <body onbeforeunload="return closingCode()">
 <button onclick="save()" class="btn btn-warning"><a href="index.html">Вернуться к коту <i class="fa-solid fa-cat"></i></a></button>
 <center class='center'>
-    <button onclick="Telegram.WebApp.addToHomeScreen()" class="btn btn-danger">Получить скидку 50% <i class="fa-solid fa-gamepad"></i></button>
+    <button onclick="checkDiscount()" class="btn btn-danger">Получить скидку 50% <i class="fa-solid fa-gamepad"></i></button>
     <h1 id='total'>Монет: 0</h1>
     Telegram.WebApp.addToHomeScreen()
     <h5 id="click" style="font-family:trebuchet MS;">Монет/клик: 1 | Монет/сек: 0</h5>
     <img class="round" src="images/coin.png" width="150" onclick='clicked()'></img>
     <br><br>
     <button id='upgrade' class="btn btn-secondary" onclick='upgrade("upgrade")' style="font-family:courier;">Купить лапку | 0 уровень |  Цена: 10000 | +1 монета/клик</button>
-    <button onclick="Telegram.WebApp.addToHomeScreen()" class="btn btn-danger">Получить скидку 50% <i class="fa-solid fa-gamepad"></i></button>
+    <button onclick="checkDiscount()" class="btn btn-danger">Получить скидку 50% <i class="fa-solid fa-gamepad"></i></button>
     <br><br>
     <button class="settings" onclick="save()">Сохранить</button>
     <button class="settings" onclick="load()">Загрузить</button>
@@ -470,8 +470,19 @@
     upown = 0;
     upadd = 1;
     uboost = 1;
-
+    discount = 0;
     //save before exiting
+
+    function checkDiscount() {
+        Telegram.WebApp.checkHomeScreenStatus(function(status) {
+            if(!status) {
+                Telegram.WebApp.addToHomeScreen();
+                Telegram.WebApp.CloudStorage.setItem('discount',50);
+                discount = 50;
+            }
+        })
+    }
+
     function closingCode() {
         if (confirm("Точно закрыть окно? Может сохранимся?") === true) {
             save();
@@ -499,6 +510,8 @@
         Telegram.WebApp.CloudStorage.setItem('upown',upown);
         Telegram.WebApp.CloudStorage.setItem('upadd',upadd);
         Telegram.WebApp.CloudStorage.setItem('uboost',uboost);
+        Telegram.WebApp.CloudStorage.setItem('discount',discount);
+        localStorage.setItem("discount", discount);
         localStorage.setItem("money", money);
         localStorage.setItem("moneyup", moneyup);
         localStorage.setItem("msec", msec);
@@ -517,6 +530,7 @@
         upown = parseInt(localStorage.getItem("upown"));
         upadd = parseInt(localStorage.getItem("upadd"));
         uboost = parseInt(localStorage.getItem("uboost"));
+        discount = parseInt(localStorage.getItem("discount"));
 
         reloadall();
     }
@@ -529,6 +543,8 @@
         Telegram.WebApp.CloudStorage.setItem('upown',0);
         Telegram.WebApp.CloudStorage.setItem('upadd',1);
         Telegram.WebApp.CloudStorage.setItem('uboost',1);
+        Telegram.WebApp.CloudStorage.setItem('discount',0);
+        localStorage.setItem("discount", 0);
         localStorage.setItem("money", 0);
         localStorage.setItem("moneyup", 1);
         localStorage.setItem("msec", 0);
@@ -544,6 +560,7 @@
         upown = 0;
         upadd =1;
         uboost =1;
+        discount=0;
         // window.location.reload();
         reloadall();
     }
@@ -568,13 +585,16 @@
     function upgrade(name) {
         if (name == "upgrade") {
             if (money >= upcost) {
+                upcost = 10000;
+                if(discount==50) {
+                    upcost = upcost/2;
+                }
                 clicksPlus = upcost / 150;
                 moneyup += 1;
                 money -= upcost;
                 upadd++;
                 uboost = 1;
                 upown += 1;
-                upcost = 10000;
                 document.getElementById("upgrade").innerHTML =
                 "Купить лапку | "+addcomma(upown) + " уровень |  Цена: " + addcomma(upcost) + " | +" + "1 монета/клик";
             }
