@@ -364,11 +364,14 @@
 <body onbeforeunload="return closingCode()">
 <button onclick="save()" class="btn btn-warning"><a href="index.html">Вернуться к коту <i class="fa-solid fa-cat"></i></a></button>
 <center class='center'>
+    <button onclick="Telegram.WebApp.addToHomeScreen()" class="btn btn-danger">Получить скидку 50% <i class="fa-solid fa-gamepad"></i></button>
     <h1 id='total'>Монет: 0</h1>
+    Telegram.WebApp.addToHomeScreen()
     <h5 id="click" style="font-family:trebuchet MS;">Монет/клик: 1 | Монет/сек: 0</h5>
     <img class="round" src="images/coin.png" width="150" onclick='clicked()'></img>
     <br><br>
     <button id='upgrade' class="btn btn-secondary" onclick='upgrade("upgrade")' style="font-family:courier;">Купить лапку | 0 уровень |  Цена: 10000 | +1 монета/клик</button>
+    <button onclick="Telegram.WebApp.addToHomeScreen()" class="btn btn-danger">Получить скидку 50% <i class="fa-solid fa-gamepad"></i></button>
     <br><br>
     <button class="settings" onclick="save()">Сохранить</button>
     <button class="settings" onclick="load()">Загрузить</button>
