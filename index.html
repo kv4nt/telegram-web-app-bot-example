@@ -183,7 +183,7 @@
                 if (currentVal >= 100) {
                     currentVal = -10;
                 }
-                var resultVal = currentVal + 10;
+                var resultVal = (currentVal + 10).toFixed(2);
                 var audio = new Audio('sound/happy.mp3');
                 audio.play();
             }
