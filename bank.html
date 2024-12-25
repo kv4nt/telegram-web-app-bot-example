@@ -489,7 +489,9 @@
             Telegram.WebApp.CloudStorage.setItem('ad-watched',1);
             window.location.reload();
             console.log('tma ad played');
-        }).catch(e => console.error('ad error', e))
+        }).catch(e => {
+            window.location.reload();
+            console.error('ad error', e);})
     }
     function checkAdWatched() {
         Telegram.WebApp.CloudStorage.getItem('ad-watched',function (err,value) {
