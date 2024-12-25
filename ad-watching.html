@@ -373,6 +373,7 @@
 </script>
 <button onclick="window.show().then(() => {
     Telegram.WebApp.CloudStorage.setItem('ad-watched',1);
+    gotoBank();
     console.log('tma ad played');
 }).catch(e => console.error('ad error', e))">
     Play Ad
