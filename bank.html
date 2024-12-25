@@ -597,6 +597,7 @@
     }
     //loads save file
     function load() {
+        getAllValues();
         money = parseInt(localStorage.getItem("money"));
         moneyup = parseInt(localStorage.getItem("moneyup"));
         msec = parseInt(localStorage.getItem("msec"));
@@ -607,6 +608,66 @@
         discount = parseInt(localStorage.getItem("discount"));
 
         reloadall();
+    }
+
+    function getAllValues()
+    {
+        Telegram.WebApp.CloudStorage.getItem('money',function (err,value) {
+            if(!err) {
+                localStorage.setItem("money",value);
+            }
+        });
+        Telegram.WebApp.CloudStorage.getItem('moneyup',function (err,value) {
+            if(!err) {
+                localStorage.setItem("moneyup",value);
+            }
+        });
+        Telegram.WebApp.CloudStorage.getItem('msec',function (err,value) {
+            if(!err) {
+                localStorage.setItem("msec",value);
+            }
+        });
+        Telegram.WebApp.CloudStorage.getItem('upcost',function (err,value) {
+            if(!err) {
+                localStorage.setItem("upcost",value);
+            }
+        });
+        Telegram.WebApp.CloudStorage.getItem('upown',function (err,value) {
+            if(!err) {
+                localStorage.setItem("upown",value);
+            }
+        });
+        Telegram.WebApp.CloudStorage.getItem('upadd',function (err,value) {
+            if(!err) {
+                localStorage.setItem("upadd",value);
+            }
+        });
+        Telegram.WebApp.CloudStorage.getItem('uboost',function (err,value) {
+            if(!err) {
+                localStorage.setItem("uboost",value);
+            }
+        });
+        Telegram.WebApp.CloudStorage.getItem('discount',function (err,value) {
+            if(!err) {
+                localStorage.setItem("discount",value);
+            }
+        });
+    }
+    function getDiscountValue()
+    {
+        Telegram.WebApp.CloudStorage.getItem('discount',function (err,value) {
+            if(!err) {
+                localStorage.setItem("discount",value);
+            }
+        })
+    }
+    function getMoneyValue()
+    {
+        Telegram.WebApp.CloudStorage.getItem('money',function (err,value) {
+            if(!err) {
+                localStorage.setItem("money",value);
+            }
+        })
     }
     //resets all values
     function reset() {
