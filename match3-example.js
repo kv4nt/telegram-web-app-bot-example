@@ -178,7 +178,7 @@ window.onload = function() {
                         for (var i=0; i<clusters.length; i++) {
                             // Add extra points for longer clusters
                             //score += 100 * (clusters[i].length - 2);
-                            score += 1 * (clusters[i].length - 2);
+                            score += 5 * (clusters[i].length - 2);
                         }
                     
                         // Clusters found, remove them

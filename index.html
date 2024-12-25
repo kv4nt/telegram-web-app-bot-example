@@ -359,7 +359,7 @@
         function getMatch3ScoreMessage()
         {
             Telegram.WebApp.CloudStorage.getItem('match3-score',function (err,value) {
-                if(!err && value) {
+                if(!err && value > 0) {
                     iziToast.show({
                             id: 'match3-scoret',
                             theme: 'dark',
@@ -379,6 +379,7 @@
                                 console.info('onClosing');
                             },
                             onClosed: function(instance, toast, closedBy){
+                                Telegram.WebApp.CloudStorage.setItem('match3-score',0);
                                 console.info('Closed | closedBy: ' + closedBy);
                             },
                             iconColor: 'rgb(0, 255, 184)'
