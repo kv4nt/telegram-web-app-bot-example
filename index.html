@@ -356,6 +356,36 @@
             })
 
         }
+        function getMatch3ScoreMessage()
+        {
+            Telegram.WebApp.CloudStorage.getItem('match3-score',function (err,value) {
+                if(!err && value) {
+                    iziToast.show({
+                            id: 'match3-scoret',
+                            theme: 'dark',
+                            icon: 'ico-success',
+                            title: 'Ура :)',
+                            displayMode: 2,
+                            message: 'Вы заработали монет: '+value,
+                            position: 'topCenter',
+                            transitionIn: 'flipInX',
+                            transitionOut: 'flipOutX',
+                            progressBarColor: 'rgb(0, 255, 184)',
+                            image: 'images/cat-crying-cat.gif',
+                            timeout: 4000,
+                            imageWidth: 70,
+                            layout: 2,
+                            onClosing: function(){
+                                console.info('onClosing');
+                            },
+                            onClosed: function(instance, toast, closedBy){
+                                console.info('Closed | closedBy: ' + closedBy);
+                            },
+                            iconColor: 'rgb(0, 255, 184)'
+                        });
+                }
+            })
+        }
         function getMatch3Score()
         {
             Telegram.WebApp.CloudStorage.getItem('match3-score',function (err,value) {
@@ -425,6 +455,7 @@
             // $('#characterName').text(getCharacter());
             setLastEnterTime();
             getHealthValue();
+            getMatch3ScoreMessage();
             // if(getCharacter()) {
             //     alert('Твой выбранный котик '+getCharacter())
             // }

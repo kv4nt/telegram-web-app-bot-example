@@ -505,7 +505,31 @@
             window.location.reload();
             console.log('tma ad played');
         }).catch(e => {
-            window.location.reload();
+            iziToast.show({
+                id: 'ads-watching-reward',
+                theme: 'dark',
+                icon: 'ico-success',
+                title: 'Упс :(',
+                displayMode: 2,
+                message: 'Что-то не так с просмотреом рекламы',
+                position: 'topCenter',
+                transitionIn: 'flipInX',
+                transitionOut: 'flipOutX',
+                progressBarColor: 'rgb(0, 255, 184)',
+                image: 'images/cat-crying-cat.gif',
+                timeout: 4000,
+                imageWidth: 70,
+                layout: 2,
+                onClosing: function () {
+                    console.info('onClosing');
+                },
+                onClosed: function (instance, toast, closedBy) {
+                    window.location.reload();
+                    console.info('Closed | closedBy: ' + closedBy);
+                },
+                iconColor: 'rgb(0, 255, 184)'
+            });
+
             console.error('ad error', e);})
     }
     function checkAdWatched() {
