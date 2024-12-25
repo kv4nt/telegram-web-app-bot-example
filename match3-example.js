@@ -283,7 +283,7 @@ window.onload = function() {
         drawCenterText(score, 50, 50, 150);
         document.getElementById('coins').innerText = "Очки:"+score;
         //set score to tg
-         Telegram.WebApp.CloudStorage.setItem('match3-score',score);
+         //Telegram.WebApp.CloudStorage.setItem('match3-score',score);
 
         
         // Draw buttons
