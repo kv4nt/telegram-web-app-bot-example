@@ -281,6 +281,7 @@ window.onload = function() {
         context.font = "24px Verdana";
         drawCenterText("Очки:", 50, 30, 150);
         drawCenterText(score, 50, 50, 150);
+        $('#coins').text("Очки:"+score);
         //set score to tg
         Telegram.WebApp.CloudStorage.setItem('match3-score',score);
         Telegram.WebApp.CloudStorage.getItem('money',function (err,value) {
