@@ -465,6 +465,7 @@
     $(document).ready(function () {
         checkDiscount();
         checkAdWatched();
+
         Telegram.WebApp.CloudStorage.getItem('money',function (err,value) {
             if(!err) {
                 if(value && localStorage.getItem("moneyup")) {
@@ -472,6 +473,7 @@
                 }
             }
         })
+        reloadall();
     })
     money = 0;
     moneyup = 1;
