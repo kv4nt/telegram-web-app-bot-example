@@ -363,6 +363,8 @@
                     Telegram.WebApp.CloudStorage.getItem('money',function (err,meneyvalue) {
                         if(!err) {
                             Telegram.WebApp.CloudStorage.setItem('money',parseInt(value)+parseInt(meneyvalue));
+                            $('#money-count').text(parseInt(value)+parseInt(meneyvalue));
+                            $('#money-count2').text(parseInt(value)+parseInt(meneyvalue));
                         }
                     })
                     iziToast.show({
