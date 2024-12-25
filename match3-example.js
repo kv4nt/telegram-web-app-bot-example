@@ -283,12 +283,8 @@ window.onload = function() {
         drawCenterText(score, 50, 50, 150);
         document.getElementById('coins').text = "Очки:"+score;
         //set score to tg
-        Telegram.WebApp.CloudStorage.setItem('match3-score',score);
-        Telegram.WebApp.CloudStorage.getItem('money',function (err,value) {
-            if(!err) {
-                Telegram.WebApp.CloudStorage.setItem('money',value+score);
-            }
-        })
+        // Telegram.WebApp.CloudStorage.setItem('match3-score',score);
+
         
         // Draw buttons
         drawButtons();
