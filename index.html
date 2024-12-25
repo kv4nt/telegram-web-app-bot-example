@@ -224,6 +224,7 @@
             Telegram.WebApp.CloudStorage.setItem('catImage',catImage);
             //var audio = new Audio('sound/cat-select.mp3');
             //audio.play();
+            var catName = Telegram.WebApp.initDataUnsafe.user.first_name+' '+Telegram.WebApp.initDataUnsafe.user.last_name;
             alert('Котик '+catName+' успешно выбран!');
             setTimeout(function () {
                 window.location.reload();
@@ -240,6 +241,7 @@
         {
             Telegram.WebApp.CloudStorage.getItem('character',function (err,value) {
                 if(!err) {
+                    var value = Telegram.WebApp.initDataUnsafe.user.first_name+' '+Telegram.WebApp.initDataUnsafe.user.last_name;
                     $('#characterName').text(value);
                 }
             })
