@@ -490,6 +490,7 @@
         Telegram.WebApp.CloudStorage.getItem('discount', function (discountErr, discountValue) {
             discountValue = parseInt(discountValue);
             Telegram.WebApp.CloudStorage.setItem('discount', discountValue + parseInt(val));
+            window.location.reload();
         });
     }
 
