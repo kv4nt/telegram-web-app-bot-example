@@ -566,8 +566,8 @@
     }
     //updates all values
     function reloadall() {
-        if(discount==50) {
-            upcost = upcost/2;
+        if(discount) {
+            upcost = upcost-(upcost*(discount/100));
         }
         document.getElementById("click").innerHTML =
             "Монет/клик: " + addcomma(moneyup);
