@@ -454,6 +454,7 @@
 </style>
 <script type="application/javascript">
     $(document).ready(function () {
+        checkDiscount();
         checkAdWatched();
         Telegram.WebApp.CloudStorage.getItem('money',function (err,value) {
             if(!err) {
@@ -515,7 +516,7 @@
     }
     function checkDiscount() {
         Telegram.WebApp.CloudStorage.getItem('discount',function (err,value) {
-            //$('#discount').text(value);
+            $('#discount').text(value);
             if(value > 50) { alert('У вас уже применена максимальная скидка 50%');return ;}
             //Telegram.WebApp.shareToStory('https://kv4nt.github.io/telegram-web-app-bot-example/images/cat.png',{widget_link:{url:'https://t.me/rostov_gamer_bot'}});
             gotoAds();
