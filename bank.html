@@ -492,7 +492,7 @@
     }
     function checkAdWatched() {
         Telegram.WebApp.CloudStorage.getItem('ad-watched',function (err,value) {
-            if(value===1) {
+            if(value==1) {
                 Telegram.WebApp.CloudStorage.getItem('discount', function (discountErr, discountValue) {
                     if (discountValue >= 50) {
                         alert('У вас уже применена максимальная скидка 50%');
