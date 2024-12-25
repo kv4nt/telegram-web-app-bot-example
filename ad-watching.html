@@ -17,8 +17,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css" integrity="sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/app.css"/>
     <script async src="https://js.onclckmn.com/static/onclicka.js" data-admpid="273551"></script>
-    <div data-banner-id="6050441"></div>
-    <div data-banner-id="6050444"></div>
+    <script src="<https://js.onclckvd.com/in-stream-ad-admanager/tma.js>"></script>
+<!--    <div data-banner-id="6050441"></div></div>-->
     <div id="video"></div>
     <title>Банк</title>
     <style>
@@ -365,7 +365,13 @@
 
 <body>
 <button onclick="gotoBank()" class="btn btn-warning"><a href="bank.html" onclick="gotoBank()">Вернуться в банк <i class="fa-solid fa-coins"></i></a></button>
-
+<script>
+    // Initialize the ad engine and get the SHOW method to display ads
+    window.initCdTma({ id: '6050444' }).then(show => window.show = show)
+</script>
+<button onclick="window.show().then(() => console.log('tma ad played')).catch(e => console.error('ad error', e))">
+    Play Ad
+</button>
 <style>
     body {
         margin:0px;
