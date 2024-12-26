@@ -778,6 +778,9 @@
                 "Купить лапку | "+addcomma(upown) + " уровень |  Цена: " + addcomma(upcost) + " | +" + "1 монета/клик";
                 upcost = 10000;
                 discount = 0;
+                Telegram.WebApp.CloudStorage.setItem('upcost',10000);
+                localStorage.setItem("upcost", 10000);
+                reloadall();
             }
         }
 
