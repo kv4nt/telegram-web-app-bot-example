@@ -646,10 +646,11 @@
     //loads save file
     function load() {
         getAllValues();
+        getLevelPrice();
         money = parseInt(localStorage.getItem("money"));
         moneyup = parseInt(localStorage.getItem("moneyup"));
         msec = parseInt(localStorage.getItem("msec"));
-        upcost = 10000;
+        upcost = parseInt(localStorage.getItem("price"))|10000;
         upown = parseInt(localStorage.getItem("upown"));
         upadd = parseInt(localStorage.getItem("upadd"));
         uboost = parseInt(localStorage.getItem("uboost"));
