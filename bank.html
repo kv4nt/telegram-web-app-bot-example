@@ -500,7 +500,8 @@
             discountValue = parseInt(discountValue);
             Telegram.WebApp.CloudStorage.setItem('discount', discountValue + parseInt(val));
             localStorage.setItem("discount", discountValue + parseInt(val));
-            window.location.reload();
+            reloadall();
+            //window.location.reload();
         });
     }
 
