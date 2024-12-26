@@ -469,7 +469,7 @@
     var levelCost = 10000;
 
     $(document).ready(function () {
-        checkDiscount();
+        checkDiscount(0);
         checkAdWatched();
         getLevelPrice();
 
@@ -615,11 +615,10 @@
     }
     //updates all values
     function reloadall() {
-        if(discount) {
-            upcost = upcost-(upcost*(discount/100));
-        }
         document.getElementById("click").innerHTML =
             "Монет/клик: " + addcomma(moneyup);
+        document.getElementById("level").innerHTML =
+            "Уровень: " + addcomma(upown);
         document.getElementById("total").innerHTML = "Монет: " + addcomma(money);
         document.getElementById("upgrade").innerHTML =
             "Купить лапку | "+addcomma(upown) + " уровень |  Цена: " + addcomma(upcost) + " монет | +" + addcomma(upadd) + "/клик";
@@ -789,9 +788,10 @@
                 Telegram.WebApp.CloudStorage.setItem('upcost',10000);
                 localStorage.setItem("upcost", 10000);
                 document.getElementById("level").innerHTML = "Уровень: " + addcomma(upown);
-                checkDiscount(0);
+                //checkDiscount(0);
                 reloadall();
-                successMessage('Новый уровень!','Вы получили новый уровень и теперь зарабатываете больше!')
+                successMessage('Новый уровень!','Вы получили новый уровень и теперь зарабатываете больше!');
+                checkDiscount(0);
             }
         }
 
