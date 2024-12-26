@@ -538,6 +538,7 @@
                 Telegram.WebApp.CloudStorage.getItem('discount', function (discountErr, discountValue) {
                     discountValue = parseInt(discountValue);
                     if (discountValue >= 50) {
+                        Telegram.WebApp.CloudStorage.setItem('ad-watched', 0);
                         alert('У вас уже применена максимальная скидка 50%');
                         return;
                     }
@@ -578,7 +579,7 @@
             $('#discount').text(value??'0');
             //Telegram.WebApp.shareToStory('https://kv4nt.github.io/telegram-web-app-bot-example/images/cat.png',{widget_link:{url:'https://t.me/rostov_gamer_bot'}});
             if(watch) {
-                if(value > 50) { alert('У вас уже применена максимальная скидка 50%');return ;}
+                if(value >= 50) { alert('У вас уже применена максимальная скидка 50%');return ;}
                 watchAd();
             }
             // Telegram.WebApp.CloudStorage.setItem('discount',50);
