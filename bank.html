@@ -773,7 +773,7 @@
         if (name == "upgrade") {
             getLevelPrice();
             upcost = parseInt(localStorage.getItem("price"))
-            alert(upcost);
+            //alert(upcost);
             if (money >= upcost) {
                 // if(discount) {
                 //     upcost = upcost-(upcost*(discount/100));
@@ -798,6 +798,8 @@
                 setTimeout(function () {
                     reloadall();
                 },500);
+            } else {
+                errorMessage('Упс!','Не хватает монет для покупки лапки');
             }
         }
 
@@ -823,6 +825,32 @@
             id: 'ads-watching-reward',
             theme: 'dark',
             icon: 'ico-success',
+            title: title,
+            displayMode: 2,
+            message: text,
+            position: 'topCenter',
+            transitionIn: 'flipInX',
+            transitionOut: 'flipOutX',
+            progressBarColor: 'rgb(0, 255, 184)',
+            image: 'images/cat-crying-cat.gif',
+            timeout: 4000,
+            imageWidth: 70,
+            layout: 2,
+            onClosing: function () {
+                console.info('onClosing');
+            },
+            onClosed: function (instance, toast, closedBy) {
+                reloadall();
+                console.info('Closed | closedBy: ' + closedBy);
+            },
+            iconColor: 'rgb(0, 255, 184)'
+        });
+    }
+    function errorMessage(title='Упс!',text='Что-то пошло не так') {
+        iziToast.show({
+            id: 'ads-watching-reward',
+            theme: 'dark',
+            icon: 'ico-error',
             title: title,
             displayMode: 2,
             message: text,
