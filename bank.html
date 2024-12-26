@@ -774,7 +774,6 @@
                 // if(discount) {
                 //     upcost = upcost-(upcost*(discount/100));
                 // }
-                clicksPlus = upcost / 150;
                 moneyup += 1;
                 money -= upcost;
                 upadd++;
@@ -807,7 +806,8 @@
                 var discount = parseInt(discount);
                 price = levelCost-(levelCost*(discount/100));
                 localStorage.setItem("price", price);
-                alert(price);
+                upcost=price;
+                //alert(price);
             }
         })
     }
