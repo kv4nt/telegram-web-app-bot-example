@@ -773,6 +773,7 @@
         if (name == "upgrade") {
             getLevelPrice();
             upcost = parseInt(localStorage.getItem("price"))
+            alert(upcost);
             if (money >= upcost) {
                 // if(discount) {
                 //     upcost = upcost-(upcost*(discount/100));
