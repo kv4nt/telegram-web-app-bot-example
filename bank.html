@@ -376,6 +376,7 @@
     <button onclick="save()" class="btn btn-warning"><a href="index.html" onclick="save()">Вернуться к коту <i class="fa-solid fa-cat"></i></a></button>
     <button onclick="setDiscount(+10)" class="btn btn-danger">Скидка +10%</button>
     <button onclick="setDiscount(-10)" class="btn btn-danger">Скидка -10%</button>
+    <h1 id='level'>Уровень: 0</h1>
     <h1 id='total'>Монет: 0</h1>
     <h5 id="click" style="font-family:trebuchet MS;">Монет/клик: 1 | Монет/сек: 0</h5>
     <img class="round" src="images/coin.png" width="150" onclick='clicked()'/>
@@ -465,9 +466,12 @@
     }
 </style>
 <script type="application/javascript">
+    var levelCost = 10000;
+
     $(document).ready(function () {
         checkDiscount();
         checkAdWatched();
+        getLevelPrice();
 
         Telegram.WebApp.CloudStorage.getItem('money',function (err,value) {
             if(!err) {
@@ -755,7 +759,7 @@
     function clicked() {
         money += moneyup;
         document.getElementById("total").innerHTML = "Монет: " + addcomma(money);
-        if (money >= upcost) {
+        if (money >= localStorage.getItem("price")) {
             $('#upgrade').addClass('btn-success').removeClass('btn-danger').removeClass('btn-secondary');
         } else {
             $('#upgrade').addClass('btn-danger').removeClass('btn-success').removeClass('btn-secondary');
@@ -764,10 +768,12 @@
     //upgrade function
     function upgrade(name) {
         if (name == "upgrade") {
+            getLevelPrice();
+            upcost = parseInt(localStorage.getItem("price"))
             if (money >= upcost) {
-                if(discount) {
-                    upcost = upcost-(upcost*(discount/100));
-                }
+                // if(discount) {
+                //     upcost = upcost-(upcost*(discount/100));
+                // }
                 clicksPlus = upcost / 150;
                 moneyup += 1;
                 money -= upcost;
@@ -782,8 +788,10 @@
                 localStorage.setItem("discount", 0);
                 Telegram.WebApp.CloudStorage.setItem('upcost',10000);
                 localStorage.setItem("upcost", 10000);
+                document.getElementById("level").innerHTML = "Уровень: " + addcomma(upown);
                 checkDiscount(0);
                 reloadall();
+                successMessage('Новый уровень!','Вы получили новый уровень и теперь зарабатываете больше!')
             }
         }
 
@@ -791,8 +799,43 @@
             "Монет/клик: " + addcomma(moneyup);
         document.getElementById("total").innerHTML = "Монет: " + addcomma(money);
     }
+
+    function getLevelPrice() {
+        Telegram.WebApp.CloudStorage.getItem('discount',function (err,discount) {
+            if(!err && discount) {
+                var discount = parseInt(discount);
+                price = levelCost-(levelCost*(discount/100));
+                localStorage.setItem("price", price);
+            }
+        })
+    }
+
+    function successMessage(title='Ура!',text='Вы получили дополнительную скидку +10% на покупку лапки') {
+        iziToast.show({
+            id: 'ads-watching-reward',
+            theme: 'dark',
+            icon: 'ico-success',
+            title: title,
+            displayMode: 2,
+            message: text,
+            position: 'topCenter',
+            transitionIn: 'flipInX',
+            transitionOut: 'flipOutX',
+            progressBarColor: 'rgb(0, 255, 184)',
+            image: 'images/cat-crying-cat.gif',
+            timeout: 4000,
+            imageWidth: 70,
+            layout: 2,
+            onClosing: function () {
+                console.info('onClosing');
+            },
+            onClosed: function (instance, toast, closedBy) {
+                console.info('Closed | closedBy: ' + closedBy);
+            },
+            iconColor: 'rgb(0, 255, 184)'
+        });
+    }
 </script>
-    <img src="images/hud-health.png" height="60" width="186"/></script>
 
 </body>
 </html>
