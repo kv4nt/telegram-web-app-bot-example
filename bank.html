@@ -766,8 +766,6 @@
             if (money >= upcost) {
                 if(discount) {
                     upcost = upcost-(upcost*(discount/100));
-                    Telegram.WebApp.CloudStorage.setItem('discount',0);
-                    localStorage.setItem("discount", 0);
                 }
                 clicksPlus = upcost / 150;
                 moneyup += 1;
@@ -779,6 +777,8 @@
                 "Купить лапку | "+addcomma(upown) + " уровень |  Цена: " + addcomma(upcost) + " | +" + "1 монета/клик";
                 upcost = 10000;
                 discount = 0;
+                Telegram.WebApp.CloudStorage.setItem('discount',0);
+                localStorage.setItem("discount", 0);
                 Telegram.WebApp.CloudStorage.setItem('upcost',10000);
                 localStorage.setItem("upcost", 10000);
                 reloadall();
