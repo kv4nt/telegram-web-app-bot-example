@@ -746,7 +746,7 @@
     //timer
     function myTimer() {
         money += msec;
-        document.getElementById("total").innerHTML = "Монет: " + addcomma(money);
+        document.getElementById("total").innerHTML = "Монет: " + addcomma(money)+' |upcost='+upcost;
     }
     setInterval(myTimer, 1000);
 
