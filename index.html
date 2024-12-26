@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css" integrity="sha512-O03ntXoVqaGUTAeAmvQ2YSzkCvclZEcPQu1eqloPaHfJ5RuNGiS4l+3duaidD801P50J28EHyonCV06CUlTSag==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script>
         var eatCost = 1000;
+        var changeCatCost = 10000;
         function setThemeClass() {
             document.documentElement.className = Telegram.WebApp.colorScheme;
         }
@@ -234,8 +235,37 @@
 
         function changeCat()
         {
-            $('#cat-card').hide();
-            $('#cat-select').show();
+            Telegram.WebApp.CloudStorage.getItem('money',function (er,val) {
+                if(val < changeCatCost) {
+                    iziToast.show({
+                        id: 'haduken',
+                        theme: 'dark',
+                        icon: 'ico-error',
+                        title: 'Упс :(',
+                        displayMode: 2,
+                        message: 'Не хватает монет',
+                        position: 'topCenter',
+                        transitionIn: 'flipInX',
+                        transitionOut: 'flipOutX',
+                        progressBarColor: 'rgb(0, 255, 184)',
+                        image: 'images/coin.png',
+                        timeout: 2000,
+                        imageWidth: 70,
+                        layout: 2,
+                        onClosing: function(){
+                            console.info('onClosing');
+                        },
+                        onClosed: function(instance, toast, closedBy){
+                            console.info('Closed | closedBy: ' + closedBy);
+                        },
+                        iconColor: 'rgb(0, 255, 184)'
+                    });
+                } else {
+                    $('#cat-card').hide();
+                    $('#cat-select').show();
+                }
+            })
+
         }
 
         function getCharacter()
