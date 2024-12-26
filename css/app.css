@@ -2512,3 +2512,6 @@ i#money-count {
     height: 40px;
     position: relative;
 }
+.p-r-50 {
+    padding-right: 50px;
+}

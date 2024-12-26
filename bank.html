@@ -576,9 +576,9 @@
     function checkDiscount(watch=0) {
         Telegram.WebApp.CloudStorage.getItem('discount',function (err,value) {
             $('#discount').text(value??'0');
-            if(value > 50) { alert('У вас уже применена максимальная скидка 50%');return ;}
             //Telegram.WebApp.shareToStory('https://kv4nt.github.io/telegram-web-app-bot-example/images/cat.png',{widget_link:{url:'https://t.me/rostov_gamer_bot'}});
             if(watch) {
+                if(value > 50) { alert('У вас уже применена максимальная скидка 50%');return ;}
                 watchAd();
             }
             // Telegram.WebApp.CloudStorage.setItem('discount',50);
@@ -777,6 +777,7 @@
                 document.getElementById("upgrade").innerHTML =
                 "Купить лапку | "+addcomma(upown) + " уровень |  Цена: " + addcomma(upcost) + " | +" + "1 монета/клик";
                 upcost = 10000;
+                discount = 0;
             }
         }
 

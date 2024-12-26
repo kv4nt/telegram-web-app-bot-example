@@ -16,6 +16,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.bundle.min.js" integrity="sha512-sH8JPhKJUeA9PWk3eOcOl8U+lfZTgtBXD41q6cO/slwxGHCxKcW45K4oPCUhHG7NMB4mbKEddVmPuTXtpbCbFA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css" integrity="sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/app.css"/>
+    <link rel="stylesheet" href="css/buttons.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js" integrity="sha512-Zq9o+E00xhhR/7vJ49mxFNJ0KQw1E1TMWkPTxrWcnpfEFDEXgUiwJHIKit93EW/XxE31HSI5GEOW06G6BF1AtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css" integrity="sha512-O03ntXoVqaGUTAeAmvQ2YSzkCvclZEcPQu1eqloPaHfJ5RuNGiS4l+3duaidD801P50J28EHyonCV06CUlTSag==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -839,14 +840,62 @@
                 <div class="progress" id="eat-progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
                     <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" style="width: 0%">0%</div>
                 </div>
-                <button onclick="checkMoneyForEat()" class="btn btn-warning">Кормить за 1000 монет <i class="fa-solid fa-utensils"></i></button>
-                <button onclick="makeCatHappy()" class="btn btn-success">Играть <i class="fa-solid fa-volleyball"></i></button>
-                <button onclick="changeCat()" class="btn btn-primary">Сменить кота <i class="fa-solid fa-cat"></i></button>
+<!--                <button onclick="checkMoneyForEat()" class="btn btn-warning">-->
+<!--                    Кормить <i class="fa-solid fa-utensils"></i>-->
+<!--                    <div class="float-end"><span class="badge bg-danger ms-2">1000 <i class="fa-solid fa-coins text-warning"></i></span></div>-->
+<!--                </button>-->
+                <button onclick="checkMoneyForEat()" type="button" class="special-btn mb-2 mb-md-0 special-btn-warning special-btn-block">
+                    <div class="p-r-50">
+                    Кормить <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <div class="icon d-flex align-items-center justify-content-center">
+                        1000 <i class="fa-solid fa-coins text-warning"></i>
+                    </div>
+                </button>
+                <button onclick="makeCatHappy()" type="button" class="special-btn mb-2 mb-md-0 special-btn-success special-btn-block">
+                    <div class="p-r-50">
+                        Играть <i class="fa-solid fa-volleyball"></i>
+                    </div>
+                    <div class="icon d-flex align-items-center justify-content-center">
+                        800 <i class="fa-solid fa-coins text-warning"></i>
+                    </div>
+                </button>
+                <button onclick="changeCat()" type="button" class="special-btn mb-2 mb-md-0 special-btn-primary special-btn-block">
+                    <div class="p-r-50">
+                        Сменить кота <i class="fa-solid fa-cat"></i>
+                    </div>
+                    <div class="icon d-flex align-items-center justify-content-center">
+                        10000 <i class="fa-solid fa-coins text-warning"></i>
+                    </div>
+                </button>
+                <button onclick="gotoBank()" type="button" class="special-btn mb-2 mb-md-0 special-btn-info special-btn-block">
+                    <div class="p-r-50">
+                        Банк
+                    </div>
+                    <div class="icon d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-coins"></i>
+                    </div>
+                </button>
+                <button onclick="gotoMatch()" type="button" class="special-btn mb-2 mb-md-0 special-btn-danger special-btn-block">
+                    <div class="p-r-50">
+                        Три в ряд
+                    </div>
+                    <div class="icon d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-gamepad"></i>
+                    </div>
+                </button>
+<!--                <button type="button" class="special-btn mb-2 mb-md-0 special-btn-primary special-btn-block"><span>Like</span>-->
+<!--                    <div class="icon d-flex align-items-center justify-content-center">-->
+<!--                        1000 <i class="fa-solid fa-coins text-warning"></i>-->
+<!--                    </div>-->
+<!--                </button>-->
+<!--                <button onclick="makeCatHappy()" class="btn btn-success">Играть <i class="fa-solid fa-volleyball"></i> | <span class="badge bg-danger ms-2">800 <i class="fa-solid fa-coins text-warning"></i></span> </button>-->
+<!--                <button onclick="changeCat()" class="btn btn-primary">Сменить кота <i class="fa-solid fa-cat"></i> | <span class="badge bg-danger ms-2">10000 <i class="fa-solid fa-coins text-warning"></i></span> </button>-->
 <!--                <button onclick="makeCatEatNull()" class="btn btn-danger">Сбросить пищу <i class="fa-solid fa-skull-crossbones"></i></button>-->
-                <button onclick="gotoBank();" class="btn btn-info">Банк <i class="fa-solid fa-coins"></i></button>
-                <button onclick="gotoMatch();" class="btn btn-danger">Три в ряд | <i class="fa-solid fa-gamepad"></i></button>
-                <button onclick="getMatch3Score();" class="btn btn-danger">Три в ряд | узнать очки</button>
-                <button onclick="goToDemo();" class="btn btn-danger">demo</button>
+<!--                <button onclick="gotoBank();" class="btn btn-info">Банк <i class="fa-solid fa-coins"></i></button>-->
+<!--                <button onclick="gotoMatch();" class="btn btn-danger">Три в ряд | <i class="fa-solid fa-gamepad"></i></button>-->
+<!--                <button onclick="getMatch3Score();" class="btn btn-danger">Три в ряд | узнать очки</button>-->
+<!--                <button onclick="goToDemo();" class="btn btn-danger">demo</button>-->
             </div>
         </div>
     </div>
