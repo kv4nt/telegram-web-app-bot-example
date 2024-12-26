@@ -570,6 +570,7 @@
                             console.info('onClosing');
                         },
                         onClosed: function (instance, toast, closedBy) {
+                            reloadall();
                             console.info('Closed | closedBy: ' + closedBy);
                         },
                         iconColor: 'rgb(0, 255, 184)'
@@ -598,6 +599,7 @@
     }
 
     function resetDiscount() {
+        $('#discount').text('0');
         Telegram.WebApp.CloudStorage.setItem('discount',0);
         localStorage.setItem("discount", 0);
         window.location.reload();
@@ -622,6 +624,7 @@
         document.getElementById("total").innerHTML = "Монет: " + addcomma(money);
         document.getElementById("upgrade").innerHTML =
             "Купить лапку | "+addcomma(upown) + " уровень |  Цена: " + addcomma(upcost) + " монет | +" + addcomma(upadd) + "/клик";
+        $('#discount').text(discount);
     }
     //overwrites save file
     function save() {
