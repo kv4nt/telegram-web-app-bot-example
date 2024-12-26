@@ -834,6 +834,7 @@
                 console.info('onClosing');
             },
             onClosed: function (instance, toast, closedBy) {
+                reloadall();
                 console.info('Closed | closedBy: ' + closedBy);
             },
             iconColor: 'rgb(0, 255, 184)'
