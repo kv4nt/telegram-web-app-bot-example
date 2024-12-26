@@ -480,7 +480,7 @@
     $(document).ready(function () {
         checkDiscount(0);
         checkAdWatched();
-        //getLevelPrice();
+        getLevelPrice();
 
         Telegram.WebApp.CloudStorage.getItem('money',function (err,value) {
             if(!err) {
