@@ -467,6 +467,14 @@
 </style>
 <script type="application/javascript">
     var levelCost = 10000;
+    money = 0;
+    moneyup = 1;
+    msec = 0;
+    upcost = 10000;
+    upown = 0;
+    upadd = 1;
+    uboost = 1;
+    discount = 0;
 
     $(document).ready(function () {
         checkDiscount(0);
@@ -481,15 +489,10 @@
             }
         })
         reloadall();
+        setTimeout(function () {
+            reloadall();
+        },500);
     })
-    money = 0;
-    moneyup = 1;
-    msec = 0;
-    upcost = 10000;
-    upown = 0;
-    upadd = 1;
-    uboost = 1;
-    discount = 0;
     //save before exiting
     function gotoAds() {
         window.location.href = 'ad-watching.html';
@@ -500,8 +503,7 @@
             discountValue = parseInt(discountValue);
             Telegram.WebApp.CloudStorage.setItem('discount', discountValue + parseInt(val));
             localStorage.setItem("discount", discountValue + parseInt(val));
-            reloadall();
-            //window.location.reload();
+            window.location.reload();
         });
     }
 
