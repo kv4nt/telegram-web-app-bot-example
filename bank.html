@@ -789,9 +789,11 @@
                 localStorage.setItem("upcost", 10000);
                 document.getElementById("level").innerHTML = "Уровень: " + addcomma(upown);
                 //checkDiscount(0);
-                reloadall();
                 successMessage('Новый уровень!','Вы получили новый уровень и теперь зарабатываете больше!');
                 checkDiscount(0);
+                setTimeout(function () {
+                    reloadall();
+                },500);
             }
         }
 
