@@ -632,6 +632,7 @@
     }
     //updates all values
     function reloadall() {
+        getLevelPrice();
         document.getElementById("click").innerHTML =
             "Монет/клик: " + addcomma(moneyup);
         document.getElementById("level").innerHTML =
