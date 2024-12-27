@@ -377,11 +377,12 @@
     <button onclick="setDiscount(+10)" class="btn btn-danger">Скидка +10%</button>
     <button onclick="setDiscount(-10)" class="btn btn-danger">Скидка -10%</button>
     <h1 id='level'>Уровень: 0</h1>
+    <h1 id='current-discount'>Текущая скидка <span id="discount">0</span>%</h1>
     <h1 id='total'>Монет: 0</h1>
     <h5 id="click" style="font-family:trebuchet MS;">Монет/клик: 1 | Монет/сек: 0</h5>
     <img class="round" src="images/coin.png" width="150" onclick='clicked()'/>
     <br><br>
-    <button onclick="checkDiscount(1)" class="btn btn-success">Получить скидку +10% за просмотр рекламы <i class="fa-solid fa-clapperboard"></i> | Текущая скидка <span id="discount">0</span>%</button>
+    <button onclick="checkDiscount(1)" class="btn btn-success">Получить скидку +10% за просмотр рекламы <i class="fa-solid fa-clapperboard"></i></button>
     <button id='upgrade' class="btn btn-secondary" onclick='upgrade("upgrade")' style="font-family:courier;">Купить лапку | 0 уровень |  Цена: 10000 | +1 монета/клик</button>
     <button onclick="resetDiscount()" class="btn btn-danger">Сбросить скидку</button>
     <br><br>
