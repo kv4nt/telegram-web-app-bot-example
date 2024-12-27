@@ -40,6 +40,8 @@ function setDiscount(val) {
         discountValue = parseInt(discountValue);
         Telegram.WebApp.CloudStorage.setItem('discount', discountValue + parseInt(val));
         localStorage.setItem("discount", discountValue + parseInt(val));
+        Telegram.WebApp.CloudStorage.setItem('money', money);
+        localStorage.setItem("money", money);
         window.location.reload();
     });
 }
@@ -393,7 +395,7 @@ function getLevelPrice() {
 
 function successMessage(title = 'Ура!', text = 'Вы получили дополнительную скидку +10% на покупку лапки') {
     iziToast.show({
-        id: 'ads-watching-reward',
+        id: 'success-message-'+Math.floor(Math.random() * 101),
         theme: 'dark',
         icon: 'ico-success',
         title: title,
@@ -420,7 +422,7 @@ function successMessage(title = 'Ура!', text = 'Вы получили доп�
 
 function errorMessage(title = 'Упс!', text = 'Что-то пошло не так') {
     iziToast.show({
-        id: 'ads-watching-reward',
+        id: 'error-message-'+Math.floor(Math.random() * 101),
         theme: 'dark',
         icon: 'ico-error',
         title: title,
