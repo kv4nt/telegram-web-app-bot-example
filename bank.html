@@ -383,13 +383,13 @@
     <img class="round" src="images/coin.png" width="150" onclick='clicked()'/>
     <br><br>
     <button onclick="checkDiscount(1)" class="btn btn-success">Получить скидку +10% за просмотр рекламы <i class="fa-solid fa-clapperboard"></i></button>
-    <button id='upgrade' class="btn btn-secondary" onclick='upgrade("upgrade")' style="font-family:courier;">Купить лапку | 0 уровень |  Цена: 10000 | +1 монета/клик</button>
-    <button onclick="resetDiscount()" class="btn btn-danger">Сбросить скидку</button>
-    <br><br>
-    <button class="settings" onclick="reloadall()">Пересчет</button>
-    <button class="settings" onclick="save()">Сохранить</button>
-    <button class="settings" onclick="load()">Загрузить</button>
-    <button class="settings" onclick="reset()">Сбросить</button><br><br>
+    <button id='upgrade' class="btn btn-secondary" onclick='upgrade("upgrade")' style="font-family:courier;">Купить лапку |  Цена: 10000 монет | +1 монета/клик</button>
+<!--    <button onclick="resetDiscount()" class="btn btn-danger">Сбросить скидку</button>-->
+<!--    <br><br>-->
+<!--    <button class="settings" onclick="reloadall()">Пересчет</button>-->
+<!--    <button class="settings" onclick="save()">Сохранить</button>-->
+<!--    <button class="settings" onclick="load()">Загрузить</button>-->
+<!--    <button class="settings" onclick="reset()">Сбросить</button><br><br>-->
 </center>
 </link>
 <style>
@@ -639,7 +639,7 @@
             "Уровень: " + addcomma(upown);
         document.getElementById("total").innerHTML = "Монет: " + addcomma(money);
         document.getElementById("upgrade").innerHTML =
-            "Купить лапку | "+addcomma(upown) + " уровень |  Цена: " + addcomma(upcost) + " монет | +" + addcomma(upadd) + "/клик";
+            "Купить лапку | Цена: " + addcomma(upcost) + " монет | +" + addcomma(upadd) + "монета/клик";
         $('#discount').text(discount);
     }
     //overwrites save file
@@ -770,7 +770,7 @@
     //timer
     function myTimer() {
         money += msec;
-        document.getElementById("total").innerHTML = "Монет: " + addcomma(money)+' |upcost='+upcost;
+        document.getElementById("total").innerHTML = "Монет: " + addcomma(money);
     }
     setInterval(myTimer, 1000);
 
