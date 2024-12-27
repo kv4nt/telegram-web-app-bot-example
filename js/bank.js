@@ -92,7 +92,8 @@ function checkAdWatched() {
         if (discountValue >= 90) {
             localStorage.setItem("ad-watched", 0);
             //Telegram.WebApp.CloudStorage.setItem('ad-watched', 0);
-            alert('У вас уже применена максимальная скидка на покупку лапки 90% ');
+            errorMessage('Упс :(','У вас уже применена максимальная скидка на покупку лапки 90%');
+            // alert('У вас уже применена максимальная скидка на покупку лапки 90% ');
             return;
         }
         //Telegram.WebApp.CloudStorage.setItem('discount', discountValue + 10);
@@ -138,7 +139,8 @@ function checkDiscount(watch = 0) {
     //Telegram.WebApp.shareToStory('https://kv4nt.github.io/telegram-web-app-bot-example/images/cat.png',{widget_link:{url:'https://t.me/rostov_gamer_bot'}});
     if (watch) {
         if (value >= 90) {
-            alert('У вас уже применена максимальная скидка на покупку лапки 90%');
+            errorMessage('Упс :(','У вас уже применена максимальная скидка на покупку лапки 90%');
+            //alert('У вас уже применена максимальная скидка на покупку лапки 90%');
             return;
         }
         watchAd();
@@ -361,8 +363,8 @@ function upgrade(name) {
             localStorage.setItem("upcost", 10000);
             document.getElementById("level").innerHTML = "Количество лапок: " + addcomma(upown);
             //checkDiscount(0);
-            successMessage('Скидка сброшена', 'После покупки уровня скидка сбрасывается');
-            successMessage('Новый уровень!', 'Вы получили новый уровень и теперь зарабатываете больше!');
+            successMessage('Скидка сброшена', 'После покупки лапки скидка сбрасывается');
+            successMessage('Новая лапка!', 'Вы получили новую лапку и теперь зарабатываете больше за каждый клик!');
             checkDiscount(0);
             getLevelPrice();
             setTimeout(function () {
