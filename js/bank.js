@@ -82,6 +82,14 @@ function watchAd() {
     })
 }
 
+function addCoins(sum=0) {
+    money += sum;
+    localStorage.setItem("money", money);
+    if(sum > 0) {
+        successMessage('Ура!', 'Вам получили на счет ' + sum + ' монет')
+    }
+}
+
 function checkAdWatched() {
     /* УБРАТЬ СКИДКУ И ПРОСТО ДАВАТЬ 1000 МОНЕТ ЗА ПРОСМОТР РЕКЛАМЫ */
     //Telegram.WebApp.CloudStorage.getItem('ad-watched',function (err,value) {
