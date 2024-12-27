@@ -83,6 +83,7 @@ function watchAd() {
 }
 
 function checkAdWatched() {
+    /* УБРАТЬ СКИДКУ И ПРОСТО ДАВАТЬ 1000 МОНЕТ ЗА ПРОСМОТР РЕКЛАМЫ */
     //Telegram.WebApp.CloudStorage.getItem('ad-watched',function (err,value) {
     var value = localStorage.getItem("ad-watched");
     if (value == 1) {
