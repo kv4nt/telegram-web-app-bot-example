@@ -87,10 +87,10 @@ function checkAdWatched() {
         //Telegram.WebApp.CloudStorage.getItem('discount', function (discountErr, discountValue) {
         var discountValue = localStorage.getItem("discount");
         discountValue = parseInt(discountValue);
-        if (discountValue >= 50) {
+        if (discountValue >= 90) {
             localStorage.setItem("ad-watched", 0);
             //Telegram.WebApp.CloudStorage.setItem('ad-watched', 0);
-            alert('У вас уже применена максимальная скидка 50%');
+            alert('У вас уже применена максимальная скидка на покупку лапки 90% ');
             return;
         }
         //Telegram.WebApp.CloudStorage.setItem('discount', discountValue + 10);
@@ -136,7 +136,7 @@ function checkDiscount(watch = 0) {
     //Telegram.WebApp.shareToStory('https://kv4nt.github.io/telegram-web-app-bot-example/images/cat.png',{widget_link:{url:'https://t.me/rostov_gamer_bot'}});
     if (watch) {
         if (value >= 90) {
-            alert('У вас уже применена максимальная скидка 90%');
+            alert('У вас уже применена максимальная скидка на покупку лапки 90%');
             return;
         }
         watchAd();
@@ -360,6 +360,7 @@ function upgrade(name) {
             document.getElementById("level").innerHTML = "Уровень: " + addcomma(upown);
             //checkDiscount(0);
             successMessage('Новый уровень!', 'Вы получили новый уровень и теперь зарабатываете больше!');
+            successMessage('Скидка сброшена', 'После покупки уровня скидка сбрасывается');
             checkDiscount(0);
             setTimeout(function () {
                 reloadall();
