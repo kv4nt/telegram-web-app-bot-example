@@ -135,8 +135,8 @@ function checkDiscount(watch = 0) {
     $('#discount').text(value ?? '0');
     //Telegram.WebApp.shareToStory('https://kv4nt.github.io/telegram-web-app-bot-example/images/cat.png',{widget_link:{url:'https://t.me/rostov_gamer_bot'}});
     if (watch) {
-        if (value >= 50) {
-            alert('У вас уже применена максимальная скидка 50%');
+        if (value >= 90) {
+            alert('У вас уже применена максимальная скидка 90%');
             return;
         }
         watchAd();
@@ -178,7 +178,7 @@ function reloadall() {
         "Уровень: " + addcomma(upown);
     document.getElementById("total").innerHTML = "Монет: " + addcomma(money);
     document.getElementById("upgrade").innerHTML =
-        "Купить лапку | Цена: " + addcomma(upcost) + " монет | +" + addcomma(upadd) + "монета/клик";
+        "Купить лапку | Цена: " + addcomma(upcost) + " монет | +1 монета/клик";
     $('#discount').text(discount);
 }
 
@@ -344,7 +344,7 @@ function upgrade(name) {
             uboost = 1;
             upown += 1;
             document.getElementById("upgrade").innerHTML =
-                "Купить лапку | " + addcomma(upown) + " уровень |  Цена: " + addcomma(upcost) + " | +" + "1 монета/клик";
+                "Купить лапку | Цена: " + addcomma(upcost) + " | +" + "1 монета/клик";
             upcost = 10000;
             discount = 0;
             //Telegram.WebApp.CloudStorage.setItem('discount',0);
