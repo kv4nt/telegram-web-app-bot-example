@@ -180,6 +180,12 @@ function reloadall() {
     document.getElementById("upgrade").innerHTML =
         "Купить лапку | Цена: " + addcomma(upcost) + " монет | +1 монета/клик";
     $('#discount').text(discount);
+    if (discount >= 90) {
+        $('#discount-button').addClass('btn-danger').removeClass('btn-success').removeClass('btn-secondary');
+    } else {
+        $('#discount-button').addClass('btn-success').removeClass('btn-danger').removeClass('btn-secondary');
+    }
+
 }
 
 //overwrites save file
