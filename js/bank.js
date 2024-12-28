@@ -1,4 +1,5 @@
 var levelCost = 10000;
+var adReward = 1000;
 money = 0;
 moneyup = 1;
 msec = 0;
@@ -50,7 +51,8 @@ function watchAd() {
     window.show().then(() => {
         //Telegram.WebApp.CloudStorage.setItem('ad-watched',1);
         localStorage.setItem("ad-watched", 1);
-        window.location.reload();
+        checkAdWatched();
+        //window.location.reload();
         console.log('tma ad played');
     }).catch(e => {
         iziToast.show({
@@ -95,46 +97,48 @@ function checkAdWatched() {
     //Telegram.WebApp.CloudStorage.getItem('ad-watched',function (err,value) {
     var value = localStorage.getItem("ad-watched");
     if (value == 1) {
-        //Telegram.WebApp.CloudStorage.getItem('discount', function (discountErr, discountValue) {
-        var discountValue = localStorage.getItem("discount");
-        discountValue = parseInt(discountValue);
-        if (discountValue >= 90) {
-            localStorage.setItem("ad-watched", 0);
-            //Telegram.WebApp.CloudStorage.setItem('ad-watched', 0);
-            errorMessage('Упс :(','У вас уже применена максимальная скидка на покупку лапки 90%');
-            // alert('У вас уже применена максимальная скидка на покупку лапки 90% ');
-            return;
-        }
-        //Telegram.WebApp.CloudStorage.setItem('discount', discountValue + 10);
-        localStorage.setItem("discount", discountValue + 10);
         localStorage.setItem("ad-watched", 0);
-        //Telegram.WebApp.CloudStorage.setItem('ad-watched', 0);
-        $('#discount').text(discountValue + 10);
-        iziToast.show({
-            id: 'ads-watching-reward',
-            theme: 'dark',
-            icon: 'ico-success',
-            title: 'Ура!',
-            displayMode: 2,
-            message: 'Вы получили дополнительную скидку +10% на покупку лапки',
-            position: 'topCenter',
-            transitionIn: 'flipInX',
-            transitionOut: 'flipOutX',
-            progressBarColor: 'rgb(0, 255, 184)',
-            image: 'images/cat-crying-cat.gif',
-            timeout: 4000,
-            imageWidth: 70,
-            layout: 2,
-            onClosing: function () {
-                console.info('onClosing');
-            },
-            onClosed: function (instance, toast, closedBy) {
-                reloadall();
-                console.info('Closed | closedBy: ' + closedBy);
-            },
-            iconColor: 'rgb(0, 255, 184)'
-        });
-        load();
+        addCoins(adReward);
+        //Telegram.WebApp.CloudStorage.getItem('discount', function (discountErr, discountValue) {
+        // var discountValue = localStorage.getItem("discount");
+        // discountValue = parseInt(discountValue);
+        // if (discountValue >= 90) {
+        //     localStorage.setItem("ad-watched", 0);
+        //     //Telegram.WebApp.CloudStorage.setItem('ad-watched', 0);
+        //     errorMessage('Упс :(','У вас уже применена максимальная скидка на покупку лапки 90%');
+        //     // alert('У вас уже применена максимальная скидка на покупку лапки 90% ');
+        //     return;
+        // }
+        // //Telegram.WebApp.CloudStorage.setItem('discount', discountValue + 10);
+        // localStorage.setItem("discount", discountValue + 10);
+        // localStorage.setItem("ad-watched", 0);
+        // //Telegram.WebApp.CloudStorage.setItem('ad-watched', 0);
+        // $('#discount').text(discountValue + 10);
+        // iziToast.show({
+        //     id: 'ads-watching-reward',
+        //     theme: 'dark',
+        //     icon: 'ico-success',
+        //     title: 'Ура!',
+        //     displayMode: 2,
+        //     message: 'Вы получили дополнительную скидку +10% на покупку лапки',
+        //     position: 'topCenter',
+        //     transitionIn: 'flipInX',
+        //     transitionOut: 'flipOutX',
+        //     progressBarColor: 'rgb(0, 255, 184)',
+        //     image: 'images/cat-crying-cat.gif',
+        //     timeout: 4000,
+        //     imageWidth: 70,
+        //     layout: 2,
+        //     onClosing: function () {
+        //         console.info('onClosing');
+        //     },
+        //     onClosed: function (instance, toast, closedBy) {
+        //         reloadall();
+        //         console.info('Closed | closedBy: ' + closedBy);
+        //     },
+        //     iconColor: 'rgb(0, 255, 184)'
+        // });
+        // load();
         //});
     }
     //     });
@@ -184,7 +188,7 @@ function addcomma(x) {
 
 //updates all values
 function reloadall() {
-    getLevelPrice();
+    //getLevelPrice();
     document.getElementById("click").innerHTML =
         "Монет/клик: " + addcomma(moneyup);
     document.getElementById("level").innerHTML =
@@ -192,12 +196,12 @@ function reloadall() {
     document.getElementById("total").innerHTML = "Монет: " + addcomma(money);
     document.getElementById("upgrade").innerHTML =
         "Купить лапку | Цена: " + addcomma(upcost) + " монет | +1 монета/клик";
-    $('#discount').text(discount);
-    if (discount >= 90) {
-        $('#discount-button').addClass('btn-danger').removeClass('btn-success').removeClass('btn-secondary');
-    } else {
-        $('#discount-button').addClass('btn-success').removeClass('btn-danger').removeClass('btn-secondary');
-    }
+    // $('#discount').text(discount);
+    // if (discount >= 90) {
+    //     $('#discount-button').addClass('btn-danger').removeClass('btn-success').removeClass('btn-secondary');
+    // } else {
+    //     $('#discount-button').addClass('btn-success').removeClass('btn-danger').removeClass('btn-secondary');
+    // }
 
 }
 
@@ -210,8 +214,8 @@ function save() {
     Telegram.WebApp.CloudStorage.setItem('upown', upown);
     Telegram.WebApp.CloudStorage.setItem('upadd', upadd);
     Telegram.WebApp.CloudStorage.setItem('uboost', uboost);
-    Telegram.WebApp.CloudStorage.setItem('discount', discount);
-    localStorage.setItem("discount", discount);
+    //Telegram.WebApp.CloudStorage.setItem('discount', discount);
+    //localStorage.setItem("discount", discount);
     localStorage.setItem("money", money);
     localStorage.setItem("moneyup", moneyup);
     localStorage.setItem("msec", msec);
@@ -229,11 +233,11 @@ function load() {
     money = parseInt(localStorage.getItem("money"));
     moneyup = parseInt(localStorage.getItem("moneyup"));
     msec = parseInt(localStorage.getItem("msec"));
-    upcost = parseInt(localStorage.getItem("price")) | 10000;
+    upcost = parseInt(levelCost);
     upown = parseInt(localStorage.getItem("upown"));
     upadd = parseInt(localStorage.getItem("upadd"));
     uboost = parseInt(localStorage.getItem("uboost"));
-    discount = parseInt(localStorage.getItem("discount"));
+    //discount = parseInt(localStorage.getItem("discount"));
 
     reloadall();
 }
@@ -311,7 +315,7 @@ function reset() {
     localStorage.setItem("money", 0);
     localStorage.setItem("moneyup", 1);
     localStorage.setItem("msec", 0);
-    localStorage.setItem("upcost", 10000);
+    localStorage.setItem("upcost", levelCost);
     localStorage.setItem("upown", 0);
     localStorage.setItem("upadd", 1);
     localStorage.setItem("uboost", 1);
@@ -323,7 +327,7 @@ function reset() {
     upown = 0;
     upadd = 1;
     uboost = 1;
-    discount = 0;
+    //discount = 0;
     // window.location.reload();
     reloadall();
 }
@@ -340,7 +344,7 @@ setInterval(myTimer, 1000);
 function clicked() {
     money += moneyup;
     document.getElementById("total").innerHTML = "Монет: " + addcomma(money);
-    if (money >= localStorage.getItem("price")) {
+    if (money >= upcost) {
         $('#upgrade').addClass('btn-success').removeClass('btn-danger').removeClass('btn-secondary');
     } else {
         $('#upgrade').addClass('btn-danger').removeClass('btn-success').removeClass('btn-secondary');
@@ -350,8 +354,8 @@ function clicked() {
 //upgrade function
 function upgrade(name) {
     if (name == "upgrade") {
-        getLevelPrice();
-        upcost = parseInt(localStorage.getItem("price"))
+        //getLevelPrice();
+        //upcost = parseInt(localStorage.getItem("price"))
         //alert(upcost);
         if (money >= upcost) {
             // if(discount) {
@@ -364,21 +368,21 @@ function upgrade(name) {
             upown += 1;
             document.getElementById("upgrade").innerHTML =
                 "Купить лапку | Цена: " + addcomma(upcost) + " | +" + "1 монета/клик";
-            upcost = 10000;
-            discount = 0;
+            //upcost = 10000;
+            //discount = 0;
             //Telegram.WebApp.CloudStorage.setItem('discount',0);
-            localStorage.setItem("discount", 0);
+            //localStorage.setItem("discount", 0);
             //Telegram.WebApp.CloudStorage.setItem('upcost',10000);
-            localStorage.setItem("upcost", 10000);
+            //localStorage.setItem("upcost", 10000);
             document.getElementById("level").innerHTML = "Количество лапок: " + addcomma(upown);
             //checkDiscount(0);
-            successMessage('Скидка сброшена', 'После покупки лапки скидка сбрасывается');
+            //successMessage('Скидка сброшена', 'После покупки лапки скидка сбрасывается');
             successMessage('Новая лапка!', 'Вы получили новую лапку и теперь зарабатываете больше за каждый клик!');
-            checkDiscount(0);
-            getLevelPrice();
-            setTimeout(function () {
-                reloadall();
-            }, 500);
+            //checkDiscount(0);
+            //getLevelPrice();
+            //setTimeout(function () {
+            //    reloadall();
+            //}, 500);
         } else {
             errorMessage('Упс!', 'Не хватает монет для покупки лапки');
         }
