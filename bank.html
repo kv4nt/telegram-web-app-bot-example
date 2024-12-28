@@ -58,6 +58,10 @@
     <div class="col-auto">
         <button onclick="save();gotoMain()" class="btn btn-warning">Вернуться к коту <i class="fa-solid fa-cat"></i></button>
         <div class="card bg-dark border-0" id="cat-card" style="width: 18rem;">
+            <div class="alert alert-info mt-1">
+                <i class="fa-solid fa-info-circle text-primary"></i> Нажимай на <span class="text-warning">золотую лапку</span> и зарабатывай монеты!<br/>
+                <i class="fa-solid fa-info-circle text-primary"></i> Покупай лапки, чтобы зарабатывать еще больше и быстрее!
+            </div>
             <center class='center'>
 <!--                <div class="bg-primary position-relative">-->
 <!--                    Лапки-->
@@ -67,7 +71,6 @@
 <!--                    Монет/клик-->
 <!--                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">15</span>-->
 <!--                </div>-->
-                <br/>
                 <h3 id='level'>Лапки <i class="fa-solid fa-paw text-success"></i>: 0</h3>
                 <!--    <h1 id='current-discount'>Текущая скидка <span id="discount">0</span>%</h1>-->
                 <h3 id='total'>Монеты  <i class="fa-solid fa-coins text-warning"></i>: 0</h3>
@@ -78,7 +81,7 @@
             <button id='upgrade' onclick="upgrade('upgrade')" type="button"
                     class="special-btn mb-2 mb-md-0 special-btn-primary special-btn-block">
                 <div class="p-r-50">
-                    Купить лапку +1<i class="fa-solid fa-coins text-warning"></i>/клик <i class="fa-solid fa-paw"></i>
+                    Купить лапку +1<i class="fa-solid fa-coins text-warning"></i>/клик <i class="fa-solid fa-paw text-success"></i>
                 </div>
                 <div class="icon d-flex align-items-center justify-content-center">
                     -10000 <i class="fa-solid fa-coins text-warning ml-1"></i>
