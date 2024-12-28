@@ -2451,6 +2451,10 @@ pre.line-numbers > code {
 .glide__slide img {
     width: 300px;
 }
+.glide__slide {
+    background: linear-gradient(-45deg, #ed145b, #7b31f4);
+}
+
 .character-name-top {
     /*background: linear-gradient(-45deg, #ed145b, #7b31f4);*/
     font-size: 20px;
