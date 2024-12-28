@@ -193,7 +193,7 @@ function reloadall() {
         "Монет/клик: " + addcomma(moneyup);
     document.getElementById("level").innerHTML =
         "Лапки <i class=\"fa-solid fa-paw\"></i>: " + addcomma(upown);
-    document.getElementById("total").innerHTML = "Монет: " + addcomma(money);
+    document.getElementById("total").innerHTML = "Монеты  <i class=\"fa-solid fa-сoins text-warning\"></i>: " + addcomma(money);
     //document.getElementById("upgrade").innerHTML = "Купить лапку | Цена: " + addcomma(upcost) + " монет | +1 монета/клик";
     // $('#discount').text(discount);
     // if (discount >= 90) {
@@ -334,7 +334,7 @@ function reset() {
 //timer
 function myTimer() {
     money += msec;
-    document.getElementById("total").innerHTML = "Монет: " + addcomma(money);
+    document.getElementById("total").innerHTML = "Монеты  <i class=\"fa-solid fa-сoins text-warning\"></i>: " + addcomma(money);
 }
 
 setInterval(myTimer, 1000);
@@ -342,7 +342,7 @@ setInterval(myTimer, 1000);
 //what happens when button is clicked
 function clicked() {
     money += moneyup;
-    document.getElementById("total").innerHTML = "Монет: " + addcomma(money);
+    document.getElementById("total").innerHTML = "Монеты <i class=\"fa-solid fa-сoins text-warning\"></i>: " + addcomma(money);
     if (money >= upcost) {
         $('#upgrade').addClass('special-btn-success').removeClass('special-btn-danger').removeClass('special-btn-primary');
     } else {
@@ -376,6 +376,11 @@ function upgrade(name) {
             //checkDiscount(0);
             //successMessage('Скидка сброшена', 'После покупки лапки скидка сбрасывается');
             successMessage('Новая лапка!', 'Вы получили новую лапку и теперь зарабатываете больше за каждый клик!');
+            if (money >= upcost) {
+                $('#upgrade').addClass('special-btn-success').removeClass('special-btn-danger').removeClass('special-btn-primary');
+            } else {
+                $('#upgrade').addClass('special-btn-danger').removeClass('special-btn-success').removeClass('special-btn-primary');
+            }
             //checkDiscount(0);
             //getLevelPrice();
             //setTimeout(function () {
@@ -388,7 +393,7 @@ function upgrade(name) {
 
     document.getElementById("click").innerHTML =
         "Монет/клик: " + addcomma(moneyup);
-    document.getElementById("total").innerHTML = "Монет: " + addcomma(money);
+    document.getElementById("total").innerHTML = "Монеты <i class=\"fa-solid fa-сoins text-warning\"></i>: " + addcomma(money);
 }
 
 function getLevelPrice() {
