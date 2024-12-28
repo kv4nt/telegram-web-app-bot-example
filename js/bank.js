@@ -74,7 +74,7 @@ function watchAd() {
                 console.info('onClosing');
             },
             onClosed: function (instance, toast, closedBy) {
-                window.location.reload();
+                //window.location.reload();
                 console.info('Closed | closedBy: ' + closedBy);
             },
             iconColor: 'rgb(0, 255, 184)'
@@ -88,7 +88,7 @@ function addCoins(sum=0) {
     money += sum;
     localStorage.setItem("money", money);
     if(sum > 0) {
-        successMessage('Ура!', 'Вам получили на счет ' + sum + ' монет')
+        successMessage('Ура!', 'Вам поступило на счет ' + sum + ' монет')
     }
 }
 
