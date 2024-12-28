@@ -10,6 +10,7 @@ uboost = 1;
 discount = 0;
 
 $(document).ready(function () {
+    checkInfoForHide();
     checkDiscount(0);
     checkAdWatched();
     getLevelPrice();
@@ -464,4 +465,16 @@ function errorMessage(title = 'Упс!', text = 'Что-то пошло не т�
         },
         iconColor: 'rgb(0, 255, 184)'
     });
+}
+
+function hideInfo() {
+    localStorage.setItem("hideInfo", 1);
+}
+
+function checkInfoForHide(){
+    if(localStorage.getItem("hideInfo") == 1) {
+        $('#info-alert').addClass('d-none');
+    } else {
+        $('#info-alert').removeClass('d-none');
+    }
 }

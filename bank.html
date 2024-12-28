@@ -58,8 +58,8 @@
     <div class="col-auto">
         <button onclick="save();gotoMain()" class="btn btn-warning">Вернуться к коту <i class="fa-solid fa-cat"></i></button>
         <div class="card bg-dark border-0" id="cat-card" style="width: 18rem;">
-            <div class="alert alert-info mt-1 alert-dismissible fade show">
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <div class="alert alert-info mt-1 alert-dismissible fade show d-none" id="info-alert">
+                <button onclick="hideInfo();" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 <i class="fa-solid fa-info-circle text-primary"></i> Нажимай на <span class="text-warning">золотую лапку</span> и зарабатывай монеты!<br/>
                 <i class="fa-solid fa-info-circle text-primary"></i> Покупай лапки, чтобы зарабатывать еще больше и быстрее!
             </div>
