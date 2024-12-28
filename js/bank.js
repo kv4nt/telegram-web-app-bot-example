@@ -366,8 +366,7 @@ function upgrade(name) {
             upadd++;
             uboost = 1;
             upown += 1;
-            document.getElementById("upgrade").innerHTML =
-                "Купить лапку | Цена: " + addcomma(upcost) + " | +" + "1 монета/клик";
+            //document.getElementById("upgrade").innerHTML = "Купить лапку | Цена: " + addcomma(upcost) + " | +" + "1 монета/клик";
             //upcost = 10000;
             //discount = 0;
             //Telegram.WebApp.CloudStorage.setItem('discount',0);
