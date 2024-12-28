@@ -194,8 +194,7 @@ function reloadall() {
     document.getElementById("level").innerHTML =
         "Лапки: " + addcomma(upown);
     document.getElementById("total").innerHTML = "Монет: " + addcomma(money);
-    document.getElementById("upgrade").innerHTML =
-        "Купить лапку | Цена: " + addcomma(upcost) + " монет | +1 монета/клик";
+    //document.getElementById("upgrade").innerHTML = "Купить лапку | Цена: " + addcomma(upcost) + " монет | +1 монета/клик";
     // $('#discount').text(discount);
     // if (discount >= 90) {
     //     $('#discount-button').addClass('btn-danger').removeClass('btn-success').removeClass('btn-secondary');
