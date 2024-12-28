@@ -345,9 +345,9 @@ function clicked() {
     money += moneyup;
     document.getElementById("total").innerHTML = "Монет: " + addcomma(money);
     if (money >= upcost) {
-        $('#upgrade').addClass('btn-success').removeClass('btn-danger').removeClass('btn-secondary');
+        $('#upgrade').addClass('special-btn-success').removeClass('special-btn-danger').removeClass('special-btn-primary');
     } else {
-        $('#upgrade').addClass('btn-danger').removeClass('btn-success').removeClass('btn-secondary');
+        $('#upgrade').addClass('special-btn-danger').removeClass('special-btn-success').removeClass('special-btn-primary');
     }
 }
 
