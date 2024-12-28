@@ -56,13 +56,22 @@
 </script>
 <div class="row justify-content-center position-relative">
     <div class="col-auto">
+
         <div class="card bg-dark" id="cat-card" style="width: 18rem;">
             <center class='center'>
                 <button onclick="save();gotoMain()" class="btn btn-warning">Вернуться к коту <i
                         class="fa-solid fa-cat"></i></button>
-                <h1 id='level'>Лапки: 0</h1>
+                <div class="bg-primary position-relative">
+                    Лапки
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">99+</span>
+                </div>
+                <div class="bg-success position-relative">
+                    Монет/клик
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">15</span>
+                </div>
+                <h3 id='level'>Лапки: 0</h3>
                 <!--    <h1 id='current-discount'>Текущая скидка <span id="discount">0</span>%</h1>-->
-                <h1 id='total'>Монет: 0</h1>
+                <h3 id='total'>Монет: 0</h3>
                 <h5 id="click" style="font-family:trebuchet MS;">Монет/клик: 1 | Монет/сек: 0</h5>
                 <img class="round" src="images/coin.png" width="150" onclick='clicked()'/>
             </center>
