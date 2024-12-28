@@ -192,7 +192,7 @@ function reloadall() {
     document.getElementById("click").innerHTML =
         "Монет/клик: " + addcomma(moneyup);
     document.getElementById("level").innerHTML =
-        "Количество лапок: " + addcomma(upown);
+        "Лапки: " + addcomma(upown);
     document.getElementById("total").innerHTML = "Монет: " + addcomma(money);
     document.getElementById("upgrade").innerHTML =
         "Купить лапку | Цена: " + addcomma(upcost) + " монет | +1 монета/клик";
@@ -374,7 +374,7 @@ function upgrade(name) {
             //localStorage.setItem("discount", 0);
             //Telegram.WebApp.CloudStorage.setItem('upcost',10000);
             //localStorage.setItem("upcost", 10000);
-            document.getElementById("level").innerHTML = "Количество лапок: " + addcomma(upown);
+            document.getElementById("level").innerHTML = "Лапки: " + addcomma(upown);
             //checkDiscount(0);
             //successMessage('Скидка сброшена', 'После покупки лапки скидка сбрасывается');
             successMessage('Новая лапка!', 'Вы получили новую лапку и теперь зарабатываете больше за каждый клик!');

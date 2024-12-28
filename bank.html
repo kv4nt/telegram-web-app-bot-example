@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css" integrity="sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/app.css"/>
     <link rel="stylesheet" href="css/bank.css"/>
+    <link rel="stylesheet" href="css/buttons.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js" integrity="sha512-Zq9o+E00xhhR/7vJ49mxFNJ0KQw1E1TMWkPTxrWcnpfEFDEXgUiwJHIKit93EW/XxE31HSI5GEOW06G6BF1AtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css" integrity="sha512-O03ntXoVqaGUTAeAmvQ2YSzkCvclZEcPQu1eqloPaHfJ5RuNGiS4l+3duaidD801P50J28EHyonCV06CUlTSag==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -28,24 +29,58 @@
     <title>Банк</title>
 </head>
 
-<body onbeforeunload="return closingCode()">
+<body onbeforeunload="return closingCode()" class="bg-dark bg-danger">
 <script>
     // Initialize the ad engine and get the SHOW method to display ads
     // window.initCdTma({ id: '6050444' }).then(show => window.show = show)
     window.initCdTma({ id: '6050450' }).then(show => window.show = show)
 </script>
-
+<div class="row justify-content-center position-relative">
+    <div class="col-auto">
+        <div class="card bg-dark" id="cat-card" style="width: 18rem;">
 <center class='center'>
     <button onclick="save();gotoMain()" class="btn btn-warning">Вернуться к коту <i class="fa-solid fa-cat"></i></button>
-    <h1 id='level'>Количество лапок: 0</h1>
+    <h1 id='level'>Лапки: 0</h1>
 <!--    <h1 id='current-discount'>Текущая скидка <span id="discount">0</span>%</h1>-->
     <h1 id='total'>Монет: 0</h1>
     <h5 id="click" style="font-family:trebuchet MS;">Монет/клик: 1 | Монет/сек: 0</h5>
     <img class="round" src="images/coin.png" width="150" onclick='clicked()'/>
+</center>
     <br><br>
-    <button id="discount-button" onclick="watchAd()" class="btn btn-success">Получить 1000 монет за просмотр рекламы <i class="fa-solid fa-clapperboard"></i></button>
-    <button id='upgrade' class="btn btn-secondary" onclick='upgrade("upgrade")' style="font-family:courier;">Купить лапку |  Цена: 10000 монет | +1 монета/клик</button>
-    <button onclick="addCoins(1000)" class="btn btn-danger">Монеты +1000</button>
+    <button id='upgrade' onclick="upgrade('upgrade')" type="button" class="special-btn mb-2 mb-md-0 special-btn-primary special-btn-block">
+        <div class="p-r-50">
+            Купить лапку | +1 монета/клик <i class="fa-solid fa-paw"></i>
+        </div>
+        <div class="icon d-flex align-items-center justify-content-center">
+            -10000 <i class="fa-solid fa-coins text-warning ml-1"></i>
+        </div>
+    </button>
+    <button onclick="watchAd()" type="button" class="special-btn mb-2 mb-md-0 special-btn-success special-btn-block">
+        <div class="p-r-50">
+            Монеты за просмотр рекламы <i class="fa-solid fa-clapperboard"></i>
+        </div>
+        <div class="icon d-flex align-items-center justify-content-center">
+            +1000 <i class="fa-solid fa-coins text-warning ml-1"></i>
+        </div>
+    </button>
+<!--    <button id='upgrade' class="btn btn-secondary" onclick='upgrade("upgrade")' style="font-family:courier;">Купить лапку |  Цена: 10000 монет | +1 монета/клик</button>-->
+<!--    <button onclick="upgrade('upgrade')" type="button" class="special-btn mb-2 mb-md-0 special-btn-success special-btn-block">-->
+<!--        <div class="p-r-50">-->
+<!--            Купить лапку | +1 монета/клик-->
+<!--        </div>-->
+<!--        <div class="icon d-flex align-items-center justify-content-center">-->
+<!--            -10000 <i class="fa-solid fa-coins text-warning ml-1"></i>-->
+<!--        </div>-->
+<!--    </button>-->
+    <button onclick="watchAd()" type="button" class="special-btn mb-2 mb-md-0 special-btn-danger special-btn-block">
+        <div class="p-r-50">
+            Монеты просто так <i class="fa-solid fa-crown"></i>
+        </div>
+        <div class="icon d-flex align-items-center justify-content-center">
+            +1000 <i class="fa-solid fa-coins text-warning ml-1"></i>
+        </div>
+    </button>
+<!--    <button onclick="addCoins(1000)" class="btn btn-danger">Монеты +1000</button>-->
 <!--    <button onclick="setDiscount(+10)" class="btn btn-danger">Скидка +10%</button>-->
 <!--    <button onclick="setDiscount(-10)" class="btn btn-danger">Скидка -10%</button>-->
 <!--    <button onclick="resetDiscount()" class="btn btn-danger">Сбросить скидку</button>-->
@@ -54,6 +89,6 @@
 <!--    <button class="settings" onclick="save()">Сохранить</button>-->
 <!--    <button class="settings" onclick="load()">Загрузить</button>-->
 <!--    <button class="settings" onclick="reset()">Сбросить</button><br><br>-->
-</center>
+</div></div></div>
 </body>
 </html>
