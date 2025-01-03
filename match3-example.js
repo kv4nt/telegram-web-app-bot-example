@@ -19,7 +19,7 @@
 // ------------------------------------------------------------------------
 function setSize(w, h, force)
 {
-    this.canvasdiv = document.getElementById("viewport");
+    this.canvasdiv = document.getElementById("c2canvasdiv");
     var offx = 0, offy = 0;
     var neww = 0, newh = 0, intscale = 0;
     if (this.lastWindowWidth === w && this.lastWindowHeight === h && !force)
@@ -207,7 +207,7 @@ function setSize(w, h, force)
 // The function gets called when the window is fully loaded
 window.onload = function() {
     // Get the canvas and context
-    var canvas = document.getElementById("c2canvasdiv");
+    var canvas = document.getElementById("viewport");
     var context = canvas.getContext("2d");
     if(canvas.width < document.body.clientWidth) {
         canvas.width = document.body.clientWidth;
