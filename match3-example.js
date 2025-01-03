@@ -23,11 +23,11 @@ window.onload = function() {
     // Get the canvas and context
     var canvas = document.getElementById("viewport");
     var context = canvas.getContext("2d");
-    if(canvas.width < window.innerWidth) {
-        canvas.width = window.innerWidth;
+    if(canvas.width < document.body.clientWidth) {
+        canvas.width = document.body.clientWidth;
     }
-    if(canvas.height < window.innerHeight) {
-        canvas.height = window.innerHeight;
+    if(canvas.height < document.body.clientHeight) {
+        canvas.height = document.body.clientHeight;
     }
     // Timing and frames per second
     var lastframe = 0;
