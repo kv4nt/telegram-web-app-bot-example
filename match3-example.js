@@ -134,7 +134,7 @@ window.onload = function() {
         lastframe = tframe;
         
         // Update the fps counter
-        updateFps(dt);
+        //updateFps(dt);
         
         if (gamestate == gamestates.ready) {
             // Game is ready for player input
@@ -314,7 +314,7 @@ window.onload = function() {
             
             context.fillStyle = "#ffffff";
             context.font = "24px Verdana";
-            drawCenterText("Game Over!", level.x, level.y + levelheight / 2 + 10, levelwidth);
+            drawCenterText("Конец игры!", level.x, level.y + levelheight / 2 + 10, levelwidth);
         }
     }
     
@@ -336,9 +336,9 @@ window.onload = function() {
         context.fillText("", 10, 30);
         
         // Display fps
-        context.fillStyle = "#ffffff";
-        context.font = "12px Verdana";
-        context.fillText("Fps: " + fps, 13, 50);
+        //context.fillStyle = "#ffffff";
+        //context.font = "12px Verdana";
+        //context.context.fillText("Fps: " + fps, 13, 50);
     }
     
     // Draw buttons
