@@ -23,7 +23,8 @@ window.onload = function() {
     // Get the canvas and context
     var canvas = document.getElementById("viewport");
     var context = canvas.getContext("2d");
-    
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
     // Timing and frames per second
     var lastframe = 0;
     var fpstime = 0;
