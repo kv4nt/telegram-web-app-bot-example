@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html style="zoom: 39%">
+<html>
 <head>
 <meta charset="UTF-8">
 <title>Rembound.com Example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.slim.min.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj+KsslFkCOt3TvJrX2AV/Gc3wOqA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.bundle.min.js" integrity="sha512-sH8JPhKJUeA9PWk3eOcOl8U+lfZTgtBXD41q6cO/slwxGHCxKcW45K4oPCUhHG7NMB4mbKEddVmPuTXtpbCbFA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css" integrity="sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script type='text/javascript' src='match3-example.js?v=2'></script>
@@ -22,5 +23,18 @@
     <img id="match7" src="images/match/7.png">
 </div>
 <canvas id="viewport" width="980" height="1100"></canvas>
+<script>
+    $(document).ready(function () {
+        var canvas = document.getElementById('viewport');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    })
+</script>
+<style>
+    html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+</style>
 </body>
 </html>
