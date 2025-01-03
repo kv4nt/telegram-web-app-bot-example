@@ -2017,6 +2017,7 @@ blockquote {
     left: 1.5rem;
 }
 .slider__bullets {
+    height: 10px;
     position: absolute;
     z-index: 2;
     bottom: 1.5rem;
@@ -2027,7 +2028,7 @@ blockquote {
     list-style: none;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
-    top: 86%;
+    top: 75%;
 }
 .slider__bullet {
     background-color: hsla(0, 0%, 100%, 0.5);
