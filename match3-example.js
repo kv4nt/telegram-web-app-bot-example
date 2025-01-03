@@ -17,6 +17,31 @@
 //
 // http://rembound.com/articles/how-to-make-a-match3-game-with-html5-canvas
 // ------------------------------------------------------------------------
+function tryLockOrientation()
+{
+    if (!this.autoLockOrientation || this.orientations === 0)
+        return;
+    var orientation = "portrait";
+    if (this.orientations === 2)
+        orientation = "landscape";
+    try {
+        if (screen["orientation"] && screen["orientation"]["lock"])
+            screen["orientation"]["lock"](orientation).catch(function(){});
+        else if (screen["lockOrientation"])
+            screen["lockOrientation"](orientation);
+        else if (screen["webkitLockOrientation"])
+            screen["webkitLockOrientation"](orientation);
+        else if (screen["mozLockOrientation"])
+            screen["mozLockOrientation"](orientation);
+        else if (screen["msLockOrientation"])
+            screen["msLockOrientation"](orientation);
+    }
+    catch (e)
+    {
+        if (console && console.warn)
+            console.warn("Failed to lock orientation: ", e);
+    }
+}
 function setSize(w, h, force)
 {
     this.canvasdiv = document.getElementById("c2canvasdiv");
