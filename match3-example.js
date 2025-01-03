@@ -255,11 +255,11 @@ window.onload = function() {
     // Level object
     var level = {
         x: 15,         // X position
-        y: 100,         // Y position
+        y: 60,         // Y position
         columns: 10,     // Number of tile columns
         rows: 10,        // Number of tile rows
         tilewidth: 95,  // Visual width of a tile
-        tileheight: 75, // Visual height of a tile
+        tileheight: 60, // Visual height of a tile
         tiles: [],      // The two-dimensional tile array
         selectedtile: { selected: false, column: 0, row: 0 }
     };
@@ -498,15 +498,15 @@ window.onload = function() {
         // Draw score
         context.fillStyle = "#ff0000";
         context.font = "24px Verdana";
-        drawCenterText("Очки:", 50, 30, 150);
-        drawCenterText(score, 50, 50, 150);
+        //drawCenterText("Очки:", 50, 30, 150);
+        //drawCenterText(score, 50, 50, 150);
         document.getElementById('coins').innerText = score;
         //set score to tg
          //Telegram.WebApp.CloudStorage.setItem('match3-score',score);
 
         
         // Draw buttons
-        drawButtons();
+        //drawButtons();
         
         // Draw level background
         var levelwidth = level.columns * level.tilewidth;
@@ -539,14 +539,14 @@ window.onload = function() {
     // Draw a frame with a border
     function drawFrame() {
         // Draw background and a border
-        context.fillStyle = "#d0d0d0";
-        context.fillRect(0, 0, canvas.width, canvas.height);
-        context.fillStyle = "#e8eaec";
-        context.fillRect(1, 1, canvas.width-2, canvas.height-2);
+        //context.fillStyle = "#d0d0d0";
+        //context.fillRect(0, 0, canvas.width, canvas.height);
+        //context.fillStyle = "#e8eaec";
+        //context.fillRect(1, 1, canvas.width-2, canvas.height-2);
         
         // Draw header
-        context.fillStyle = "#303030";
-        context.fillRect(0, 0, canvas.width, 65);
+        //context.fillStyle = "#303030";
+        //context.fillRect(0, 0, canvas.width, 65);
         
         // Draw title
         context.fillStyle = "#ffffff";
