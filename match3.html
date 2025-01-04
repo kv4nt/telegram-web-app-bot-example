@@ -1,41 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Rembound.com Example</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.slim.min.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj+KsslFkCOt3TvJrX2AV/Gc3wOqA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.bundle.min.js" integrity="sha512-sH8JPhKJUeA9PWk3eOcOl8U+lfZTgtBXD41q6cO/slwxGHCxKcW45K4oPCUhHG7NMB4mbKEddVmPuTXtpbCbFA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css" integrity="sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<script type='text/javascript' src='match3-example.js?v=3'></script>
+    <meta charset="UTF-8">
+    <title>Rembound.com Example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.slim.min.js"
+            integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj+KsslFkCOt3TvJrX2AV/Gc3wOqA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.bundle.min.js"
+            integrity="sha512-sH8JPhKJUeA9PWk3eOcOl8U+lfZTgtBXD41q6cO/slwxGHCxKcW45K4oPCUhHG7NMB4mbKEddVmPuTXtpbCbFA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css"
+          integrity="sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <script type='text/javascript' src='match3-example.js?v=3'></script>
     <script src="https://telegram.org/js/telegram-web-app.js?2"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
-<button class="btn btn-lg btn-warning"><a href="index.html" onclick="Telegram.WebApp.CloudStorage.setItem('match3-score',parseInt(document.getElementById('coins').innerText));">Вернуться к коту <i class="fa-solid fa-cat"></i></a></button>
-<h1 class="text-success">Заработанные монеты: <span id="coins" >0</span></h1>
-<!--<br/>-->
-<div style="display: none">
-<img id="match1" src="images/match/1.png">
-    <img id="match2" src="images/match/2.png">
-    <img id="match3" src="images/match/3.png">
-    <img id="match4" src="images/match/4.png">
-    <img id="match5" src="images/match/5.png">
-    <img id="match6" src="images/match/6.png">
-    <img id="match7" src="images/match/7.png">
+<body class="bg-dark bg-danger">
+<div class="row justify-content-center position-relative bg-dark mt-4">
+    <div class="col-auto text-center">
+        <button onclick="save();gotoMain()" class="btn btn-warning mt-1 f3">Вернуться к коту <i class="fa-solid fa-cat"></i></button>
+        <h1 class="text-success f3">Заработанные монеты: <span id="coins">0</span></h1>
+        <h1 class="text-warning">+5 <i class="fa-solid fa-coins text-warning"></i> монет за каждый ряд из 3-х фруктов</h1>
+        <h1 class="text-warning">+5 <i class="fa-solid fa-coins text-warning"></i> монет за каждый дополнительный фрукт в ряду</h1>
+        <div style="display: none">
+            <img id="match1" src="images/match/1.png">
+            <img id="match2" src="images/match/2.png">
+            <img id="match3" src="images/match/3.png">
+            <img id="match4" src="images/match/4.png">
+            <img id="match5" src="images/match/5.png">
+            <img id="match6" src="images/match/6.png">
+            <img id="match7" src="images/match/7.png">
+        </div>
+        <div id="c2canvasdiv">
+            <canvas id="viewport" width="980" height="1100"></canvas>
+        </div>
+        <style>
+            .f3 {
+                font-size: 3rem;
+            }
+            #viewport {
+                /*position:fixed;*/
+                /*left:0;*/
+                /*top:0;*/
+                width: 100%;
+                height: 100%;
+            }
+
+            html {
+                overflow: hidden;
+            }
+        </style>
+    </div>
 </div>
-<div id="c2canvasdiv">
-<canvas id="viewport" width="980" height="1100"></canvas>
-</div>
-<style>
-    #viewport {
-        /*position:fixed;*/
-        /*left:0;*/
-        /*top:0;*/
-        width:100%;
-        height:100%;
-    }
-    html {
-        overflow: hidden;
-    }
-</style>
 </body>
 </html>

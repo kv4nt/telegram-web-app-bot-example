@@ -1129,3 +1129,10 @@ window.onload = function() {
     // Call init to start the game
     init();
 };
+
+function save() {
+    Telegram.WebApp.CloudStorage.setItem('match3-score',parseInt(document.getElementById('coins').innerText));
+}
+function gotoMain() {
+    window.location.href = 'index.html';
+}
