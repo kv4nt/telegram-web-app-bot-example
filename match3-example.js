@@ -363,25 +363,25 @@ window.onload = function() {
             }
             
             // Let the AI bot make a move, if enabled
-            if (aibot) {
-                animationtime += dt;
-                if (animationtime > animationtimetotal) {
-                    // Check if there are moves available
-                    findMoves();
-                    
-                    if (moves.length > 0) {
-                        // Get a random valid move
-                        var move = moves[Math.floor(Math.random() * moves.length)];
-                        
-                        // Simulate a player using the mouse to swap two tiles
-                        mouseSwap(move.column1, move.row1, move.column2, move.row2);
-                    } else {
-                        // No moves left, Game Over. We could start a new game.
-                        // newGame();
-                    }
-                    animationtime = 0;
-                }
-            }
+            // if (aibot) {
+            //     animationtime += dt;
+            //     if (animationtime > animationtimetotal) {
+            //         // Check if there are moves available
+            //         findMoves();
+            //
+            //         if (moves.length > 0) {
+            //             // Get a random valid move
+            //             var move = moves[Math.floor(Math.random() * moves.length)];
+            //
+            //             // Simulate a player using the mouse to swap two tiles
+            //             mouseSwap(move.column1, move.row1, move.column2, move.row2);
+            //         } else {
+            //             // No moves left, Game Over. We could start a new game.
+            //             // newGame();
+            //         }
+            //         animationtime = 0;
+            //     }
+            // }
         } else if (gamestate == gamestates.resolve) {
             // Game is busy resolving and animating clusters
             animationtime += dt;
@@ -496,7 +496,7 @@ window.onload = function() {
         drawFrame();
         
         // Draw score
-        context.fillStyle = "#ff0000";
+        //context.fillStyle = "#ff0000";
         context.font = "24px Verdana";
         //drawCenterText("Очки:", 50, 30, 150);
         //drawCenterText(score, 50, 50, 150);
@@ -549,9 +549,9 @@ window.onload = function() {
         //context.fillRect(0, 0, canvas.width, 65);
         
         // Draw title
-        context.fillStyle = "#ffffff";
-        context.font = "24px Verdana";
-        context.fillText("", 10, 30);
+        // context.fillStyle = "#ffffff";
+        // context.font = "24px Verdana";
+        // context.fillText("", 10, 30);
         
         // Display fps
         //context.fillStyle = "#ffffff";
@@ -691,11 +691,11 @@ window.onload = function() {
             if (clusters[i].horizontal) {
                 // Draw a horizontal line
                 context.fillStyle = "#00ff00";
-                context.fillRect(coord.tilex + level.tilewidth/2, coord.tiley + level.tileheight/2 - 4, (clusters[i].length - 1) * level.tilewidth, 8);
+                context.fillRect(coord.tilex + level.tilewidth/2, coord.tiley + level.tileheight/2 - 4, (clusters[i].length - 1) * level.tilewidth, 10);
             } else {
                 // Draw a vertical line
                 context.fillStyle = "#0000ff";
-                context.fillRect(coord.tilex + level.tilewidth/2 - 4, coord.tiley + level.tileheight/2, 8, (clusters[i].length - 1) * level.tileheight);
+                context.fillRect(coord.tilex + level.tilewidth/2 - 4, coord.tiley + level.tileheight/2, 10, (clusters[i].length - 1) * level.tileheight);
             }
         }
     }
