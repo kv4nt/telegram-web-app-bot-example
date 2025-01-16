@@ -406,7 +406,7 @@ match3.checkMatch = function (line, column) {
 };
 
 $("body").ready(function () {
-    match3.createBoard(18, 10);
+    match3.createBoard(8, 10);
     match3.mountBoard('#gameBoard');
 
     $(".casa").on("click", function () {

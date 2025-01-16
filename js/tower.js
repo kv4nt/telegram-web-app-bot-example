@@ -12,7 +12,7 @@ class Example extends Phaser.Scene
     {
         this.matter.world.setBounds();
 
-        this.matter.add.imageStack('alien', null, 0, 500, 50, 2, 0, 0, {
+        const alien = this.matter.add.imageStack('alien', null, 0, 500, 50, 2, 0, 0, {
             mass: 1,
             ignorePointer: true
         });
@@ -34,21 +34,45 @@ class Example extends Phaser.Scene
 
         const sun2 = this.matter.add.image(100, 100, 'sun2', null, {
             isStatic: false,
+            density: 0.01,
             shape: {
                 type: 'circle',
                 radius: 40
             },
             //density: 0.000001,
             //force: { x: -10, y: -10 },
-            // attractors: [
-            //     (bodyA, bodyB) => ({
-            //         x: (bodyA.position.x - bodyB.position.x) * 0.000005,
-            //         y: (bodyA.position.y - bodyB.position.y) * 0.000005
-            //     })
-            // ]
+            attractors: [
+                (bodyA, bodyB) => ({
+                    x: (bodyA.position.x - bodyB.position.x) * 0.000001,
+                    y: (bodyA.position.y - bodyB.position.y) * 0.000001
+                })
+            ]
+        });
+        const sun3 = this.matter.add.image(400, 500, 'sun2', null, {
+            isStatic: true,
+            density: 0.01,
+            shape: {
+                type: 'circle',
+                radius: 40
+            },
+            //density: 0.000001,
+            //force: { x: -10, y: -10 },
+            attractors: [
+                (bodyA, bodyB) => ({
+                    x: (bodyA.position.x - bodyB.position.x) * 0.000001,
+                    y: (bodyA.position.y - bodyB.position.y) * 0.000001
+                })
+            ]
         });
 
         this.matter.add.mouseSpring();
+        // this.matter.world.on('collisionstart', (event, sun2, alien) =>
+        // {
+        //         //console.log(event);
+        //     //sun3.gameObject.destroy();
+        //     //sun2.gameObject.setTint(0x00ff00);
+        //
+        // });
     }
 }
 
@@ -65,6 +89,11 @@ const config = {
             debug: {
                        showAxes: true,
                 showAngleIndicator: true,
+                showPositions: true,
+                showSensors: true,
+                showCollisions: true,
+                showBounds: true,
+                showBroadphase: true,
             },
             gravity: {
                 scale: 0
