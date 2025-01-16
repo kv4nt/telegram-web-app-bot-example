@@ -9,6 +9,9 @@ body{
 h1{
     margin: 20px;
 }
+#gameBoard {
+    width: auto!important;
+}
 #board{
     display: inline-block;
     -webkit-box-sizing: border-box;
