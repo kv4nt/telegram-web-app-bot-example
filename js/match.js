@@ -280,31 +280,43 @@ match3.somePartVisual = function (id, newPart, partOld) {
         $("#" + id).addClass('part' + newPart);
         // $("#" + id).toggleClass('magictime swashIn');
         $("#" + id + ' img').attr('src', match3.images[newPart]);
-        $("#" + id).addClass('magictime swashIn').after(function () {
+        $("#" + id).addClass('animate__animated animate__zoomIn').after(function () {
             setTimeout(function () {
-                $("#" + id).removeClass('magictime swashIn');
-            }, 300);
+                $("#" + id).removeClass('animate__animated animate__zoomIn');
+            }, 1000);
 
         });
     });
 };
 match3.fallPartVisual = function (id, newPart, partOld) {
-    $("#" + id).animate({
-        top: match3.cell.width
-    }, match3.animation.speed, function () {
-        $("#" + id).addClass('magictime tinUpIn').after(function () {
+    $("#" + id).addClass('animate__animated animate__zoomInDown').after(function () {
           setTimeout(function () {
-            $("#" + id).removeClass('magictime tinUpIn');
-          },300);
-
-        });
+            $("#" + id).removeClass('animate__animated animate__zoomInDown');
+          },1300);
         $("#" + id).css('top', 0);
         $("#" + id).data('part', newPart);
         $("#" + id).attr('title', 'id = ' + id + ' part = ' + newPart);
         $("#" + id).removeClass('part' + partOld);
         $("#" + id).addClass('part' + newPart);
         $("#" + id + ' img').attr('src', match3.images[newPart]);
-    });
+
+        });
+    /*$("#" + id).animate({
+        top: match3.cell.width
+    }, match3.animation.speed, function () {
+        // $("#" + id).addClass('magictime tinUpIn').after(function () {
+        //   setTimeout(function () {
+        //     $("#" + id).removeClass('magictime tinUpIn');
+        //   },300);
+        //
+        // });
+        $("#" + id).css('top', 0);
+        $("#" + id).data('part', newPart);
+        $("#" + id).attr('title', 'id = ' + id + ' part = ' + newPart);
+        $("#" + id).removeClass('part' + partOld);
+        $("#" + id).addClass('part' + newPart);
+        $("#" + id + ' img').attr('src', match3.images[newPart]);
+    });*/
 };
 
 match3.checkAll2 = function (luck) {
