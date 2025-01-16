@@ -1,0 +1,259 @@
+
+.magictime.puffOut,.magictime {
+    animation-duration: .5s;
+}
+body{
+    font-family: Verdana, Arial;
+    text-align: center;
+}
+h1{
+    margin: 20px;
+}
+#board{
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    border-style: none none none none;
+    border-width: 1px;
+    border-color: #000;
+}
+.match3{
+    display: inline-block;
+    font-family: Verdana, Arial;
+    background-color: #f9fac0;
+    border: 1px solid #a51f22;
+}
+.casa{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 80px;
+    height: 80px;
+    margin: 0;
+    padding: 0px;
+    cursor: pointer;
+    border: 0.25rem solid #212529;
+}
+/*.casa:hover{*/
+/*  border: 2px solid #fff;*/
+/*  padding: 0;*/
+/*}*/
+
+.casa img{
+    position: relative;
+    width: 80px;
+    height: 80px;
+    left: -5px;
+    top: -5px;
+}
+.casa.selected img {
+    left: -1px;
+    top: -5px;
+}
+/*.selected{*/
+/*  border: 2px solid #fff;*/
+/*  padding: 0;*/
+/*}*/
+
+.selected {
+    --border-width: 1px;
+    position: relative;
+    display: inline-grid;
+    justify-content: center;
+    align-items: center;
+    /*width: 300px;*/
+    /*height: 200px;*/
+    font-family: Lato, sans-serif;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    color: white;
+    background: #222;
+    border-radius: 10px;
+}
+/*.selected::before {*/
+/*  content: "";*/
+/*  display: block;*/
+/*  background: linear-gradient(*/
+/*          90deg,*/
+/*          hsla(197, 100%, 64%, 1) 0%,*/
+/*          hsla(339, 100%, 55%, 1) 100%*/
+/*  );*/
+/*  height: 500px;*/
+/*  width: 500px;*/
+/*  position: absolute;*/
+/*  animation: rotate 8s linear infinite;*/
+/*  z-index: 0;*/
+/*}*/
+
+@keyframes spin {
+    to {
+        --bg-angle: 360deg;
+    }
+}
+
+@property --bg-angle {
+    inherits: false;
+    initial-value: 0deg;
+    syntax: "<angle>";
+}
+.selected,.casa:hover {
+    --border-angle: 0deg;
+    border-radius: 0px;
+    /*width: 100px;*/
+    /*height: 100px;*/
+    /*display: flex;*/
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 2px 4px hsl(0 0% 0% / 25%);
+    animation: border-angle-rotate 2s infinite linear;
+    border: 0.25rem solid transparent;
+    position: relative;
+
+
+    background: linear-gradient(#ffffffa8, #ffffffa8) padding-box,
+    conic-gradient(
+            from var(--border-angle),
+            oklch(100% 100% 0deg),
+            oklch(100% 100% 45deg),
+            oklch(100% 100% 90deg),
+            oklch(100% 100% 135deg),
+            oklch(100% 100% 180deg),
+            oklch(100% 100% 225deg),
+            oklch(100% 100% 270deg),
+            oklch(100% 100% 315deg),
+            oklch(100% 100% 360deg)
+    )
+    border-box;
+}
+
+/*&.b {*/
+/*   background: linear-gradient(white, white) padding-box,*/
+/*   conic-gradient(from var(--border-angle), var(--bg) 50%, white) border-box;*/
+/* }*/
+
+/*&.c {*/
+/*   border-radius: 100%;*/
+/*   background: radial-gradient(circle, var(--bg) 60%, transparent 60%);*/
+
+/*&:before,*/
+/*&:after {*/
+/*   content: "";*/
+/*   display: block;*/
+/*   position: absolute;*/
+/*   inset: 4px;*/
+/*   border-radius: 100%;*/
+/*   animation: border-angle-rotate 4s infinite linear;*/
+/*   z-index: -1;*/
+/* }*/
+
+/*&:before {*/
+/*   inset: 0;*/
+/*   background: repeating-conic-gradient(*/
+/*           from var(--border-angle),*/
+/*           var(--bg),*/
+/*           var(--bg) 30deg,*/
+/*           oklch(100% 50% 190deg) calc(360deg / 6)*/
+/*   )*/
+/*   border-box;*/
+/* }*/
+
+/*&:after {*/
+/*   background: repeating-conic-gradient(*/
+/*           from calc(var(--border-angle) * -1),*/
+/*           oklch(100% 40% 50deg),*/
+/*           black 60deg*/
+/*   )*/
+/*   border-box;*/
+/* }*/
+/*}*/
+/*}*/
+
+@keyframes border-angle-rotate {
+    from {
+        --border-angle: 0deg;
+    }
+    to {
+        --border-angle: 360deg;
+    }
+}
+
+@property --border-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+/*.selected {*/
+/*  animation: spin 2.5s infinite linear paused;*/
+/*  background:*/
+/*          linear-gradient(*/
+/*                  to bottom,*/
+/*                  oklch(0.1 0.2 240 / 0.95),*/
+/*                  oklch(0.1 0.2 240 / 0.95)*/
+/*          )*/
+/*          padding-box, !* ends at inner border edges *!*/
+/*          conic-gradient(*/
+/*                  from var(--bg-angle) in oklch longer hue,*/
+/*                  oklch(0.85 0.37 0) 0 0*/
+/*          )*/
+/*          border-box; !* extends to outer border edges *!*/
+
+/*  !* a clear border lets the background gradient shine through *!*/
+/*  border: 6px solid transparent;*/
+
+/*!* unpause the animation on hover *!*/
+/*&:hover {*/
+/*   animation-play-state: running;*/
+/* }*/
+/*}*/
+
+#scoreBoard{
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    float: right;
+    width: 250px;
+    height: 100%;
+    padding: 10px;
+    margin: 0;
+    text-align: left;
+    border-style: none;
+
+}
+.part0{
+    background-color: #89f673;
+}
+.part1{
+    background-color: #73c7f6;
+}
+.part2{
+    background-color: #d273f6;
+}
+.part3{
+    background-color: #f68573;
+}
+.part4{
+    background-color: #3d8aed;
+}
+.part5{
+    background-color: #73f6c4;
+}
+.part6{
+    background-color: #f6ef73;
+}
+.part7{
+    background-color: #daf673;
+}
+.part8{
+    background-color: #738df6;
+}
+.part9{
+    background-color: #f6aa73;
+}

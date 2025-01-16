@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Match 3</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.bundle.min.js"
+          integrity="sha512-sH8JPhKJUeA9PWk3eOcOl8U+lfZTgtBXD41q6cO/slwxGHCxKcW45K4oPCUhHG7NMB4mbKEddVmPuTXtpbCbFA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css"
+        integrity="sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <script src="https://telegram.org/js/telegram-web-app.js?2"></script>
+  <link rel="stylesheet" href="css/magic.min.css" />
+  <link rel="stylesheet" href="css/match.css" />
+  <script src="js/match.js?v=2"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="bg-dark bg-danger">
+<div class="row justify-content-center position-relative bg-dark mt-4">
+  <div class="col-auto text-center">
+    <button onclick="save();gotoMain()" class="btn btn-warning mt-1">Вернуться к коту <i class="fa-solid fa-cat"></i></button>
+    <h1 class="text-success magictime swashIn">Заработанные монеты: <span id="coins">0</span></h1>
+    <h3 class="text-warning">+5 <i class="fa-solid fa-coins text-warning"></i> монет за каждый ряд из 3-х фруктов</h3>
+    <h3 class="text-warning">+5 <i class="fa-solid fa-coins text-warning"></i> монет за каждый дополнительный фрукт в ряду</h3>
+    <div id="gameBoard" style="margin: 20px auto;"></div>
+  </div>
+</div>
+
+
+</body>
+</html>
