@@ -405,6 +405,10 @@ match3.checkMatch = function (line, column) {
     }
 };
 
+function gotoMain() {
+    window.location.href = 'index.html'
+}
+
 $("body").ready(function () {
     match3.createBoard(8, 10);
     match3.mountBoard('#gameBoard');

@@ -23,7 +23,7 @@ class Example extends Phaser.Scene
                 radius: 64
             },
             isStatic: true,
-            density: 0.01,
+            density: 0.00,
             attractors: [
                 (bodyA, bodyB) => ({
                     x: (bodyA.position.x - bodyB.position.x) * 0.000001,
@@ -50,7 +50,7 @@ class Example extends Phaser.Scene
         });
         const sun3 = this.matter.add.image(400, 500, 'sun2', null, {
             isStatic: true,
-            density: 0.01,
+            density: 0.00,
             shape: {
                 type: 'circle',
                 radius: 40
@@ -64,15 +64,24 @@ class Example extends Phaser.Scene
                 })
             ]
         });
-
+        const cat1 = this.matter.world.nextCategory();
+        sun2.setCollisionCategory(cat1);
+        const cat2 = this.matter.world.nextCategory();
+        //alien[0].setCollisionCategory(cat2);
+        sun2.setCollidesWith([ cat1, cat2 ]);
         this.matter.add.mouseSpring();
         // this.matter.world.on('collisionstart', (event, sun2, alien) =>
         // {
         //         //console.log(event);
-        //     //sun3.gameObject.destroy();
+        //     alien.gameObject.destroy();
         //     //sun2.gameObject.setTint(0x00ff00);
         //
         // });
+        this.matter.world.on('collisionstart', event =>
+        {
+            event.pairs[0].alien.gameObject.destroy();
+
+        });
     }
 }
 
