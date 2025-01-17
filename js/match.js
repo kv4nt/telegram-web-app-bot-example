@@ -414,7 +414,7 @@ function save() {
 }
 
 $("body").ready(function () {
-    match3.createBoard(10, 10);
+    match3.createBoard(9, 10);
     match3.mountBoard('#gameBoard');
 
     $(".casa").on("click", function () {
