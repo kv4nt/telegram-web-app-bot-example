@@ -66,7 +66,7 @@ match3.mountBoard = function (container) {
         $("#board").append('</br>');
     });
 
-    $(container).append('<div id="scoreBoard">SCORE: <span id="nPoints">0</span><br>matches: <span id="nCombinations">0</span><br>match 3: <span id="nThree">0</span><br>match 4: <span id="nFour">0</span><br>match 5: <span id="nFive">0</span><br>lucky: <span id="nLuck">0</span><br><br>moves: <span id="nMovements">0</span></div>');
+    $(container).append('<div id="scoreBoard">Очки: <span id="nPoints">0</span><br>яды: <span id="nCombinations">0</span><br>В ряд 3: <span id="nThree">0</span><br>В ряд 4: <span id="nFour">0</span><br>В ряд 5: <span id="nFive">0</span><br>Случайно: <span id="nLuck">0</span><br><br>Ходы: <span id="nMovements">0</span></div>');
 
     var widthContainer = match3.cell.width * match3.board.lines[0].length + 250;
     var widthBoard = match3.cell.width * match3.board.lines[0].length;
