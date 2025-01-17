@@ -409,8 +409,12 @@ function gotoMain() {
     window.location.href = 'index.html'
 }
 
+function save() {
+    Telegram.WebApp.CloudStorage.setItem('match3-score',parseInt(document.getElementById('nPoints').innerText));
+}
+
 $("body").ready(function () {
-    match3.createBoard(8, 10);
+    match3.createBoard(10, 10);
     match3.mountBoard('#gameBoard');
 
     $(".casa").on("click", function () {
