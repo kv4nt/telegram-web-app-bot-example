@@ -79,7 +79,8 @@ class Example extends Phaser.Scene
         // });
         this.matter.world.on('collisionstart', event =>
         {
-            event.pairs[0].alien.gameObject.destroy();
+            //console.log(event.pairs[0])
+            event.pairs[0].bodyB.gameObject.destroy();
 
         });
     }

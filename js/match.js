@@ -18,6 +18,7 @@ match3.scoreBoard.luck = 0;
 match3.scoreBoard.threes = 0;
 match3.scoreBoard.fours = 0;
 match3.scoreBoard.fives = 0;
+match3.scoreBoard.bonus = 10;
 //objeto anição possui variáveis para configurar as animações de transição
 match3.animation = new Object();
 match3.animation.speed = 500;
@@ -87,25 +88,25 @@ match3.scoreBoard.increment = function (scoreBoard) {
         case 'luck' :
             match3.scoreBoard.luck++;
             $("#nLuck").html(match3.scoreBoard.luck);
-            match3.scoreBoard.points += 2;
+            match3.scoreBoard.points += 2*match3.scoreBoard.bonus;
             $("#nPoints").html(match3.scoreBoard.points);
             break;
         case 'three' :
             match3.scoreBoard.threes++;
             $("#nThree").html(match3.scoreBoard.threes);
-            match3.scoreBoard.points += 3;
+            match3.scoreBoard.points += 3*match3.scoreBoard.bonus;
             $("#nPoints").html(match3.scoreBoard.points);
             break;
         case 'four' :
             match3.scoreBoard.fours++;
             $("#nFour").html(match3.scoreBoard.fours);
-            match3.scoreBoard.points += 4;
+            match3.scoreBoard.points += 4*match3.scoreBoard.bonus;
             $("#nPoints").html(match3.scoreBoard.points);
             break;
         case 'five' :
             match3.scoreBoard.fives++;
             $("#nFive").html(match3.scoreBoard.fives);
-            match3.scoreBoard.points += 5;
+            match3.scoreBoard.points += 5*match3.scoreBoard.bonus;
             $("#nPoints").html(match3.scoreBoard.points);
             break;
         case 'movement' :
