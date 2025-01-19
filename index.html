@@ -973,7 +973,7 @@
 </head>
 
 <body class="" style="visibility: hidden;">
-<div class="row justify-content-center position-relative">
+<div class="row justify-content-center position-relative p-b-100">
     <div class="col-auto">
         <div class="card" id="cat-card" style="width: 20rem;">
 <!--            <div class="health-block"><i id="health-counter"></i><i id="health-counter-number">33.33%</i></div>-->
@@ -1269,5 +1269,34 @@
         <!--    </div>-->
     </div>
 </div>
+<nav class="navbar navbar-light navbar-expand rounded-pill fixed-bottom d-md-none d-lg-none d-xl-none shadow"
+     style="background: #0f071f;">
+    <ul class="nav nav-justified w-100" id="myTab" role="tablist">
+        <li class="nav-item mr-1" role="presentation">
+            <button class="btn btn-warning" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button"
+                    role="tab" aria-controls="home" aria-selected="true">
+                <span><i class="fa-solid fa-home"></i></span>
+            </button>
+        </li>
+        <li class="nav-item mr-1" role="presentation">
+            <button class="btn btn-warning" id="notes-tab" data-bs-toggle="tab" data-bs-target="#notes" type="button"
+                    role="tab" aria-controls="intro" aria-selected="true">
+                <span><i class="fa-solid fa-shirt"></i></span>
+            </button>
+        </li>
+        <li class="nav-item mr-1" role="presentation">
+            <button class="btn btn-warning" id="project-tab" data-bs-toggle="tab" data-bs-target="#project" type="button"
+                    role="tab" aria-controls="profile" aria-selected="false">
+                <span><i class="fa-solid fa-coins"></i></span>
+            </button>
+        <li class="nav-item" role="presentation">
+            <button class="btn btn-warning" id="collection-tab" data-bs-toggle="tab" data-bs-target="#collection" type="button"
+                    role="tab" aria-controls="notif" aria-selected="false">
+                <span><i class="fa-solid fa-gamepad"></i></span>
+            </button>
+        </li>
+        </li>
+    </ul>
+</nav>
 </body>
 </html>
