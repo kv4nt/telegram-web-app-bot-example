@@ -1557,7 +1557,7 @@ var gameSettings = {
 var textDisplay = {
     creditLabel: "CREDIT",
     credit: "$[NUMBER]",
-    betLabel: "BET AMOUNT",
+    betLabel: "СТАВКА",
     bet: "$[NUMBER]",
     chanceLabel: "CHANCES",
     chance: "X[NUMBER]",
@@ -1565,7 +1565,7 @@ var textDisplay = {
     risk: ["LOW", "MID", "HIGH"],
     rowsLabel: "ROWS",
     ballsLabel: "BALLS",
-    buttonPlay: "PLAY",
+    buttonPlay: "ИГРАТЬ",
     buttonPlaying: "PLAYING...",
     playBet: "PLAY $[NUMBER]",
     playChance: "x[NUMBER] CHANCES ($[TOTAL])",
@@ -1581,7 +1581,7 @@ var textDisplay = {
     exitMessage: "ARE YOU SURE YOU WANT\nTO QUIT GAME?",
     share: "SHARE YOUR SCORE",
     resultTitle: "GAME OVER",
-    resultDesc: "YOU WON",
+    resultDesc: "ВЫИГРЫШ!",
     resultScore: "$[NUMBER]"
 };
 var shareEnable = true;
