@@ -3173,52 +3173,52 @@ function initPreload() {
     });
     resizeGameFunc();
     loader = new createjs.LoadQueue(false);
-    manifest = [{src: "assetsbackground.png", id: "background"}, {
-        src: "assetsbackground_p.png",
+    manifest = [{src: "assets/background.png", id: "background"}, {
+        src: "assets/background_p.png",
         id: "backgroundP"
-    }, {src: "assetslogo.png", id: "logo"}, {
-        src: "assetslogo_p.png",
+    }, {src: "assets/logo.png", id: "logo"}, {
+        src: "assets/logo_p.png",
         id: "logoP"
-    }, {src: "assetsbutton_start.png", id: "buttonStart"}, {
-        src: "assetsitem_ball.png",
+    }, {src: "assets/button_start.png", id: "buttonStart"}, {
+        src: "assets/item_ball.png",
         id: "itemBall"
-    }, {src: "assetsbutton_arrow_left.png", id: "buttonArrowL"}, {
-        src: "assetsbutton_arrow_right.png",
+    }, {src: "assets/button_arrow_left.png", id: "buttonArrowL"}, {
+        src: "assets/button_arrow_right.png",
         id: "buttonArrowR"
-    }, {src: "assetsbutton_bet_half.png", id: "buttonBetHalf"}, {
-        src: "assetsbutton_bet_multiply.png",
+    }, {src: "assets/button_bet_half.png", id: "buttonBetHalf"}, {
+        src: "assets/button_bet_multiply.png",
         id: "buttonBetMultiply"
-    }, {src: "assetsbutton_blank.png", id: "buttonBlank"}, {
-        src: "assetsitem_drag_bar.png",
+    }, {src: "assets/button_blank.png", id: "buttonBlank"}, {
+        src: "assets/item_drag_bar.png",
         id: "itemDragBar"
-    }, {src: "assetsitem_drag.png", id: "itemDrag"}, {
-        src: "assetsitem_stat_display.png",
+    }, {src: "assets/item_drag.png", id: "itemDrag"}, {
+        src: "assets/item_stat_display.png",
         id: "itemStatDisplay"
-    }, {src: "assetsitem_plinko.png", id: "itemPlinko"}, {
-        src: "assetsitem_plinko_p.png",
+    }, {src: "assets/item_plinko.png", id: "itemPlinko"}, {
+        src: "assets/item_plinko_p.png",
         id: "itemPlinkoP"
-    }, {src: "assetsbutton_confirm.png", id: "buttonConfirm"}, {
-        src: "assetsbutton_cancel.png",
+    }, {src: "assets/button_confirm.png", id: "buttonConfirm"}, {
+        src: "assets/button_cancel.png",
         id: "buttonCancel"
-    }, {src: "assetsitem_exit.png", id: "itemExit"}, {
-        src: "assetsitem_exit_p.png",
+    }, {src: "assets/item_exit.png", id: "itemExit"}, {
+        src: "assets/item_exit_p.png",
         id: "itemExitP"
-    }, {src: "assetsbutton_continue.png", id: "buttonContinue"}, {
-        src: "assetsitem_result.png",
+    }, {src: "assets/button_continue.png", id: "buttonContinue"}, {
+        src: "assets/item_result.png",
         id: "itemResult"
-    }, {src: "assetsitem_result_p.png", id: "itemResultP"}, {
-        src: "assetsbutton_facebook.png",
+    }, {src: "assets/item_result_p.png", id: "itemResultP"}, {
+        src: "assets/button_facebook.png",
         id: "buttonFacebook"
-    }, {src: "assetsbutton_twitter.png", id: "buttonTwitter"}, {
-        src: "assetsbutton_whatsapp.png",
+    }, {src: "assets/button_twitter.png", id: "buttonTwitter"}, {
+        src: "assets/button_whatsapp.png",
         id: "buttonWhatsapp"
-    }, {src: "assetsbutton_fullscreen.png", id: "buttonFullscreen"}, {
-        src: "assetsbutton_sound_on.png",
+    }, {src: "assets/button_fullscreen.png", id: "buttonFullscreen"}, {
+        src: "assets/button_sound_on.png",
         id: "buttonSoundOn"
-    }, {src: "assetsbutton_sound_off.png", id: "buttonSoundOff"}, {
-        src: "assetsbutton_exit.png",
+    }, {src: "assets/button_sound_off.png", id: "buttonSoundOff"}, {
+        src: "assets/button_exit.png",
         id: "buttonExit"
-    }, {src: "assetsbutton_settings.png", id: "buttonSettings"}];
+    }, {src: "фыыуеы.button_settings.png", id: "buttonSettings"}];
     if (typeof memberData != "undefined" && memberSettings.enableMembership) {
         addMemberRewardimagesAssets();
     }
@@ -3239,16 +3239,16 @@ function initPreload() {
     }
     ;
     if (soundOn) {
-        manifest.push({src: "assetssounds/sound_result.ogg", id: "soundResult"});
-        manifest.push({src: "assetssounds/sound_button.ogg", id: "soundClick"});
-        manifest.push({src: "assetssounds/sound_start.ogg", id: "soundStart"});
-        manifest.push({src: "assetssounds/sound_win.ogg", id: "soundWin"});
-        manifest.push({src: "assetssounds/sound_nowin.ogg", id: "soundLose"});
-        manifest.push({src: "assetssounds/sound_score.ogg", id: "soundScore"});
-        manifest.push({src: "assetssounds/sound_noscore.ogg", id: "soundNoScore"});
-        manifest.push({src: "assetssounds/sound_change.ogg", id: "soundChange"});
-        manifest.push({src: "assetssounds/sound_ball.ogg", id: "soundBall"});
-        manifest.push({src: "assetssounds/sound_hit.ogg", id: "soundHit"});
+        manifest.push({src: "assets/sounds/sound_result.ogg", id: "soundResult"});
+        manifest.push({src: "assets/sounds/sound_button.ogg", id: "soundClick"});
+        manifest.push({src: "assets/sounds/sound_start.ogg", id: "soundStart"});
+        manifest.push({src: "assets/sounds/sound_win.ogg", id: "soundWin"});
+        manifest.push({src: "assets/sounds/sound_nowin.ogg", id: "soundLose"});
+        manifest.push({src: "assets/sounds/sound_score.ogg", id: "soundScore"});
+        manifest.push({src: "assets/sounds/sound_noscore.ogg", id: "soundNoScore"});
+        manifest.push({src: "assets/sounds/sound_change.ogg", id: "soundChange"});
+        manifest.push({src: "assets/sounds/sound_ball.ogg", id: "soundBall"});
+        manifest.push({src: "assets/sounds/sound_hit.ogg", id: "soundHit"});
         createjs.Sound.alternateExtensions = ["mp3"];
         loader.installPlugin(createjs.Sound);
     }
