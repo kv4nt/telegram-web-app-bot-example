@@ -57,8 +57,8 @@ resize:vertical;
 /* ==========================================================================
    Main styles
    ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Stalinist+One&display=swap');
 @font-face {
-    src: url('fonts/StalinistOne-Regular.ttf') format('ttf');
     font-family: "Stalinist One", serif;
     font-weight: 400;
     font-style: normal;
