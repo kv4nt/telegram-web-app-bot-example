@@ -641,7 +641,7 @@ function buildGameCanvas() {
     statBetChanceLabelTxt.x = 20;
     statBetChanceLabelTxt.y = -5;
     statBetChanceTxt = new createjs.Text;
-    statBetChanceTxt.font = "30px Stalinist One";
+    statBetChanceTxt.font = "20px Stalinist One";
     statBetChanceTxt.color = "#fff";
     statBetChanceTxt.textAlign = "left";
     statBetChanceTxt.textBaseline = "alphabetic";
