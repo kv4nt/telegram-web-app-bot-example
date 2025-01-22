@@ -2696,6 +2696,7 @@ function updateStats() {
     ;
     statRowsTxt.text = gameData.totalRows;
     statBallsTxt.text = gameData.totalBalls;
+    console.log('balance',Math.floor(playerData.point));
 }
 
 function updateWinHistory() {
