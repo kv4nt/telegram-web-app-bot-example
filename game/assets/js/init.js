@@ -1555,14 +1555,14 @@ var gameSettings = {
     }]
 };
 var textDisplay = {
-    creditLabel: "CREDIT",
+    creditLabel: "БАЛАНС",
     credit: "$[NUMBER]",
     betLabel: "СТАВКА",
     bet: "$[NUMBER]",
     chanceLabel: "CHANCES",
     chance: "X[NUMBER]",
     riskLabel: "РИСК",
-    risk: ["НИЗ", "СРЕД", "ВЫС"],
+    risk: ["НИЗКИЙ", "СРЕДНИЙ", "ВЫСОКИЙ"],
     rowsLabel: "РЯДЫ",
     ballsLabel: "ШАРИКИ",
     buttonPlay: "ИГРАТЬ",
