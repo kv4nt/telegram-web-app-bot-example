@@ -744,7 +744,7 @@ function buildGameCanvas() {
     buttonBlankTxt.y = 33;
     statsPlayContainer.addChild(buttonBlank, buttonBlankTxt);
     statusTxt = new createjs.Text;
-    statusTxt.font = "30px Stalinist One";
+    statusTxt.font = "20px Stalinist One";
     statusTxt.color = "#fff";
     statusTxt.textAlign = "center";
     statusTxt.textBaseline = "alphabetic";
