@@ -1557,9 +1557,9 @@ var gameSettings = {
 };
 var textDisplay = {
     creditLabel: "БАЛАНС",
-    credit: "$[NUMBER]",
+    credit: "[NUMBER]",
     betLabel: "СТАВКА",
-    bet: "$[NUMBER]",
+    bet: "[NUMBER]",
     chanceLabel: "CHANCES",
     chance: "X[NUMBER]",
     riskLabel: "РИСК",
@@ -1568,22 +1568,22 @@ var textDisplay = {
     ballsLabel: "МЯЧИ",
     buttonPlay: "ИГРАТЬ",
     buttonPlaying: "ИГРАЕМ...",
-    playBet: "СТАВКА $[NUMBER]",
-    playChance: "x[NUMBER] CHANCES ($[TOTAL])",
-    betInsufficient: "NOT ENOUGH CREDIT",
+    playBet: "СТАВКА [NUMBER]",
+    playChance: "x[NUMBER] CHANCES ([TOTAL])",
+    betInsufficient: "НЕ ХВАТАЕТ МОНЕТ",
     chanceInsufficient: "NOT ENOUGH CHANCES",
-    won: "ВЫИГРЫШ $[NUMBER]!",
+    won: "ВЫИГРЫШ [NUMBER]!",
     lose: "БЕЗ ВЫИГРЫША",
     playing: "МЯЧИКИ ПАДАЮТ...",
     playingMultiple: "МЯЧИКИ ПАДАЮТ... ([NUMBER] ОСТАЛОСЬ)",
     gameOver: "GAME OVER",
     collectPrize: "[NUMBER]",
     exitTitle: "ВЫХОД",
-    exitMessage: "ARE YOU SURE YOU WANT\nTO QUIT GAME?",
+    exitMessage: "ТОЧНО ВЫЙТИ?",
     share: "SHARE YOUR SCORE",
     resultTitle: "GAME OVER",
     resultDesc: "ВЫИГРЫШ!",
-    resultScore: "$[NUMBER]"
+    resultScore: "[NUMBER]"
 };
 var shareEnable = true;
 var shareTitle = "Highscore on Extreme Plinko Game at $[SCORE].";
