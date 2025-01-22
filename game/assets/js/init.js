@@ -769,7 +769,7 @@ function buildGameCanvas() {
     resultTitleTxt.textBaseline = "alphabetic";
     resultTitleTxt.text = textDisplay.resultTitle;
     resultDescTxt = new createjs.Text;
-    resultDescTxt.font = "30px Stalinist One";
+    resultDescTxt.font = "10px Stalinist One";
     resultDescTxt.color = "#fff";
     resultDescTxt.textAlign = "center";
     resultDescTxt.textBaseline = "alphabetic";
