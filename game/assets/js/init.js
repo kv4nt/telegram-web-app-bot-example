@@ -1054,7 +1054,7 @@ var gameSettings = {
             color: "#ff0000",
             bgColor: "#ffd500",
             bgWinColor: "#F4A800",
-            percent: 0
+            percent: 50
         }, {
             value: [1, 0.7, 0.3],
             text: ["1x", "0.7x", "0.3x"],
