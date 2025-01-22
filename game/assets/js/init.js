@@ -3220,11 +3220,11 @@ function initPreload() {
         id: "buttonExit"
     }, {src: "assetsbutton_settings.png", id: "buttonSettings"}];
     if (typeof memberData != "undefined" && memberSettings.enableMembership) {
-        addMemberRewardimages / casino();
+        addMemberRewardimagesAssets();
     }
     ;
-    if (typeof addScoreboardimages / casino == "function") {
-        addScoreboardimages / casino();
+    if (typeof addScoreboardimagesAssets == "function") {
+        addScoreboardimagesAssets();
     }
     ;
     soundOn = true;
