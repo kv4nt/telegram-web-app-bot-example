@@ -175,7 +175,7 @@ function pausedPhysics(_0x39cdx1b, _0x39cdx1c) {
 
 function updatePhysics() {
     if (!worldArr[0].paused) {
-        worldArr[0].world.step(1/60);
+        worldArr[0].world.step(0.016666666666666666);
         renderPhysics();
     }
 }
