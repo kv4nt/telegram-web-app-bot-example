@@ -633,7 +633,7 @@ function buildGameCanvas() {
     statsCreditContainer.addChild(itemStatCredit, statCreditLabelTxt, statCreditTxt);
     itemstatBetChance = new createjs.Bitmap(loader.getResult("itemStatDisplay"));
     statBetChanceLabelTxt = new createjs.Text;
-    statBetChanceLabelTxt.font = "20px Stalinist One";
+    statBetChanceLabelTxt.font = "14px Stalinist One";
     statBetChanceLabelTxt.color = "#fff";
     statBetChanceLabelTxt.textAlign = "left";
     statBetChanceLabelTxt.textBaseline = "alphabetic";
@@ -641,7 +641,7 @@ function buildGameCanvas() {
     statBetChanceLabelTxt.x = 20;
     statBetChanceLabelTxt.y = -5;
     statBetChanceTxt = new createjs.Text;
-    statBetChanceTxt.font = "20px Stalinist One";
+    statBetChanceTxt.font = "14px Stalinist One";
     statBetChanceTxt.color = "#fff";
     statBetChanceTxt.textAlign = "left";
     statBetChanceTxt.textBaseline = "alphabetic";
@@ -666,7 +666,7 @@ function buildGameCanvas() {
     statRiskLabelTxt.x = 20;
     statRiskLabelTxt.y = -5;
     statRiskTxt = new createjs.Text;
-    statRiskTxt.font = "20px Stalinist One";
+    statRiskTxt.font = "14px Stalinist One";
     statRiskTxt.color = "#fff";
     statRiskTxt.textAlign = "center";
     statRiskTxt.textBaseline = "alphabetic";
