@@ -633,7 +633,7 @@ function buildGameCanvas() {
     statsCreditContainer.addChild(itemStatCredit, statCreditLabelTxt, statCreditTxt);
     itemstatBetChance = new createjs.Bitmap(loader.getResult("itemStatDisplay"));
     statBetChanceLabelTxt = new createjs.Text;
-    statBetChanceLabelTxt.font = "14px Stalinist One";
+    statBetChanceLabelTxt.font = "20px Stalinist One";
     statBetChanceLabelTxt.color = "#fff";
     statBetChanceLabelTxt.textAlign = "left";
     statBetChanceLabelTxt.textBaseline = "alphabetic";
@@ -641,7 +641,7 @@ function buildGameCanvas() {
     statBetChanceLabelTxt.x = 20;
     statBetChanceLabelTxt.y = -5;
     statBetChanceTxt = new createjs.Text;
-    statBetChanceTxt.font = "14px Stalinist One";
+    statBetChanceTxt.font = "20px Stalinist One";
     statBetChanceTxt.color = "#fff";
     statBetChanceTxt.textAlign = "left";
     statBetChanceTxt.textBaseline = "alphabetic";
@@ -717,7 +717,7 @@ function buildGameCanvas() {
     statBallsLabelTxt.x = 20;
     statBallsLabelTxt.y = -5;
     statBallsTxt = new createjs.Text;
-    statBallsTxt.font = "10px Stalinist One";
+    statBallsTxt.font = "30px Stalinist One";
     statBallsTxt.color = "#fff";
     statBallsTxt.textAlign = "left";
     statBallsTxt.textBaseline = "alphabetic";
@@ -2706,6 +2706,7 @@ function updateWinHistory() {
     var _0x39cdxd5 = gameData.historyArray[gameData.historyArray.length - 1];
     var _0x39cdx132 = createPrize(_0x39cdxd5);
     _0x39cdx132.prizeText.text = _0x39cdx132.textArray[gameData.riskLevel];
+    _0x39cdx132.prizeText.font = "10px Stalinist One";
     _0x39cdx132.alpha = 0;
     gameData.historyObj.push(_0x39cdx132);
     historyContainer.addChild(_0x39cdx132);
