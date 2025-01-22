@@ -735,7 +735,7 @@ function buildGameCanvas() {
     statsBallsContainer.addChild(itemStatBalls, statBallsLabelTxt, statBallsTxt, itemBallsDragBar, itemBallsDrag);
     buttonBlank = new createjs.Bitmap(loader.getResult("buttonBlank"));
     buttonBlankTxt = new createjs.Text;
-    buttonBlankTxt.font = "10px Stalinist One";
+    buttonBlankTxt.font = "2px Stalinist One";
     buttonBlankTxt.color = "#fff";
     buttonBlankTxt.textAlign = "center";
     buttonBlankTxt.textBaseline = "alphabetic";
