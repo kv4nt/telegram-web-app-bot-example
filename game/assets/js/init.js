@@ -1047,22 +1047,22 @@ var gameSettings = {
         prizes: [{
             value: [0.5, 0.4, 0.2],
             text: ["0.5x", "0.4x", "0.2x"],
-            fontSize: 12,
+            fontSize: 8,
             lineHeight: 10,
             x: 0,
             y: 3,
-            color: "#0011ff",
+            color: "#ff0000",
             bgColor: "#ffd500",
             bgWinColor: "#F4A800",
             percent: 0
         }, {
             value: [1, 0.7, 0.3],
             text: ["1x", "0.7x", "0.3x"],
-            fontSize: 12,
+            fontSize: 8,
             lineHeight: 10,
             x: 0,
             y: 3,
-            color: "#0011ff",
+            color: "#ff0000",
             bgColor: "#EF7C11",
             bgWinColor: "#FC7E15",
             percent: 0
