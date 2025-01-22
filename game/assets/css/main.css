@@ -59,8 +59,7 @@ resize:vertical;
    ========================================================================== */
 @font-face {
    font-family: 'azonixregular';
-   src: url('fonts/azonix-webfont.woff2') format('woff2'),
-        url('fonts/azonix-webfont.woff') format('woff');
+   src: url('fonts/Pangolin-Regular.ttf') format('ttf');
    font-weight: normal;
    font-style: normal;
 
