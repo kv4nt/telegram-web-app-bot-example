@@ -615,7 +615,7 @@ function buildGameCanvas() {
     buttonStart.y = canvasH / 100 * 65;
     itemStatCredit = new createjs.Bitmap(loader.getResult("itemStatDisplay"));
     statCreditLabelTxt = new createjs.Text;
-    statCreditLabelTxt.font = "20px azonixregular";
+    statCreditLabelTxt.font = "20px Stalinist One";
     statCreditLabelTxt.color = "#fff";
     statCreditLabelTxt.textAlign = "left";
     statCreditLabelTxt.textBaseline = "alphabetic";
@@ -623,7 +623,7 @@ function buildGameCanvas() {
     statCreditLabelTxt.x = 20;
     statCreditLabelTxt.y = -5;
     statCreditTxt = new createjs.Text;
-    statCreditTxt.font = "30px azonixregular";
+    statCreditTxt.font = "30px Stalinist One";
     statCreditTxt.color = "#fff";
     statCreditTxt.textAlign = "left";
     statCreditTxt.textBaseline = "alphabetic";
@@ -633,7 +633,7 @@ function buildGameCanvas() {
     statsCreditContainer.addChild(itemStatCredit, statCreditLabelTxt, statCreditTxt);
     itemstatBetChance = new createjs.Bitmap(loader.getResult("itemStatDisplay"));
     statBetChanceLabelTxt = new createjs.Text;
-    statBetChanceLabelTxt.font = "20px azonixregular";
+    statBetChanceLabelTxt.font = "20px Stalinist One";
     statBetChanceLabelTxt.color = "#fff";
     statBetChanceLabelTxt.textAlign = "left";
     statBetChanceLabelTxt.textBaseline = "alphabetic";
@@ -641,7 +641,7 @@ function buildGameCanvas() {
     statBetChanceLabelTxt.x = 20;
     statBetChanceLabelTxt.y = -5;
     statBetChanceTxt = new createjs.Text;
-    statBetChanceTxt.font = "30px azonixregular";
+    statBetChanceTxt.font = "30px Stalinist One";
     statBetChanceTxt.color = "#fff";
     statBetChanceTxt.textAlign = "left";
     statBetChanceTxt.textBaseline = "alphabetic";
@@ -658,7 +658,7 @@ function buildGameCanvas() {
     statsBetChanceContainer.addChild(itemstatBetChance, statBetChanceLabelTxt, statBetChanceTxt, buttonBetHalf, buttonBetMultiply);
     itemStatRisk = new createjs.Bitmap(loader.getResult("itemStatDisplay"));
     statRiskLabelTxt = new createjs.Text;
-    statRiskLabelTxt.font = "20px azonixregular";
+    statRiskLabelTxt.font = "20px Stalinist One";
     statRiskLabelTxt.color = "#fff";
     statRiskLabelTxt.textAlign = "left";
     statRiskLabelTxt.textBaseline = "alphabetic";
@@ -666,7 +666,7 @@ function buildGameCanvas() {
     statRiskLabelTxt.x = 20;
     statRiskLabelTxt.y = -5;
     statRiskTxt = new createjs.Text;
-    statRiskTxt.font = "30px azonixregular";
+    statRiskTxt.font = "30px Stalinist One";
     statRiskTxt.color = "#fff";
     statRiskTxt.textAlign = "center";
     statRiskTxt.textBaseline = "alphabetic";
@@ -683,7 +683,7 @@ function buildGameCanvas() {
     statsRiskContainer.addChild(itemStatRisk, statRiskLabelTxt, statRiskTxt, buttonRiskL, buttonRiskR);
     itemStatRows = new createjs.Bitmap(loader.getResult("itemStatDisplay"));
     statRowsLabelTxt = new createjs.Text;
-    statRowsLabelTxt.font = "20px azonixregular";
+    statRowsLabelTxt.font = "20px Stalinist One";
     statRowsLabelTxt.color = "#fff";
     statRowsLabelTxt.textAlign = "left";
     statRowsLabelTxt.textBaseline = "alphabetic";
@@ -691,7 +691,7 @@ function buildGameCanvas() {
     statRowsLabelTxt.x = 20;
     statRowsLabelTxt.y = -5;
     statRowsTxt = new createjs.Text;
-    statRowsTxt.font = "30px azonixregular";
+    statRowsTxt.font = "30px Stalinist One";
     statRowsTxt.color = "#fff";
     statRowsTxt.textAlign = "left";
     statRowsTxt.textBaseline = "alphabetic";
@@ -709,7 +709,7 @@ function buildGameCanvas() {
     statsRowsContainer.addChild(itemStatRows, statRowsLabelTxt, statRowsTxt, itemRowsDragBar, itemRowsDrag);
     itemStatBalls = new createjs.Bitmap(loader.getResult("itemStatDisplay"));
     statBallsLabelTxt = new createjs.Text;
-    statBallsLabelTxt.font = "20px azonixregular";
+    statBallsLabelTxt.font = "20px Stalinist One";
     statBallsLabelTxt.color = "#fff";
     statBallsLabelTxt.textAlign = "left";
     statBallsLabelTxt.textBaseline = "alphabetic";
@@ -717,7 +717,7 @@ function buildGameCanvas() {
     statBallsLabelTxt.x = 20;
     statBallsLabelTxt.y = -5;
     statBallsTxt = new createjs.Text;
-    statBallsTxt.font = "30px azonixregular";
+    statBallsTxt.font = "30px Stalinist One";
     statBallsTxt.color = "#fff";
     statBallsTxt.textAlign = "left";
     statBallsTxt.textBaseline = "alphabetic";
@@ -735,7 +735,7 @@ function buildGameCanvas() {
     statsBallsContainer.addChild(itemStatBalls, statBallsLabelTxt, statBallsTxt, itemBallsDragBar, itemBallsDrag);
     buttonBlank = new createjs.Bitmap(loader.getResult("buttonBlank"));
     buttonBlankTxt = new createjs.Text;
-    buttonBlankTxt.font = "30px azonixregular";
+    buttonBlankTxt.font = "30px Stalinist One";
     buttonBlankTxt.color = "#fff";
     buttonBlankTxt.textAlign = "center";
     buttonBlankTxt.textBaseline = "alphabetic";
@@ -744,7 +744,7 @@ function buildGameCanvas() {
     buttonBlankTxt.y = 33;
     statsPlayContainer.addChild(buttonBlank, buttonBlankTxt);
     statusTxt = new createjs.Text;
-    statusTxt.font = "30px azonixregular";
+    statusTxt.font = "30px Stalinist One";
     statusTxt.color = "#fff";
     statusTxt.textAlign = "center";
     statusTxt.textBaseline = "alphabetic";
@@ -757,25 +757,25 @@ function buildGameCanvas() {
     itemResult = new createjs.Bitmap(loader.getResult("itemResult"));
     itemResultP = new createjs.Bitmap(loader.getResult("itemResultP"));
     resultShareTxt = new createjs.Text;
-    resultShareTxt.font = "20px azonixregular";
+    resultShareTxt.font = "20px Stalinist One";
     resultShareTxt.color = "#A00D49";
     resultShareTxt.textAlign = "center";
     resultShareTxt.textBaseline = "alphabetic";
     resultShareTxt.text = textDisplay.share;
     resultTitleTxt = new createjs.Text;
-    resultTitleTxt.font = "50px azonixregular";
+    resultTitleTxt.font = "50px Stalinist One";
     resultTitleTxt.color = "#fff";
     resultTitleTxt.textAlign = "center";
     resultTitleTxt.textBaseline = "alphabetic";
     resultTitleTxt.text = textDisplay.resultTitle;
     resultDescTxt = new createjs.Text;
-    resultDescTxt.font = "30px azonixregular";
+    resultDescTxt.font = "30px Stalinist One";
     resultDescTxt.color = "#fff";
     resultDescTxt.textAlign = "center";
     resultDescTxt.textBaseline = "alphabetic";
     resultDescTxt.text = textDisplay.resultDesc;
     resultScoreTxt = new createjs.Text;
-    resultScoreTxt.font = "80px azonixregular";
+    resultScoreTxt.font = "80px Stalinist One";
     resultScoreTxt.color = "#fff";
     resultScoreTxt.textAlign = "center";
     resultScoreTxt.textBaseline = "alphabetic";
@@ -813,13 +813,13 @@ function buildGameCanvas() {
     buttonCancel = new createjs.Bitmap(loader.getResult("buttonCancel"));
     centerReg(buttonCancel);
     exitTitleTxt = new createjs.Text;
-    exitTitleTxt.font = "50px azonixregular";
+    exitTitleTxt.font = "50px Stalinist One";
     exitTitleTxt.color = "#fff";
     exitTitleTxt.textAlign = "center";
     exitTitleTxt.textBaseline = "alphabetic";
     exitTitleTxt.text = textDisplay.exitTitle;
     popDescTxt = new createjs.Text;
-    popDescTxt.font = "30px azonixregular";
+    popDescTxt.font = "30px Stalinist One";
     popDescTxt.lineHeight = 35;
     popDescTxt.color = "#fff";
     popDescTxt.textAlign = "center";
@@ -1963,7 +1963,7 @@ function createPrize(_0x39cdxd5) {
     _0x39cdxdb.addChild(_0x39cdxdd, _0x39cdxde, _0x39cdxdc);
     _0x39cdxdb.alpha = 0;
     var _0x39cdxdf = new createjs.Text;
-    _0x39cdxdf.font = gameSettings.rows[gameData.rowIndex].prizes[_0x39cdxd5].fontSize + "px azonixregular";
+    _0x39cdxdf.font = gameSettings.rows[gameData.rowIndex].prizes[_0x39cdxd5].fontSize + "px Stalinist One";
     _0x39cdxdf.color = gameSettings.rows[gameData.rowIndex].prizes[_0x39cdxd5].color;
     _0x39cdxdf.textAlign = "center";
     _0x39cdxdf.textBaseline = "alphabetic";
@@ -2853,7 +2853,7 @@ function animatePrize(_0x39cdxb9) {
 
 function createWinText(_0x39cdxb9, _0x39cdx13f, _0x39cdx13b) {
     var _0x39cdx140 = new createjs.Text;
-    _0x39cdx140.font = gameSettings.board.notiFontSize + "px azonixregular";
+    _0x39cdx140.font = gameSettings.board.notiFontSize + "px Stalinist One";
     if (_0x39cdx13b) {
         _0x39cdx140.color = gameSettings.board.notiColor[0];
         playSound("soundScore");
