@@ -1040,7 +1040,8 @@ var gameSettings = {
         notiFontSize: 22,
         notiColor: ["#13BC5B", "#CC0D0D"]
     },
-    rows: [{
+    rows: [
+        {
         total: 8,
         even: false,
         prizes: [{
@@ -1050,7 +1051,7 @@ var gameSettings = {
             lineHeight: 10,
             x: 0,
             y: 3,
-            color: "#fff",
+            color: "#0011ff",
             bgColor: "#ffd500",
             bgWinColor: "#F4A800",
             percent: 0
@@ -1061,7 +1062,7 @@ var gameSettings = {
             lineHeight: 10,
             x: 0,
             y: 3,
-            color: "#fff",
+            color: "#0011ff",
             bgColor: "#EF7C11",
             bgWinColor: "#FC7E15",
             percent: 0
