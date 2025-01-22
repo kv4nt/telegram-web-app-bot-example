@@ -769,13 +769,13 @@ function buildGameCanvas() {
     resultTitleTxt.textBaseline = "alphabetic";
     resultTitleTxt.text = textDisplay.resultTitle;
     resultDescTxt = new createjs.Text;
-    resultDescTxt.font = "10px Stalinist One";
+    resultDescTxt.font = "30px Stalinist One";
     resultDescTxt.color = "#fff";
     resultDescTxt.textAlign = "center";
     resultDescTxt.textBaseline = "alphabetic";
     resultDescTxt.text = textDisplay.resultDesc;
     resultScoreTxt = new createjs.Text;
-    resultScoreTxt.font = "80px Stalinist One";
+    resultScoreTxt.font = "20px Stalinist One";
     resultScoreTxt.color = "#fff";
     resultScoreTxt.textAlign = "center";
     resultScoreTxt.textBaseline = "alphabetic";
