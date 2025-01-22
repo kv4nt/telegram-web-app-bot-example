@@ -3218,7 +3218,7 @@ function initPreload() {
     }, {src: "assets/button_sound_off.png", id: "buttonSoundOff"}, {
         src: "assets/button_exit.png",
         id: "buttonExit"
-    }, {src: "фыыуеы.button_settings.png", id: "buttonSettings"}];
+    }, {src: "assets/button_settings.png", id: "buttonSettings"}];
     if (typeof memberData != "undefined" && memberSettings.enableMembership) {
         addMemberRewardimagesAssets();
     }
