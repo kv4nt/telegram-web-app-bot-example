@@ -58,10 +58,10 @@ resize:vertical;
    Main styles
    ========================================================================== */
 @font-face {
-   font-family: 'azonixregular';
-   src: url('fonts/StalinistOne-Regular.ttf') format('ttf');
-   font-weight: normal;
-   font-style: normal;
+    src: url('fonts/StalinistOne-Regular.ttf') format('ttf');
+    font-family: "Stalinist One", serif;
+    font-weight: 400;
+    font-style: normal;
 
 }
 
