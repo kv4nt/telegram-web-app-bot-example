@@ -1051,7 +1051,7 @@ var gameSettings = {
             x: 0,
             y: 3,
             color: "#fff",
-            bgColor: "#b08700",
+            bgColor: "#ffd500",
             bgWinColor: "#F4A800",
             percent: 0
         }, {
@@ -2228,7 +2228,7 @@ function updateRiskLevel() {
     statRiskTxt.text = textDisplay.risk[gameData.riskLevel];
     for (var _0x39cdxd3 = 0; _0x39cdxd3 < gameData.prizeArray.length; _0x39cdxd3++) {
         $.prize[_0x39cdxd3].prizeText.text = $.prize[_0x39cdxd3].textArray[gameData.riskLevel];
-        $.prize[_0x39cdxd3].prizeText.font = "8px Stalinist One";
+        //$.prize[_0x39cdxd3].prizeText.font = "8px Stalinist One";
     }
 }
 
@@ -2707,7 +2707,7 @@ function updateWinHistory() {
     var _0x39cdxd5 = gameData.historyArray[gameData.historyArray.length - 1];
     var _0x39cdx132 = createPrize(_0x39cdxd5);
     _0x39cdx132.prizeText.text = _0x39cdx132.textArray[gameData.riskLevel];
-    _0x39cdx132.prizeText.font = "8px Stalinist One";
+    //_0x39cdx132.prizeText.font = "8px Stalinist One";
     _0x39cdx132.alpha = 0;
     gameData.historyObj.push(_0x39cdx132);
     historyContainer.addChild(_0x39cdx132);
