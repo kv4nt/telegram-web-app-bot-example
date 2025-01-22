@@ -666,7 +666,7 @@ function buildGameCanvas() {
     statRiskLabelTxt.x = 20;
     statRiskLabelTxt.y = -5;
     statRiskTxt = new createjs.Text;
-    statRiskTxt.font = "30px Stalinist One";
+    statRiskTxt.font = "20px Stalinist One";
     statRiskTxt.color = "#fff";
     statRiskTxt.textAlign = "center";
     statRiskTxt.textBaseline = "alphabetic";
