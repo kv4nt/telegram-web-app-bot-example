@@ -67,13 +67,13 @@ resize:vertical;
 html{-webkit-tap-highlight-color: rgba(0,0,0,0);-webkit-user-select: none;-webkit-touch-callout:none; background:#420539;}
 
 /*-- Percent Loader -- */
-#mainLoader{position:absolute;z-index:5; display:none; font-size:35px; line-height:35px; color:#fff; text-align:center; width:100%; font-family:'azonixregular';}
+#mainLoader{position:absolute;z-index:5; display:none; font-size:35px; line-height:35px; color:#fff; text-align:center; width:100%; font-family:'Stalinist One';}
 
 /*-- Content Wrapper -- */
 #mainHolder{position:absolute; width:100%;height:100%;}
 
 /*-- Browser Not Support -- */
-#notSupportHolder{ width:90%; margin:5% auto; position:relative; color:#fff; text-align:center; font-size:35px; font-family:'azonixregular'; display:none;}
+#notSupportHolder{ width:90%; margin:5% auto; position:relative; color:#fff; text-align:center; font-size:35px; font-family:'Stalinist One'; display:none;}
 .notSupport{margin-top:200px;}
 
 @-moz-keyframes spin { 50% { -moz-transform: rotate(0deg); } 100% { -moz-transform: rotate(0deg); } }
