@@ -1,0 +1,32 @@
+{
+  "version": 1707733668474,
+  "fileList": [
+    "js/c3runtime.js",
+    "data.json",
+    "style.css",
+    "js/offlineclient.js",
+    "images/shared-0-sheet2.png",
+    "images/shared-0-sheet1.png",
+    "images/shared-0-sheet0.png",
+    "js/opus.wasm.js",
+    "js/opus.wasm.wasm",
+    "js/main.js",
+    "workermain.js",
+    "js/dispatchworker.js",
+    "js/jobworker.js",
+    "js/supportcheck.js",
+    "fonts/Super Foods.ttf",
+    "media/376517__cribbler__spinning-bearing.webm",
+    "media/607207__fupicat__congrats.webm",
+    "media/Button.webm",
+    "media/686610__seth_makes_sounds__bubbglegum-pop-song.webm",
+    "icons/icon-32.png",
+    "icons/icon-16.png",
+    "icons/icon-64.png",
+    "icons/loading-logo.png",
+    "icons/icon-128.png",
+    "icons/icon-256.png",
+    "icons/icon-512.png",
+    "js/register-sw.js"
+  ]
+}
