@@ -27,7 +27,7 @@ function gotoGames() {
 
 $(document).ready(function () {
     setTimeout(function () {
-        $('.loader').addClass('d-none');
+        $('.loader-overlay').addClass('d-none');
     },5000)
 
 })
