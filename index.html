@@ -452,63 +452,42 @@
             })
         }
 
-        function gotoBank() {
-            window.location.href = 'bank.html';
-        }
-
-        function goToDemo() {
-            window.location.href = 'demo.html';
-        }
-
-        function gotoMatch() {
-            window.location.href = 'match3.html';
-        }
-
-        function gotoMatchDemo() {
-            window.location.href = 'match.html';
-        }
-        function gotoTowerDemo() {
-            window.location.href = 'tower.html';
-        }
-
-        function gotoCasino() {
-            window.location = window.location.origin+'/telegram-web-app-bot-example/game/index.html';
-        }
-
         $(document).ready(function(){
-            document.body.style.visibility = '';
-            Telegram.WebApp.ready();
-            var glide = new Glide('#intro', {
-                type: 'carousel',
-                perView: 1,
-                focusAt: 'center',
-                breakpoints: {
-                    800: {
-                        perView: 2
-                    },
-                    480: {
-                        perView: 1
+            // wait loader overlay
+            setTimeout(function () {
+                document.body.style.visibility = '';
+                Telegram.WebApp.ready();
+                var glide = new Glide('#intro', {
+                    type: 'carousel',
+                    perView: 1,
+                    focusAt: 'center',
+                    breakpoints: {
+                        800: {
+                            perView: 2
+                        },
+                        480: {
+                            perView: 1
+                        }
                     }
-                }
-            })
+                })
 
-            glide.mount();
-            getCharacter();
-            getEatValue();
-            getCatImage();
-            getHappyValue();
-            getTime();
-            getEatPercents();
-            getMoney();
-            setInterval(getEatPercents,5000);
-            // $('#characterName').text(getCharacter());
-            setLastEnterTime();
-            getHealthValue();
-            getMatch3ScoreMessage();
-            // if(getCharacter()) {
-            //     alert('Твой выбранный котик '+getCharacter())
-            // }
-
+                glide.mount();
+                getCharacter();
+                getEatValue();
+                getCatImage();
+                getHappyValue();
+                getTime();
+                getEatPercents();
+                getMoney();
+                setInterval(getEatPercents,5000);
+                // $('#characterName').text(getCharacter());
+                setLastEnterTime();
+                getHealthValue();
+                getMatch3ScoreMessage();
+                // if(getCharacter()) {
+                //     alert('Твой выбранный котик '+getCharacter())
+                // }
+            },5000);
         });
     </script>
     <title>21 black jack</title>
