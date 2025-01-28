@@ -2532,6 +2532,7 @@ i#money-count {
     background-image: url(../images/loading.gif);
     background-size: cover;
     top: 20%;
+    background-position-x: -33px;
 }
 .loader-overlay {
     background-color: #fbfbfb;
