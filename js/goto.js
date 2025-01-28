@@ -28,6 +28,6 @@ function gotoGames() {
 $(document).ready(function () {
     setTimeout(function () {
         $('.loader').addClass('d-none');
-    },12500)
+    },5000)
 
 })
