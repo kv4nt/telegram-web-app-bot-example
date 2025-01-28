@@ -2048,6 +2048,7 @@ function stopGame() {
 }
 
 function saveGame(_0x39cdxe7) {
+    alert('save game');
     if (typeof toggleScoreboardSave == "function") {
         $.scoreData.score = _0x39cdxe7;
         if (typeof type != "undefined") {
