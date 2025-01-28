@@ -25,6 +25,14 @@ function gotoGames() {
     window.location.href = 'games.html';
 }
 
+function gotoAds() {
+    window.location.href = 'ad-watching.html';
+}
+
+function gotoMain() {
+    window.location.href = 'index.html'
+}
+
 $(document).ready(function () {
     setTimeout(function () {
         $('.loader-overlay').addClass('d-none');
