@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="MobileOptimized" content="176" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="robots" content="noindex,nofollow" />
+    <script src="https://telegram.org/js/telegram-web-app.js?2"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.slim.min.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj+KsslFkCOt3TvJrX2AV/Gc3wOqA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.bundle.min.js" integrity="sha512-sH8JPhKJUeA9PWk3eOcOl8U+lfZTgtBXD41q6cO/slwxGHCxKcW45K4oPCUhHG7NMB4mbKEddVmPuTXtpbCbFA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css" integrity="sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/app.css"/>
+    <link rel="stylesheet" href="css/buttons.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js" integrity="sha512-Zq9o+E00xhhR/7vJ49mxFNJ0KQw1E1TMWkPTxrWcnpfEFDEXgUiwJHIKit93EW/XxE31HSI5GEOW06G6BF1AtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css" integrity="sha512-O03ntXoVqaGUTAeAmvQ2YSzkCvclZEcPQu1eqloPaHfJ5RuNGiS4l+3duaidD801P50J28EHyonCV06CUlTSag==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="js/goto.js"></script>
+    <title>Игры</title>
+</head>
+
+<body>
+<div class="loader-overlay"><div class="loader"></div><span>Загрузка...</span></div>
+<div class="row justify-content-center position-relative p-b-100">
+    <div class="col-auto">
+        <div class="card mt-1" id="cat-card" style="width: 20rem;">
+            <div class="card-body">
+                <div class="alert alert-info alert-dismissible">
+                    <button onclick="hideInfo();" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    На этой странице собраны все игры
+                </div>
+                <button onclick="gotoMain()" type="button" class="special-btn mb-2 mb-md-0 special-btn-warning special-btn-block">
+                    <div class="p-r-50">
+                        Вернуться к коту
+                    </div>
+                    <div class="icon d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-cat"></i>
+                    </div>
+                </button>
+                <hr/>
+                <button onclick="gotoBank()" type="button" class="special-btn mb-2 mb-md-0 special-btn-info special-btn-block">
+                    <div class="p-r-50">
+                        Котокликер
+                    </div>
+                    <div class="icon d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-gamepad"></i>
+                    </div>
+                </button>
+                <button onclick="gotoMatch()" type="button" class="special-btn mb-2 mb-md-0 special-btn-danger special-btn-block">
+                    <div class="p-r-50">
+                        Три в ряд
+                    </div>
+                    <div class="icon d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-gamepad"></i>
+                    </div>
+                </button>
+                <hr/>
+                <button onclick="gotoMatchDemo()" type="button" class="special-btn mb-2 mb-md-0 special-btn-dark special-btn-block">
+                    <div class="p-r-50">
+                        Три в ряд v2
+                    </div>
+                    <div class="icon d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-cogs"></i>
+                    </div>
+                </button>
+                <button onclick="gotoTowerDemo()" type="button" class="special-btn mb-2 mb-md-0 special-btn-dark special-btn-block">
+                    <div class="p-r-50">
+                        Tower
+                    </div>
+                    <div class="icon d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-cogs"></i>
+                    </div>
+                </button>
+                <button onclick="gotoCasino()" type="button" class="special-btn mb-2 mb-md-0 special-btn-dark special-btn-block">
+                    <div class="p-r-50">
+                        Casino
+                    </div>
+                    <div class="icon d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-skull"></i>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<nav class="navbar navbar-light navbar-expand fixed-bottom d-md-none d-lg-none d-xl-none shadow"
+     style="background: -webkit-gradient(linear, left top, right top, from(#ed145b), to(#7b31f4));">
+    <ul class="nav nav-justified w-100" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="btn btn-warning" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button"
+                    role="tab" aria-controls="home" aria-selected="true" onclick="gotoMain()">
+                <span><i class="fa-solid fa-home"></i></span>
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="btn btn-warning" id="notes-tab" data-bs-toggle="tab" data-bs-target="#notes" type="button"
+                    role="tab" aria-controls="intro" aria-selected="true">
+                <span><i class="fa-solid fa-shirt"></i></span>
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="btn btn-warning" id="project-tab" data-bs-toggle="tab" data-bs-target="#project" type="button"
+                    role="tab" aria-controls="profile" aria-selected="false" onclick="gotoBank()">
+                <span><i class="fa-solid fa-coins"></i></span>
+            </button>
+        <li class="nav-item" role="presentation">
+            <button class="btn btn-info" id="collection-tab" data-bs-toggle="tab" data-bs-target="#collection" type="button"
+                    role="tab" aria-controls="notif" aria-selected="false" onclick="gotoGames()">
+                <span><i class="fa-solid fa-gamepad"></i></span>
+            </button>
+        </li>
+    </ul>
+</nav>
+</body>
+</html>

@@ -101,7 +101,7 @@ a {
     border: none;
 }
 
-button {
+.button {
     display: block;
     width: 100%;
     font-size: 14px;
@@ -235,13 +235,13 @@ p {
     margin: 40px 0 15px;
 }
 
-ul {
-    text-align: left;
-}
+/*ul {*/
+/*    text-align: left;*/
+/*}*/
 
-li {
-    color: var(--tg-theme-hint-color, #a8a8a8);
-}
+/*li {*/
+/*    color: var(--tg-theme-hint-color, #a8a8a8);*/
+/*}*/
 
 textarea {
     width: 100%;

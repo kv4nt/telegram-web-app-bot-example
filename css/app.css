@@ -2523,3 +2523,21 @@ i#money-count {
 .p-b-100 {
     padding-bottom: 100px;
 }
+.loader {
+    position: relative;
+    /*z-index: 99999999;*/
+    width: 430px;
+    height: 440px;
+    background-color: #fbfbfb;
+    background-image: url(../images/loading.gif);
+    background-size: cover;
+    top: 20%;
+}
+.loader-overlay {
+    background-color: #fbfbfb;
+    height: 100%;
+    width: 100%;
+    display: block;
+    position: absolute;
+    z-index: 9999;
+}
