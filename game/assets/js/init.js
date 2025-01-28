@@ -2047,10 +2047,9 @@ function stopGame() {
     TweenMax.killAll();
 }
 
-function saveGame(_0x39cdxe7) {
-    alert('save game');
+function saveGame(score) {
     if (typeof toggleScoreboardSave == "function") {
-        $.scoreData.score = _0x39cdxe7;
+        $.scoreData.score = score;
         if (typeof type != "undefined") {
             $.scoreData.type = type;
         }
@@ -2890,7 +2889,12 @@ function checkWinPoint() {
     updateStats();
     checkGameEnd();
 }
-
+function save() {
+    console.log('save score');
+    Telegram.WebApp.CloudStorage.getItem('money',function (er,val) {
+        Telegram.WebApp.CloudStorage.setItem('money',val+playerData.score);
+    });
+}
 function checkGameEnd() {
     if (typeof memberData != "undefined" && memberSettings.enableMembership) {
         if (!gameData.physicsEngine) {
@@ -2902,6 +2906,7 @@ function checkGameEnd() {
         }
     }
     ;
+    save();
     gameData.fixedResult = [];
     gameData.dropCon = false;
     buttonBlankTxt.text = textDisplay.buttonPlay;
